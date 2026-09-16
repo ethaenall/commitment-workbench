@@ -37,6 +37,12 @@ new_sqlite_classes = ["UserAgent"]
 # Localhost hardening: loopback Host/Origin guard.
 # A hosted deploy must explicitly set "false".
 LOCALHOST_ONLY = "true"
+# Governed learning controls: token-gated local /api/refinements* and
+# /api/workflows/run. OFF unless .dev.vars sets GOVERNED_LEARNING=true.
+# Uses INTERNAL_MCP_TOKEN; no new model/MCP management tools or grants.
+# Unset GOVERNED_LEARNING_VALIDATION runs schema-contract checks only, not
+# behavioral validation. Only an explicit trusted deployment value real_model
+# enables real-model promotion checks. Never set a profile in a request body.
 # Dev visual model: /dev/model + /api/dev/*. Fail-closed — only exactly
 # "true" enables, and the surface ships OFF by default.
 # Opt in for local dev by adding VISUAL_MODEL=true to .dev.vars, not here.

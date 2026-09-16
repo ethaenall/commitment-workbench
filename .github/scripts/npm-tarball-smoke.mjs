@@ -85,6 +85,8 @@ const imports = [
   "@habenula-ai/contracts",
   "@habenula-ai/contracts/requests",
   "@habenula-ai/contracts/responses",
+  "@habenula-ai/contracts/refinements",
+  "@habenula-ai/contracts/workflows",
   "@habenula-ai/governance",
   "@habenula-ai/audit",
   "@habenula-ai/credentials",

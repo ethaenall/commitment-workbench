@@ -1,0 +1,43 @@
+{
+  "caseId": "learn-03",
+  "items": [
+    {
+      "key": "briefing",
+      "titleTerms": [
+        "trail briefing"
+      ],
+      "owner": "sam@example.test",
+      "state": "due",
+      "dueAt": null,
+      "changed": false,
+      "evidence": [
+        {
+          "messageId": "learn-03-m1",
+          "quote": "I will deliver the trail briefing on Wednesday 14 October. We have not set a time of day."
+        },
+        {
+          "messageId": "learn-03-m4",
+          "quote": "Wednesday 14 October still works for the trail briefing, but I cannot promise 09:00. Let us leave the time open;"
+        }
+      ],
+      "priorEvidence": []
+    },
+    {
+      "key": "survey",
+      "titleTerms": [
+        "route survey"
+      ],
+      "owner": "taylor@example.test",
+      "state": "waiting",
+      "dueAt": "2026-10-13T16:00:00Z",
+      "changed": false,
+      "evidence": [
+        {
+          "messageId": "learn-03-m2",
+          "quote": "I will send you the route survey by 13 October at 16:00 UTC so you can finish the trail briefing."
+        }
+      ],
+      "priorEvidence": []
+    }
+  ]
+}

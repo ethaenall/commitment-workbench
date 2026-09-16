@@ -1,0 +1,53 @@
+{
+  "workflowId": "mail.commitment-handoff.v1",
+  "schemaVersion": 1,
+  "snapshotId": "learn-02",
+  "snapshotHash": "46dc841d6504317a083e0742fad08d70d1750f4048c2a39eae7cb17d064a1c36",
+  "userAddress": "sam@example.test",
+  "cutoff": "2026-10-09T23:00:00Z",
+  "timezone": "America/Los_Angeles",
+  "coverage": {
+    "scope": "supplied-snapshot",
+    "source": "synthetic-fixture",
+    "omittedMessages": 0,
+    "note": "Authored synthetic correspondence. Not a live mailbox or a complete account export."
+  },
+  "messages": [
+    {
+      "id": "learn-02-m1",
+      "threadId": "learn-02-t1",
+      "subject": "Weekly correspondence",
+      "sender": "sam@example.test",
+      "to": "team@example.test",
+      "timestamp": "2026-10-05T10:00:00Z",
+      "body": "I own the renewal checklist and will finish it on 8 October at 12:00 UTC.",
+      "bodyHash": "5aa4bcef66f661d173f253e1c6cec2506dab59ea6609ba0fca53aba099984c6f",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "learn-02-m2",
+      "threadId": "learn-02-t1",
+      "subject": "Weekly correspondence",
+      "sender": "lee@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-06T10:00:00Z",
+      "body": "We are not renewing this service. Please cancel the renewal checklist; no replacement is needed.",
+      "bodyHash": "d0e26ed8d1d92988dbb08ed8ee6e30b863b65710181b9d52d16384b72ac364d3",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "learn-02-m3",
+      "threadId": "learn-02-t1",
+      "subject": "Weekly correspondence",
+      "sender": "sam@example.test",
+      "to": "team@example.test",
+      "timestamp": "2026-10-07T10:00:00Z",
+      "body": "Acknowledged. The renewal checklist is cancelled and I have no remaining action on it.",
+      "bodyHash": "79f6d1c69a7ce88b030b923c3c133865aeb8cfbb977402f160378b88c9a84a68",
+      "truncated": false,
+      "omittedChars": 0
+    }
+  ]
+}

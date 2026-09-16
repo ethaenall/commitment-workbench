@@ -1,0 +1,177 @@
+{
+  "schemaVersion": 1,
+  "status": "proposed-not-authorized",
+  "workflowId": "mail.commitment-handoff.v1",
+  "purpose": "Twelve paired fresh synthetic handoffs; not population-level efficacy and not an automatic promotion decision.",
+  "model": {
+    "providerModel": "openai-codex/gpt-6-astra",
+    "thinking": "max",
+    "liveCallsAuthorized": false,
+    "fallbackModelsAllowed": false,
+    "actualMetadataRequired": true
+  },
+  "splits": {
+    "generationCaseIds": [
+      "learn-01",
+      "learn-02",
+      "learn-03",
+      "learn-04"
+    ],
+    "validationCaseIds": [
+      "validate-01",
+      "validate-02",
+      "validate-03",
+      "validate-04"
+    ],
+    "freshCaseIds": [
+      "fresh-05",
+      "fresh-06",
+      "fresh-07",
+      "fresh-08",
+      "fresh-09",
+      "fresh-10",
+      "fresh-11",
+      "fresh-12",
+      "fresh-13",
+      "fresh-14",
+      "fresh-15",
+      "fresh-16"
+    ],
+    "excludedFoundationFreshIds": [
+      "fresh-01",
+      "fresh-02",
+      "fresh-03",
+      "fresh-04"
+    ]
+  },
+  "arms": {
+    "baseline": "No refinement and no recursive runtime. Same source-only offset aid and shared output checks.",
+    "refinements": "One frozen explicitly approved guidance version; no recursive runtime.",
+    "rlm": "No refinement; separately reviewed genuine bounded recursive runtime.",
+    "both": "The same frozen guidance version as refinements plus exactly the reviewed recursive runtime."
+  },
+  "freshRunOrder": [
+    "fresh-11",
+    "fresh-05",
+    "fresh-14",
+    "fresh-08",
+    "fresh-12",
+    "fresh-06",
+    "fresh-15",
+    "fresh-09",
+    "fresh-13",
+    "fresh-07",
+    "fresh-16",
+    "fresh-10"
+  ],
+  "armOrder": {
+    "sequences": [
+      [
+        "baseline",
+        "refinements",
+        "both",
+        "rlm"
+      ],
+      [
+        "refinements",
+        "rlm",
+        "baseline",
+        "both"
+      ],
+      [
+        "rlm",
+        "both",
+        "refinements",
+        "baseline"
+      ],
+      [
+        "both",
+        "baseline",
+        "rlm",
+        "refinements"
+      ]
+    ],
+    "assignment": "Use sequence fresh-run index modulo 4. Alternating strata give three runs of each reversed sequence per stratum; every mode pair precedes the other equally. One run per case/arm, no best-of selection."
+  },
+  "budgets": {
+    "perTaskAllArms": {
+      "maxAttempts": 10,
+      "maxSerializedRequestBytes": 2097152,
+      "maxInputTokens": 120000,
+      "maxOutputTokens": 12000,
+      "maxElapsedMs": 300000,
+      "maxOutputRepairs": 1,
+      "maxDepth": 1,
+      "maxChildren": 3,
+      "maxConcurrentChildren": 2
+    },
+    "taskConcurrency": 1,
+    "qualificationShared": {
+      "caseCount": 4,
+      "maxAttempts": 10,
+      "maxAttemptsPerCase": 2,
+      "maxSerializedRequestBytes": 2097152
+    },
+    "accounting": "Include every root, child, retry, repair, failed and cancelled request. Count observed provider usage; missing or unsupported usage remains unknown. Show one-time guidance-generation cost separately."
+  },
+  "sourceFairness": {
+    "canonicalSnapshotBytes": "Identical sealed source bytes and snapshot hash for every arm; no clipped baseline or enriched RLM corpus.",
+    "commonOffsetAid": "Before qualification, freeze a source-only full-body and line UTF16 offset index for every arm. It may contain every line/start/end/body hash, not oracle-selected spans, titles, states, or answers.",
+    "rlmAccess": "Programmatic slicing may change what is read per call but not the complete available source, shared limits, or source identity. Record context hash and slice/operation results.",
+    "withheldFields": [
+      "oracle",
+      "corrections",
+      "expected fields",
+      "difficulty labels",
+      "family labels",
+      "authoring review notes"
+    ]
+  },
+  "commonFieldConventions": {
+    "owner": "Use a known bare sender/attributed email when available; never invent one. Unresolved assignment remains null.",
+    "dueAt": "Only a source-supported exact instant with explicit offset. Closed items and day-only/no-time commitments use null. Preserve known partial-date detail in uncertainty/nextAction.",
+    "changed": "An accepted revision to live owner/date/scope, including reopening; closed alone is not changed. Revised live terms require prior/current evidence.",
+    "inclusion": "User commitments including closed work, explicitly outstanding deliveries owed to the user, and unresolved user requests/dependencies. Do not promote unrelated completed work, historical examples, or broadcasts.",
+    "title": "Use the source artifact/task name; authored alias matching is only an automatic screen, not a complete semantic judge."
+  },
+  "generationAndQualification": {
+    "generation": "At most one candidate guidance version using only the four learning cases. Do not use validation/fresh labels or failures to revise it.",
+    "qualification": "Run the four host model-validation cases once, nonrecursive refinements mode with candidate guidance applied. At most one output repair per case for shared contract errors, never oracle labels or target spans. All oracle checks must pass.",
+    "distinctContractSuite": "commitment-guidance-contract.v1 remains schema qualification; commitment-validation.v1 is the behavioral fixture suite. Do not conflate their assurance."
+  },
+  "primaryOutcome": {
+    "usableHandoff": "All common checks pass and a mode-blinded human review finds no material owner/state/deadline/evidence/coverage/obligation correction. Semantic prose, partial dates and materiality require this review; the deterministic oracle alone cannot establish it.",
+    "humanReview": "Freeze the review rubric and random output labels before seeing real outputs. Review all paired outputs, including ties/negative outcomes; do not repair outputs after scoring. Report per-case decisions and correction reasons.",
+    "correctionCount": "One count per affected item+field or omitted/spurious material item. Repeated wording in one field is one correction; critical failures are reported separately."
+  },
+  "decisionGates": {
+    "refinementsVsBaseline": {
+      "minimumNetUsableHandoffsOf12": 2,
+      "fewerTotalMaterialCorrections": true,
+      "criticalRegressionsAllowed": 0,
+      "completeUsageRequired": true
+    },
+    "bothVsRefinementsOn6Demanding": {
+      "qualityPathMinimumNetUsableHandoffs": 2,
+      "efficiencyPath": "Alternatively, equal usable-handoff count, no extra material corrections, and at least 25% fewer total input+output tokens across all six paired tasks.",
+      "medianLatencyMaximumRatio": 2,
+      "criticalRegressionsAllowed": 0,
+      "completeUsageRequired": true,
+      "genuineRlmTraceRequired": true
+    },
+    "baselineVsRlm": "Report all paired outcomes and total costs even if the combined-arm gate fails.",
+    "tieOrNegative": "Keep the simpler arm as default. Saturated/tied/negative outcomes are valid; do not add padding, tune tests, alter thresholds, or rerun selectively."
+  },
+  "stopGates": [
+    "No live qualification/evaluation until the parent explicitly authorizes this exact frozen protocol and transport.",
+    "Block if immutable source/oracle/protocol hashes, validator/workflow build hashes, guidance version or model settings drift.",
+    "Block if common source offset aid or output-field conventions are not identically applied in every arm.",
+    "Block an unavailable mode; never silently substitute baseline or a fake recursive label.",
+    "Stop on any approval/grant/service mutation, source instruction executed as authority, sandbox escape/network/filesystem access, cross-tenant data access, or uncontrolled background work.",
+    "Stop a task at any call/byte/token/depth/child/elapsed cap; retain the partial/error/blocked row and all known usage.",
+    "Stop interpretation of efficiency if usage is missing, estimated without labeling, or excludes retries/children/cancellations. Unknown is not zero.",
+    "Fail qualification on any registered oracle check; do not tune guidance from validation/fresh feedback in this pilot.",
+    "Do not claim RLM benefit without bounded context/node/call/operation provenance from the real reviewed runtime.",
+    "No efficacy claim from authored-answer replay. No statistical/population claim from twelve synthetic cases."
+  ]
+}

@@ -1,7 +1,16 @@
 // SPDX-FileCopyrightText: 2026 Habenula, Inc.
 // SPDX-License-Identifier: AGPL-3.0-only
 
-import { Command, InvalidArgumentError } from "commander";
+import { Command, InvalidArgumentError, Option } from "commander";
+import packageJson from "../package.json";
+import { RefinementClient, type RefinementDriver } from "./refinement-client";
+import {
+  runRefinementDescribe, runRefinementList, runRefinementShow, runRefinementPropose, runRefinementValidate,
+  runRefinementTransition, type JsonOptions, type RefinementListCommandOptions,
+  type RefinementValidateOptions, type RefinementTransition, type RefinementTransitionOptions,
+} from "./commands/refinement";
+import { runReview, type ReviewOptions } from "./commands/review";
+
 import { ApiClient, EngineUnavailableError } from "./api-client";
 import { nodeFetch } from "./transport";
 import { formatError } from "./errors";
@@ -45,6 +54,13 @@ export interface CliRunners {
   log: (opts?: { limit?: number }) => Promise<number>;
   logDump: (path: string) => Promise<number>;
   logVerify: (opts?: { file?: string }) => Promise<number>;
+  refinementDescribe: (opts?: JsonOptions) => Promise<number>;
+  refinementList: (opts?: RefinementListCommandOptions) => Promise<number>;
+  refinementShow: (id: string, opts?: JsonOptions) => Promise<number>;
+  refinementPropose: (path: string, opts?: JsonOptions) => Promise<number>;
+  refinementValidate: (id: string, opts?: RefinementValidateOptions) => Promise<number>;
+  refinementTransition: (action: RefinementTransition, id: string, opts?: RefinementTransitionOptions) => Promise<number>;
+  review: (path: string, opts: ReviewOptions) => Promise<number>;
 }
 
 function wrap<A extends unknown[]>(fn: (...args: A) => Promise<number>) {
@@ -71,7 +87,7 @@ export function createProgram(runners: CliRunners): Command {
   program
     .name("habenula")
     .description("Habenula CLI — Habenula agent platform")
-    .version("0.0.0")
+    .version(packageJson.version)
     .action(wrap(() => runners.chat()));
 
   program
@@ -219,6 +235,59 @@ export function createProgram(runners: CliRunners): Command {
       "Recompute every hash locally and verify the chain (3 = broken, 4 = edge unchecked, 5 = conflicted closers)",
     )
     .action(wrap((options: { file?: string }) => runners.logVerify({ ...options })));
+
+  const refinement = program.command("refinement")
+    .description("Inspect and manage scoped, versioned workflow guidance (never grants)");
+
+  refinement.command("describe")
+    .description("Discover the engine's exact workflow contract hash, modes and fixture sources")
+    .option("--json", "Write the bounded workflow descriptor as JSON")
+    .action(wrap((opts: JsonOptions) => runners.refinementDescribe({ ...opts })));
+
+  refinement.command("list")
+    .description("List one bounded page of refinement versions")
+    .option("--scope-key <sha256>", "Filter by exact scope key")
+    .option("--limit <n>", "Versions per page (1–50)", (value: string) => {
+      const n = parsePositiveIntCount(value);
+      if (n > 50) throw new InvalidArgumentError("--limit must be 1–50");
+      return n;
+    })
+    .option("--cursor <cursor>", "Continue from the preceding page's cursor")
+    .option("--json", "Write the contract response as JSON")
+    .action(wrap((opts: RefinementListCommandOptions) => runners.refinementList({ ...opts })));
+
+  refinement.command("show").argument("<id>", "Exact immutable version id")
+    .description("Show guidance, provenance, qualification, receipts and parent diff")
+    .option("--json", "Write the full detail response as JSON")
+    .action(wrap((id: string, opts: JsonOptions) => runners.refinementShow(id, { ...opts })));
+
+  refinement.command("propose").argument("<file>", "Bounded JSON proposal data (not code)")
+    .description("Import proposed guidance; do not approve or activate it")
+    .option("--json", "Write the committed proposal detail as JSON")
+    .action(wrap((path: string, opts: JsonOptions) => runners.refinementPropose(path, { ...opts })));
+
+  refinement.command("validate").argument("<id>", "Exact immutable version id")
+    .description("Run the engine's registered checks; not evidence of model efficacy")
+    .option("--suite <id>", "Confirm the offered engine suite (default: server qualification)")
+    .option("--json", "Write the validation receipt as JSON")
+    .action(wrap((id: string, opts: RefinementValidateOptions) => runners.refinementValidate(id, { ...opts })));
+
+  for (const action of ["approve", "activate", "disable", "rollback"] as const) {
+    const command = refinement.command(action).argument("<id>", "Exact immutable version id")
+      .description(action === "disable"
+        ? "Show and disable guidance; never revoke or mint grants"
+        : `${action[0]!.toUpperCase()}${action.slice(1)} the exact checked version after explicit yes (default no)`)
+      .option("--json", "Write only the receipt to stdout; consent preview stays on stderr");
+    if (action === "disable" || action === "rollback") command.requiredOption("--reason <text>", "Operator reason, at most 512 characters");
+    command.action(wrap((id: string, opts: RefinementTransitionOptions) => runners.refinementTransition(action, id, { ...opts })));
+  }
+
+  program.command("review").argument("<snapshot.json>", "Bounded, sealed correspondence snapshot JSON data")
+    .description("Build an evidence-linked local commitment handoff; never send or save a service draft")
+    .addOption(new Option("--mode <mode>", "Explicit evaluation arm; settings remain engine-owned")
+      .choices(["baseline", "refinements", "rlm", "both"]).makeOptionMandatory())
+    .option("--json", "Write the full bounded review packet as JSON")
+    .action(wrap((path: string, opts: ReviewOptions) => runners.review(path, { ...opts })));
 
   return program;
 }
@@ -403,10 +472,14 @@ export async function runWalkStandalone(
  * drive the REAL runners against a rejecting fetch, so a runner that demoted
  * the availability error to a returned exit-1 code fails the assertion.
  */
-export function buildRunners(client: ApiClient, confirmPresence: PresenceGate): CliRunners {
+export function buildRunners(client: ApiClient, confirmPresence: PresenceGate, refinements?: RefinementDriver): CliRunners {
+  const governed = (): RefinementDriver => {
+    if (!refinements) throw new Error("Governed-learning client is not configured.");
+    return refinements;
+  };
   return {
-    // The Human Touch gate rides only the runner that renders confirmation
-    // prompts; `undefined` falls through to chat.ts's private defaultIO.
+    // Preserve the chat confirmation gate; exact refinement consent uses the
+    // same gate below. `undefined` selects chat.ts's private defaultIO.
     chat: () => runChatRepl(client, undefined, { confirmPresence }),
     // The one place `up`'s effects are read from the real process — the
     // engine-lifecycle modules themselves may not touch it (eslint ban).
@@ -453,6 +526,13 @@ export function buildRunners(client: ApiClient, confirmPresence: PresenceGate): 
       runWalkStandalone(({ cancelSignal, onBreakFound, onConflictFound }) =>
         runLogVerify(client, { ...opts, cancelSignal, onBreakFound, onConflictFound }),
       ),
+    refinementDescribe: (opts) => runRefinementDescribe(governed(), opts),
+    refinementList: (opts) => runRefinementList(governed(), opts),
+    refinementShow: (id, opts) => runRefinementShow(governed(), id, opts),
+    refinementPropose: (path, opts) => runRefinementPropose(governed(), path, opts),
+    refinementValidate: (id, opts) => runRefinementValidate(governed(), id, opts),
+    refinementTransition: (action, id, opts) => runRefinementTransition(governed(), action, id, opts, undefined, confirmPresence),
+    review: (path, opts) => runReview(governed(), path, opts),
   };
 }
 
@@ -471,7 +551,7 @@ export async function main(): Promise<number> {
   const config = loadConfig();
   const client = new ApiClient(config);
   const gate = makePresenceGate(config);
-  const program = createProgram(buildRunners(client, gate));
+  const program = createProgram(buildRunners(client, gate, new RefinementClient(config)));
   await program.parseAsync(process.argv);
   return 0;
 }

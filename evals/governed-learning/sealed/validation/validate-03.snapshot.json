@@ -1,0 +1,65 @@
+{
+  "workflowId": "mail.commitment-handoff.v1",
+  "schemaVersion": 1,
+  "snapshotId": "validate-03",
+  "snapshotHash": "cd025a31c972fb3478fab9aba4707d48443613353c1dc84318ad269f36802320",
+  "userAddress": "sam@example.test",
+  "cutoff": "2026-10-09T23:00:00Z",
+  "timezone": "America/Los_Angeles",
+  "coverage": {
+    "scope": "supplied-snapshot",
+    "source": "synthetic-fixture",
+    "omittedMessages": 0,
+    "note": "Authored synthetic correspondence. Not a live mailbox or a complete account export."
+  },
+  "messages": [
+    {
+      "id": "validate-03-m1",
+      "threadId": "validate-03-t1",
+      "subject": "Community radio handover",
+      "sender": "sam@example.test",
+      "to": "team@example.test",
+      "timestamp": "2026-10-05T10:00:00Z",
+      "body": "I will hand over the sound-check log by 12 October at 18:00 UTC.",
+      "bodyHash": "e4c913a25e3526e8976b8e128e47fa25ff95b21ad48d3df5b07f1cd70c44830d",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "validate-03-m2",
+      "threadId": "validate-03-t1",
+      "subject": "Community radio handover",
+      "sender": "robin@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-06T10:00:00Z",
+      "body": "I can take over the sound-check log if you confirm. The Monday deadline is workable for me.",
+      "bodyHash": "6be3d0f7e47a7b7886214b941ea97b48d64efceef7f691fdb794d5152801f9a0",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "validate-03-m3",
+      "threadId": "validate-03-t1",
+      "subject": "Community radio handover",
+      "sender": "sam@example.test",
+      "to": "team@example.test",
+      "timestamp": "2026-10-07T10:00:00Z",
+      "body": "Robin, please take over the sound-check log and send it to me for the station records. Once you accept, I will no longer be its owner.",
+      "bodyHash": "65d4fa47c8472e6f53dfe32391553f1ef2dc1dabcdd2a73cdad2878f6dd26c26",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "validate-03-m4",
+      "threadId": "validate-03-t1",
+      "subject": "Community radio handover",
+      "sender": "robin@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-08T10:00:00Z",
+      "body": "Accepted. The sound-check log is mine, and I will deliver it to you by 12 October at 18:00 UTC.",
+      "bodyHash": "8904d8a7a8f752b12a47249e014af23c2dbbab9deeef55fe188a8ef1f9568c0c",
+      "truncated": false,
+      "omittedChars": 0
+    }
+  ]
+}

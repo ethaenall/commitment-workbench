@@ -26,6 +26,16 @@ This reference covers the **launch** release. Commands planned for later are lis
 | `habenula log` | Show the newest audit-log entries — the governed tuple, outcome, entry id, and recorded parameter metadata, newest first. A decision carrying two or more closing entries is marked `conflicted`, with every closer listed. A conflict is labelled `contradictory` when the closers' records differ, and `duplicated` when they match. A decision with no closing entry reads `unresolved` when its call dispatched. It reads `awaiting` when a confirmation prompt is simply open. Shows page one only; `--limit <n>` sizes it (server-clamped). Reach older entries with `log dump` and a search tool until query filters ship |
 | `habenula log dump <path>` | Write the complete audit chain to `<path>` as JSONL, newest first — a file `log verify --file` can check offline. Pass `-` to write to stdout (progress stays on stderr, so piping is safe). Expect a large file: a long history can run to hundreds of megabytes. A dump the run could not complete is reported as partial and exits 4 |
 | `habenula log verify` | Recompute every hash locally and verify the chain's integrity — against the live engine by default, or a dump file with `--file <path>` (`-` reads stdin). Reports the range it covered and locates every break it finds. A broken chain exits 3. A range with an unchecked edge exits 4. Also checks decision closure: a decision carrying two or more closers exits 5, on both paths. An open decision is reported as text without moving the exit code |
+| `habenula refinement describe` | Discover the current workflow id, exact contract hash, supported modes and learning/validation fixture references before authoring a proposal |
+| `habenula refinement list` | List one bounded page of immutable guidance versions. `--scope-key <sha256>` filters a scope, `--limit <n>` accepts 1–50, and `--cursor <cursor>` continues a page. A remaining cursor is disclosed |
+| `habenula refinement show <id>` | Show the exact version hash, scope, procedure, provenance, validation qualification, audit receipts and content diff from its parent |
+| `habenula refinement propose <file>` | Read bounded UTF-8 JSON proposal data. Create a proposed version only; file-supplied user ids, status, validation and approval claims are rejected |
+| `habenula refinement validate <id>` | Validate the exact server version with the registered suite. `--suite <id>` must match the offered engine suite; otherwise use the current server qualification. Validation alone does not approve or activate guidance |
+| `habenula refinement approve <id>` | Preview the exact validated version, then require interactive `yes` to record consent. Approval does not activate it |
+| `habenula refinement activate <id>` | Preview the selection diff and exact approval receipt, then require interactive `yes` to select the approved version in its scope |
+| `habenula refinement disable <id>` | Show the change and disable an approved or active version. Requires `--reason <text>`. Clears the active selection only when this version is selected; does not change grants |
+| `habenula refinement rollback <id>` | Preview and require interactive `yes` to restore a previously approved, disabled version in the same family as a newer active version. Requires `--reason <text>` and a current compatible validation receipt |
+| `habenula review <snapshot.json>` | Review a sealed correspondence snapshot for `mail.commitment-handoff.v1`. Requires `--mode baseline`, `refinements`, `rlm` or `both`. Displays an evidence-linked due/waiting/closed/uncertain ledger, changes, coverage, usage and local reply text; never sends a message or creates a service draft |
 
 ## Exit Codes
 
@@ -40,6 +50,72 @@ This reference covers the **launch** release. Commands planned for later are lis
 | 130 | Cancelled — a `log dump` or `log verify` run was interrupted (Ctrl-C) before it covered the chain, and no finding had been located. A cancel that already found a break reports 3, and one that already found a conflict reports 5: cancelling withdraws a coverage claim, not a finding |
 
 Exit 2 is reserved for the availability state, so a script can tell "engine down" from "command failed". One-shot commands fail fast with it. `habenula kill` alone retries over its bounded window first; if the window elapses with the engine still unavailable, kill exits 2. The REPL never exits on availability — it enters an offline state, probes the engine's health endpoint, and announces recovery once the engine is back.
+
+## Governed workflow review
+
+The `refinement` and `review` commands are explicit local workflow entry points.
+They do not alter ordinary chat, governance policy, grants or kernel code. All
+new reads and writes require the internal bearer token. A token proves caller
+possession, not human presence or protection from a compromised local process.
+The config file's token is never forwarded to an unrelated API origin or a
+redirect. An unavailable or unsupported runner fails; modes do not silently
+fall back to another arm.
+
+```sh
+habenula refinement describe
+habenula refinement list
+habenula refinement show <version-id>
+habenula refinement propose proposal.json
+habenula refinement validate <version-id>
+habenula refinement approve <version-id>
+habenula refinement activate <version-id>
+habenula review snapshot.json --mode baseline
+habenula review snapshot.json --mode refinements --json
+habenula refinement disable <version-id> --reason "Pause for review"
+habenula refinement rollback <older-version-id> --reason "Observed regression"
+```
+
+**Input is data, never imported or executed.** Proposal files are regular UTF-8
+JSON files, at most 128 KiB, containing only `content`, `parentVersionId` and
+`sources`. Content is bounded workflow guidance with an exact workflow contract
+hash. `refinement describe` retrieves the current contract from the engine; a
+stale or mismatched file hash is rejected, never silently rewritten. Sources are references; the engine resolves their provenance and owns
+validation receipts. Snapshot files are regular UTF-8 JSON files, at most 1 MiB,
+matching `CommitmentSnapshot`, including exact message body hashes and the sealed
+snapshot hash. A request envelope, unhashed fixture draft or oracle file is not
+a snapshot. Both file limits are checked before reading the full file. The
+configured user id remains authoritative; no input file selects another user.
+
+**Consent is exact and default-no.** Approval, activation and rollback display
+the version, hashes, receipts and changes before asking for the literal `yes`.
+There is no `--yes` bypass. Blank input, EOF, Ctrl-C or non-interactive input
+withholds the mutation and exits 130. The configured Human Touch gate also runs
+before these affirmative requests, with its existing availability limitations.
+Disable is immediate after its preview and requires a reason of at most 512
+characters. Workflow review and validation wait at most 310 seconds (the engine ceiling is
+300 seconds); ordinary requests keep their short deadlines. Timeout or Ctrl-C
+cannot retract inference already dispatched. Requests are not silently retried. If a scope changes while a
+preview is open, inspect the fresh detail and make a new decision.
+
+**Qualification is limited.** Contract checks verify the output/evidence
+contract, not the meaning of a quote, completeness of commitments or model
+efficacy. Deterministic mock calls prove plumbing only. The review shows the
+snapshot cutoff, supplied-source scope, omissions, truncated messages, changed
+current/prior evidence and all reported root/child usage. Check dates and meaning
+against the source. `replyText` is local review text, not a sent message or a
+saved service draft. Optional analysis traces show bounded host metadata, not
+proof of containment or quality. These commands do not select or change model
+settings; the engine owns them.
+
+All new commands accept `--json`. It writes one full contract response to stdout;
+confirmation previews and prompts stay on stderr. JSON escapes terminal controls
+without changing the decoded data. All new response bodies, including errors,
+are capped at 8 MiB and decoded as strict UTF-8. Stream-work bounds also stop
+non-progressing or excessively fragmented injected responses. Human-readable
+fields are quoted, sanitized, bounded and width-wrapped. A blocked, invalid or incomplete review exits 1 and
+does not present an accepted ledger. Missing authentication is an error, not an
+unavailable-engine result. Existing exit 2 behavior applies to connection and
+request-deadline failures.
 
 ## Planned (later)
 

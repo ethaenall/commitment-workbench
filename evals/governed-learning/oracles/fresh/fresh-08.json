@@ -1,0 +1,23 @@
+{
+  "caseId": "fresh-08",
+  "items": [
+    {
+      "key": "crate",
+      "titleTerms": [
+        "courier crate return",
+        "courier crate"
+      ],
+      "owner": "sam@example.test",
+      "state": "closed",
+      "dueAt": null,
+      "changed": false,
+      "evidence": [
+        {
+          "messageId": "fresh-08-m3",
+          "quote": "The courier crate return is cancelled. I own the crate now and have nothing left to return under that loan."
+        }
+      ],
+      "priorEvidence": []
+    }
+  ]
+}

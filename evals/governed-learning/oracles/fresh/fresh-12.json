@@ -1,0 +1,136 @@
+{
+  "caseId": "fresh-12",
+  "items": [
+    {
+      "key": "recorder-collection",
+      "titleTerms": [
+        "recorder collection",
+        "recorder R8 collection",
+        "collect recorder R8",
+        "recorder pickup",
+        "R8 pickup",
+        "R8 collection"
+      ],
+      "owner": "sam@example.test",
+      "state": "due",
+      "dueAt": "2026-10-12T17:00:00Z",
+      "changed": true,
+      "evidence": [
+        {
+          "messageId": "fresh-12-m10",
+          "quote": "I approve reopening GL-42 for the recorder R8 collection only, on 12 October 2026 at 10:00 PDT (America/Los_Angeles, UTC−07:00). The LED lighting kit is excluded from this release."
+        },
+        {
+          "messageId": "fresh-12-m11",
+          "quote": "I will collect recorder R8 on 12 October 2026 at 10:00 PDT (America/Los_Angeles, UTC−07:00) under the reopened GL-42 loan. I am accepting the recorder-only release, not restoring the lighting collection."
+        },
+        {
+          "messageId": "fresh-12-m15",
+          "quote": "The recorder R8 collection has not happened: R8 is still on my shelf."
+        }
+      ],
+      "priorEvidence": [
+        {
+          "messageId": "fresh-12-m2",
+          "quote": "I will collect recorder R8 for Glass Kite on 9 October 2026 at 17:00 PDT (America/Los_Angeles, UTC−07:00)."
+        },
+        {
+          "messageId": "fresh-12-m7",
+          "quote": "I have cancelled my recorder collection and my LED lighting kit collection under GL-42. Neither pickup will happen."
+        }
+      ]
+    },
+    {
+      "key": "lighting-collection",
+      "titleTerms": [
+        "LED lighting kit collection",
+        "lighting kit collection",
+        "LED kit collection",
+        "lighting collection",
+        "lighting pickup",
+        "L2 pickup",
+        "L2 collection"
+      ],
+      "owner": "sam@example.test",
+      "state": "closed",
+      "dueAt": null,
+      "changed": false,
+      "evidence": [
+        {
+          "messageId": "fresh-12-m16",
+          "quote": "Sam’s LED lighting kit collection remains cancelled. The two panels are available in inventory, but the current GL-42 release contains only R8."
+        }
+      ],
+      "priorEvidence": []
+    },
+    {
+      "key": "condition-sheet",
+      "titleTerms": [
+        "GL-42 condition sheet",
+        "condition sheet",
+        "GL42-condition.pdf",
+        "equipment condition report"
+      ],
+      "owner": "sam@example.test",
+      "state": "closed",
+      "dueAt": null,
+      "changed": false,
+      "evidence": [
+        {
+          "messageId": "fresh-12-m5",
+          "quote": "I have sent you the completed GL-42 condition sheet as GL42-condition.pdf. It includes the recorder’s scratched battery door and the missing rubber foot on one LED stand. All required photographs and my signature are in this final copy."
+        }
+      ],
+      "priorEvidence": []
+    },
+    {
+      "key": "insurance-rider",
+      "titleTerms": [
+        "replacement insurance rider",
+        "insurance rider",
+        "recorder-only rider",
+        "GL-42 rider"
+      ],
+      "owner": "daria@screen-cover.example.test",
+      "state": "waiting",
+      "dueAt": null,
+      "changed": false,
+      "evidence": [
+        {
+          "messageId": "fresh-12-m12",
+          "quote": "I will send you the replacement insurance rider for the recorder-only GL-42 loan on 12 October 2026."
+        },
+        {
+          "messageId": "fresh-12-m17",
+          "quote": "The replacement insurance rider is drafted but has not been issued or sent to you."
+        }
+      ],
+      "priorEvidence": []
+    },
+    {
+      "key": "deposit-refund",
+      "titleTerms": [
+        "damage deposit refund",
+        "deposit refund",
+        "refund of the deposit",
+        "refund the deposit",
+        "refund of your $240"
+      ],
+      "owner": "luis@focal-coop.example.test",
+      "state": "uncertain",
+      "dueAt": null,
+      "changed": false,
+      "evidence": [
+        {
+          "messageId": "fresh-12-m8",
+          "quote": "I am responsible for refunding your $240 GL-42 damage deposit following the cancellation. I have accepted the refund request, but I do not have a settlement date to give you."
+        },
+        {
+          "messageId": "fresh-12-m18",
+          "quote": "RF-240 now appears as “completed” in the payment vendor’s report and “rejected” in the bank export. I cannot determine whether your GL-42 damage deposit refund cleared or remains payable."
+        }
+      ],
+      "priorEvidence": []
+    }
+  ]
+}

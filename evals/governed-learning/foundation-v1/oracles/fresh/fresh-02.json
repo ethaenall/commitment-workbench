@@ -1,0 +1,26 @@
+{
+  "caseId": "fresh-02",
+  "items": [
+    {
+      "key": "roster",
+      "titleTerms": [
+        "volunteer roster"
+      ],
+      "owner": null,
+      "state": "uncertain",
+      "dueAt": null,
+      "changed": false,
+      "evidence": [
+        {
+          "messageId": "fresh-02-m1",
+          "quote": "nobody has accepted ownership or set a due date."
+        },
+        {
+          "messageId": "fresh-02-m2",
+          "quote": "Please clarify the owner and deadline."
+        }
+      ],
+      "priorEvidence": []
+    }
+  ]
+}

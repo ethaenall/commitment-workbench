@@ -21,3 +21,13 @@ Thumbs.db
 # tracked needs an explicit un-ignore line here, so adding one is a reviewed change.
 *.pem
 *.key
+
+# Independent-fork local evidence, credentials, and development tooling.
+.local-evidence/
+.local-spikes/
+.local-tools/
+.private/
+private/
+.benchmark-runs/
+state/
+local-config.json

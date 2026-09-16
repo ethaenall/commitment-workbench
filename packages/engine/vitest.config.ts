@@ -31,6 +31,10 @@ export default defineConfig({
           VISUAL_MODEL: "true",
           DEBUG_MODE: "true",
           LOCALHOST_ONLY: "true",
+          // Fail closed regardless of an operator's local .dev.vars. Enabled
+          // integration cases opt in on their own DO; no real-model validation.
+          GOVERNED_LEARNING: "false",
+          GOVERNED_LEARNING_VALIDATION: "",
           // OAuth client placeholders the begin-flow / token-exchange integration
           // tests read (env.<PROVIDER>_CLIENT_ID/_SECRET). These live here as
           // TEST-ONLY bindings, not in wrangler.toml [vars]: a secret-bearing

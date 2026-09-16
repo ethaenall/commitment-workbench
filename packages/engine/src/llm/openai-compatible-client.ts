@@ -22,6 +22,12 @@ import type {
   LLMMessage,
   LLMToolDefinition,
 } from "./types";
+import { LLM_NATIVE_OPERATIONS } from "./types";
+import {
+  BoundedResponseError,
+  fetchBoundedResponse,
+  validateMaxResponseBytes,
+} from "./bounded-response";
 import {
   UpstreamLLMError,
   UpstreamResponseError,
@@ -182,17 +188,19 @@ function toCanonicalStopReason(
  * outage nor an engine bug: the upstream answered, and its answer was
  * unusable.
  */
-function parseToolArguments(call: WireToolCall): Record<string, unknown> {
+function parseToolArguments(call: WireToolCall, bounded = false): Record<string, unknown> {
   let parsed: unknown;
   try {
     parsed = JSON.parse(call.function.arguments);
   } catch (err) {
+    if (bounded) throw new UpstreamResponseError(UPSTREAM_INVALID_RESPONSE_MESSAGE);
     throw new UpstreamResponseError(
       `Model returned malformed JSON arguments for tool "${call.function.name}"`,
       { cause: err },
     );
   }
   if (typeof parsed !== "object" || parsed === null || Array.isArray(parsed)) {
+    if (bounded) throw new UpstreamResponseError(UPSTREAM_INVALID_RESPONSE_MESSAGE);
     throw new UpstreamResponseError(
       `Model returned non-object arguments for tool "${call.function.name}"`,
     );
@@ -208,6 +216,11 @@ export function createOpenAICompatibleClient(
 
   return {
     async createMessage(params: LLMCreateParams): Promise<LLMResponse> {
+      const maxBytes = validateMaxResponseBytes(params.max_response_bytes);
+      const observer = params[LLM_NATIVE_OPERATIONS];
+      // Observer is host-only; JSON.stringify below lists explicit wire fields only.
+      const requestFetch: typeof fetch = maxBytes === undefined ? fetchFn
+        : (input, init) => fetchBoundedResponse(fetchFn, input, init, maxBytes, observer);
       const messages: WireMessage[] = [];
       if (params.system !== undefined) {
         messages.push({ role: "system", content: params.system });
@@ -226,9 +239,12 @@ export function createOpenAICompatibleClient(
         ...(params.tools ? { tools: toWireTools(params.tools) } : {}),
       });
 
+      const requestSignal = params.signal
+        ? AbortSignal.any([params.signal, AbortSignal.timeout(REQUEST_TIMEOUT_MS)])
+        : AbortSignal.timeout(REQUEST_TIMEOUT_MS);
       let response: Response;
       try {
-        response = await fetchFn(url, {
+        response = await requestFetch(url, {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -247,9 +263,11 @@ export function createOpenAICompatibleClient(
           // sent, so every call on this provider failed as an unreachable
           // upstream.
           redirect: "manual",
-          signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
+          signal: requestSignal,
         });
       } catch (err) {
+        if (err instanceof BoundedResponseError) throw err;
+        if (maxBytes !== undefined) throw new UpstreamLLMError(UPSTREAM_UNAVAILABLE_MESSAGE);
         // No response at all (connection failure, timeout abort) — the mirror
         // of the Anthropic adapter's connection-error (status undefined)
         // classification.
@@ -267,6 +285,10 @@ export function createOpenAICompatibleClient(
       }
 
       if (!response.ok) {
+        if (maxBytes !== undefined) {
+          if (isRetryableLLMStatus(response.status)) throw new UpstreamLLMError(UPSTREAM_UNAVAILABLE_MESSAGE);
+          throw new UpstreamResponseError(UPSTREAM_INVALID_RESPONSE_MESSAGE);
+        }
         const detail = await response.text().catch(() => "");
         const cause = new Error(
           `chat/completions returned ${response.status}: ${detail.slice(0, 256)}`,
@@ -279,15 +301,15 @@ export function createOpenAICompatibleClient(
         throw cause;
       }
 
+      if (maxBytes !== undefined && requestSignal.aborted) throw new BoundedResponseError("RESPONSE_ABORTED");
       let wire: WireResponse;
       try {
         wire = (await response.json()) as WireResponse;
       } catch (err) {
         // A 200 whose body is not JSON (an HTML error page from a proxy or a
         // misbehaving runtime). The upstream answered; the answer is unusable.
-        throw new UpstreamResponseError(UPSTREAM_INVALID_RESPONSE_MESSAGE, {
-          cause: err,
-        });
+        throw new UpstreamResponseError(UPSTREAM_INVALID_RESPONSE_MESSAGE,
+          maxBytes === undefined ? { cause: err } : undefined);
       }
       const choice = wire.choices?.[0];
       if (!choice?.message) {
@@ -319,7 +341,7 @@ export function createOpenAICompatibleClient(
           type: "tool_use",
           id: call.id,
           name: call.function.name,
-          input: parseToolArguments(call),
+          input: parseToolArguments(call, maxBytes !== undefined),
         });
       }
 
@@ -334,6 +356,7 @@ export function createOpenAICompatibleClient(
             ? null
             : toCanonicalStopReason(choice.finish_reason);
 
+      if (maxBytes !== undefined && requestSignal.aborted) throw new BoundedResponseError("RESPONSE_ABORTED");
       return {
         id: wire.id ?? "",
         content,
@@ -341,6 +364,12 @@ export function createOpenAICompatibleClient(
         usage: {
           input_tokens: wire.usage?.prompt_tokens ?? 0,
           output_tokens: wire.usage?.completion_tokens ?? 0,
+          ...(Number.isSafeInteger(wire.usage?.prompt_tokens)
+            && Number.isSafeInteger(wire.usage?.completion_tokens)
+            && (wire.usage?.prompt_tokens ?? -1) >= 0
+            && (wire.usage?.completion_tokens ?? -1) >= 0
+            ? {}
+            : { reported: false }),
         },
       };
     },

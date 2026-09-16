@@ -1,0 +1,89 @@
+{
+  "workflowId": "mail.commitment-handoff.v1",
+  "schemaVersion": 1,
+  "snapshotId": "fresh-06",
+  "snapshotHash": "fd7845f93b3e5aefc03fbe92ff918cb296a7ba84078fae397089c21515e45fab",
+  "userAddress": "sam@example.test",
+  "cutoff": "2026-10-09T23:00:00Z",
+  "timezone": "America/Los_Angeles",
+  "coverage": {
+    "scope": "supplied-snapshot",
+    "source": "synthetic-fixture",
+    "omittedMessages": 0,
+    "note": "Authored synthetic correspondence. Not a live mailbox or a complete account export."
+  },
+  "messages": [
+    {
+      "id": "fresh-06-m1",
+      "threadId": "fresh-06-t1",
+      "subject": "Foster handover",
+      "sender": "sam@example.test",
+      "to": "team@example.test",
+      "timestamp": "2026-10-05T10:00:00Z",
+      "body": "I will finish the foster handover note on Tuesday 13 October. We have not chosen a delivery time. I am also preparing the kit inventory for the shelter records.",
+      "bodyHash": "2f02724b2570287a3c0f1ba1468780fcbadd4c7c69b8bff1cf01deb536f0d096",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-06-m2",
+      "threadId": "fresh-06-t2",
+      "subject": "Vaccination record",
+      "sender": "vet-records@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-06T10:00:00Z",
+      "body": "The vaccination log now lists the doses already given. Its review dates are medical-record dates, not deadlines for your handover note or kit inventory.",
+      "bodyHash": "13b474b62e232b9e322c5d59459f062898d84ad69e8b940198791ffbd6924ead",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-06-m3",
+      "threadId": "fresh-06-t1",
+      "subject": "Foster handover",
+      "sender": "sam@example.test",
+      "to": "team@example.test",
+      "timestamp": "2026-10-07T10:00:00Z",
+      "body": "The kit inventory has been uploaded and accepted by the shelter. There is no more inventory work for me.",
+      "bodyHash": "5c29cce74dc6096bdadb322d5178b4228298150cf7e0dbc2b5abdf2c0ce4b2e0",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-06-m4",
+      "threadId": "fresh-06-t1",
+      "subject": "Foster handover",
+      "sender": "mara@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-08T08:00:00Z",
+      "body": "Would Wednesday 14 October be easier for the foster handover note? We can discuss it at the desk.",
+      "bodyHash": "258319229419594c3be8022e3e3e3481ffb0a40be23aac614cc214978008daad",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-06-m5",
+      "threadId": "fresh-06-t1",
+      "subject": "Foster handover",
+      "sender": "sam@example.test",
+      "to": "team@example.test",
+      "timestamp": "2026-10-08T10:00:00Z",
+      "body": "Tuesday 13 October remains my day for the foster handover note. I am not moving it to Wednesday, and I have not agreed a specific hour.",
+      "bodyHash": "cd442b116d231c860d7ac6cc405b9c55bce5b2ad89f455bc5a9fba02a562d3e6",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-06-m6",
+      "threadId": "fresh-06-t2",
+      "subject": "Inventory receipt",
+      "sender": "shelter-desk@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-09T08:00:00Z",
+      "body": "The uploaded kit inventory is the accepted version. The foster handover note is not inside that upload.",
+      "bodyHash": "a07c0f953cc36a6dea9550516c830bafd144445d9acd2499d6ba3b2b73ae9691",
+      "truncated": false,
+      "omittedChars": 0
+    }
+  ]
+}

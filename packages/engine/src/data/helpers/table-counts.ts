@@ -3,7 +3,7 @@
 
 /**
  * Row counts per coordinator-DO table — the visual model snapshot's
- * `tableCounts` read. One switch over nine literal single-table
+ * `tableCounts` read. One switch over twelve literal single-table
  * statements: SQL identifiers can't be bound as template values, and the
  * literal-per-table form keeps each query a static string within the
  * single-statement helper rule instead of interpolating
@@ -35,6 +35,12 @@ export function countRows(sql: EngineSql, table: CountableTable): number {
         return sql<{ n: number }>`SELECT COUNT(*) AS n FROM session_state`;
       case "spend_ledger":
         return sql<{ n: number }>`SELECT COUNT(*) AS n FROM spend_ledger`;
+      case "refinement_versions":
+        return sql<{ n: number }>`SELECT COUNT(*) AS n FROM refinement_versions`;
+      case "refinement_validations":
+        return sql<{ n: number }>`SELECT COUNT(*) AS n FROM refinement_validations`;
+      case "refinement_scopes":
+        return sql<{ n: number }>`SELECT COUNT(*) AS n FROM refinement_scopes`;
     }
   })();
   return rows[0]?.n ?? 0;

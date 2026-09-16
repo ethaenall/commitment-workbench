@@ -1,0 +1,28 @@
+{
+  "caseId": "validate-03",
+  "items": [
+    {
+      "key": "log",
+      "titleTerms": [
+        "sound-check log",
+        "sound check log"
+      ],
+      "owner": "robin@example.test",
+      "state": "waiting",
+      "dueAt": "2026-10-12T18:00:00Z",
+      "changed": true,
+      "evidence": [
+        {
+          "messageId": "validate-03-m4",
+          "quote": "Accepted. The sound-check log is mine, and I will deliver it to you by 12 October at 18:00 UTC."
+        }
+      ],
+      "priorEvidence": [
+        {
+          "messageId": "validate-03-m1",
+          "quote": "I will hand over the sound-check log by 12 October at 18:00 UTC."
+        }
+      ]
+    }
+  ]
+}

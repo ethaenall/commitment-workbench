@@ -1,0 +1,214 @@
+{
+  "workflowId": "mail.commitment-handoff.v1",
+  "schemaVersion": 1,
+  "snapshotId": "fresh-13",
+  "userAddress": "sam@example.test",
+  "cutoff": "2026-10-09T23:00:00Z",
+  "timezone": "America/Los_Angeles",
+  "coverage": {
+    "scope": "supplied-snapshot",
+    "source": "synthetic-fixture",
+    "omittedMessages": 0,
+    "note": "Authored synthetic correspondence. Not a live mailbox or a complete account export."
+  },
+  "messages": [
+    {
+      "id": "fresh-13-m1",
+      "threadId": "fresh-13-t1",
+      "subject": "Voces del Patio — página del calor",
+      "sender": "sam@example.test",
+      "to": "alba@patio-voices.example.test",
+      "timestamp": "2026-10-05T15:00:00Z",
+      "body": "🌇 Voces del Patio / 庭院之声. Me encargo del panel de refugios climáticos en español y lo entregaré el 9 de octubre de 2026 a las 11:30 PDT (America/Los_Angeles, UTC−07:00). El archivo se llama panel-final.pdf; incluye los dos centros municipales, no una lista general de comercios con aire acondicionado.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-13-m2",
+      "threadId": "fresh-13-t2",
+      "subject": "Voces del Patio — panel-final.pdf",
+      "sender": "sam@example.test",
+      "to": "mei@patio-voices.example.test, leon@fold-press.example.test",
+      "timestamp": "2026-10-05T15:20:00Z",
+      "body": "🧧 我负责把中文版避暑点栏排版后交给印厂，交付日期是2026年10月8日。文件也叫 panel-final.pdf，但放在中文目录。Mei 提供的汉字地名已经核对过；我负责的是这份中文印刷文件的交付。",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-13-m3",
+      "threadId": "fresh-13-t3",
+      "subject": "Taller de impresión — Voces del Patio",
+      "sender": "León Ortiz <leon@fold-press.example.test>",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-05T16:00:00Z",
+      "body": "🖨️ Our intake screen shows only panel-final.pdf for both language folders; the language column disappears on mobile. The imposition software still treats them as separate panels. For the paper stock selection, Sam, do you want cream 100 gsm or white 90 gsm? Both samples use the same ink, but the cream sheet has less show-through.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-13-m4",
+      "threadId": "fresh-13-t3",
+      "subject": "Taller de impresión — Voces del Patio",
+      "sender": "León Ortiz <leon@fold-press.example.test>",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-05T17:00:00Z",
+      "body": "📐 I will send you the imposed bilingual proof with trim marks by 9 October 2026 at 15:00 PDT (America/Los_Angeles, UTC−07:00). It is the folded-sheet layout, not a screenshot of either panel. If the Spanish correction is still pending, that area will remain marked as a placeholder in this proof.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-13-m5",
+      "threadId": "fresh-13-t3",
+      "subject": "Taller de impresión — Voces del Patio",
+      "sender": "sam@example.test",
+      "to": "leon@fold-press.example.test",
+      "timestamp": "2026-10-06T15:00:00Z",
+      "body": "🧵 I will give you the print-run authorization after I have reviewed the corrected language panels and the imposed bilingual proof. I am the person who will release the run. We have not set a date or hour for that authorization; a paper choice by itself will not release any impressions.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-13-m6",
+      "threadId": "fresh-13-t1",
+      "subject": "Voces del Patio — página del calor",
+      "sender": "Alba Núñez <alba@patio-voices.example.test>",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-06T16:00:00Z",
+      "body": "🌡️ El municipio está corrigiendo los horarios del centro del este. ¿Podemos pasar tu entrega del panel de refugios climáticos en español al sábado 10 de octubre de 2026? La versión china ya usa un recuadro sin horarios; la española tiene horas impresas y por eso necesita esa corrección.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-13-m7",
+      "threadId": "fresh-13-t1",
+      "subject": "Voces del Patio — página del calor",
+      "sender": "sam@example.test",
+      "to": "alba@patio-voices.example.test",
+      "timestamp": "2026-10-06T17:00:00Z",
+      "body": "🌿📅 De acuerdo: entregaré el panel de refugios climáticos en español el 10 de octubre de 2026, en lugar del plazo del 9 de octubre a las 11:30 PDT. Confirmo el día 10, aunque todavía no puedo fijar una hora de entrega. Conservaré los nombres de ambos centros y cambiaré solo los horarios que publique el municipio.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-13-m8",
+      "threadId": "fresh-13-t2",
+      "subject": "Voces del Patio — panel-final.pdf",
+      "sender": "sam@example.test",
+      "to": "mei@patio-voices.example.test, leon@fold-press.example.test",
+      "timestamp": "2026-10-08T16:00:00Z",
+      "body": "📮 中文版避暑点栏已由我交付给印厂，回执号是 CN-208。中文目录里的 panel-final.pdf 是交付的最终文件。两个中心名称和无时刻的说明框都在；这份文件不包含西班牙文页面。",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-13-m9",
+      "threadId": "fresh-13-t1",
+      "subject": "Voces del Patio — página del calor",
+      "sender": "Alba Núñez <alba@patio-voices.example.test>",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-08T17:00:00Z",
+      "body": "📱 En el teléfono veo un recibo CN-208 junto a panel-final.pdf y la vista previa solo muestra el encabezado común. ¿Ese “final” cubre también el panel en español? No veo columnas de idioma en esta pantalla.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-13-m10",
+      "threadId": "fresh-13-t1",
+      "subject": "Voces del Patio — página del calor",
+      "sender": "Mei Zhou <mei@patio-voices.example.test>",
+      "to": "sam@example.test, alba@patio-voices.example.test",
+      "timestamp": "2026-10-08T17:30:00Z",
+      "body": "🌼 CN-208 belongs to the Chinese cooling-center panel that Sam delivered. The two language files share the name panel-final.pdf, but the Chinese panel uses a note without opening hours. There is no Spanish text in that receipt’s file; the identical neighborhood masthead is not a combined edition.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-13-m11",
+      "threadId": "fresh-13-t3",
+      "subject": "Taller de impresión — Voces del Patio",
+      "sender": "sam@example.test",
+      "to": "leon@fold-press.example.test",
+      "timestamp": "2026-10-08T18:00:00Z",
+      "body": "🎨📄 For the paper stock selection, I approve the cream 100 gsm sheet. The lighter paper shows the Chinese characters through the reverse side. This approval is for the paper stock, not the print-run authorization.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-13-m12",
+      "threadId": "fresh-13-t3",
+      "subject": "Taller de impresión — Voces del Patio",
+      "sender": "León Ortiz <leon@fold-press.example.test>",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-08T19:00:00Z",
+      "body": "🖨️ The preview image now shows the ink on the cream sheet you selected. It contains one language layer and no trim marks; it is a color sample inside the proof job. The fold still crosses the edge of the shaded box in the imposition file.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-13-m13",
+      "threadId": "fresh-13-t4",
+      "subject": "Taller de impresión — Voces del Patio",
+      "sender": "Nico Salas <nico@patio-voices.example.test>",
+      "to": "sam@example.test, leon@fold-press.example.test",
+      "timestamp": "2026-10-09T14:00:00Z",
+      "body": "🗞️ The volunteer chat copied this line from a phone preview and says the issue is ready for the press. Is that enough to start it?\n---------- Forwarded excerpt ----------\nFrom: Sam <sam@example.test>\nDate: 8 October 2026, 11:00 PDT\nSubject: Taller de impresión — Voces del Patio\nI approve the cream 100 gsm sheet.\n---------- End excerpt ----------\nThe chat image has no text above or below that sentence.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-13-m14",
+      "threadId": "fresh-13-t4",
+      "subject": "Taller de impresión — Voces del Patio",
+      "sender": "León Ortiz <leon@fold-press.example.test>",
+      "to": "sam@example.test, nico@patio-voices.example.test",
+      "timestamp": "2026-10-09T15:00:00Z",
+      "body": "🧾 The press is still on hold. There is no print-run authorization from Sam in the job envelope. The forwarded sentence is the paper choice; our production sheet has the cream stock entered but its release box is blank.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-13-m15",
+      "threadId": "fresh-13-t1",
+      "subject": "Voces del Patio — página del calor",
+      "sender": "Alba Núñez <alba@patio-voices.example.test>",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-09T16:00:00Z",
+      "body": "🌡️ El aviso municipal definitivo dice que el centro del este cierra a las 16:00, no a las 18:00. El del oeste mantiene su horario. Café del Patio aparece como punto de agua, no como refugio climático; el acento de su nombre viene así en el texto que recibí del comercio.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-13-m16",
+      "threadId": "fresh-13-t3",
+      "subject": "Taller de impresión — Voces del Patio",
+      "sender": "León Ortiz <leon@fold-press.example.test>",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-09T18:00:00Z",
+      "body": "👩🏽‍🎨 The imposed bilingual proof is still on the compositor’s workstation and has not been sent to you. The fold position is fixed now, but the trim marks are missing. The color sample in yesterday’s email is not the folded-sheet proof.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-13-m17",
+      "threadId": "fresh-13-t1",
+      "subject": "Voces del Patio — página del calor",
+      "sender": "sam@example.test",
+      "to": "alba@patio-voices.example.test",
+      "timestamp": "2026-10-09T19:00:00Z",
+      "body": "🧩 Sigo corrigiendo el panel de refugios climáticos en español; todavía no lo he entregado. Ya cambié la hora del centro del este a las 16:00 y estoy ajustando el recuadro para que no tape la dirección. El PDF que circula con el mismo nombre es el chino.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-13-m18",
+      "threadId": "fresh-13-t2",
+      "subject": "Voces del Patio — panel-final.pdf",
+      "sender": "Mei Zhou <mei@patio-voices.example.test>",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-09T20:00:00Z",
+      "body": "🀄 我看到了印厂的 CN-208 收件记录，中文版避暑点栏显示已收到 Sam 的最终文件。我核对的字形在接收版里都正确；中文没有待改之处。共同的报头仍然是 Voces del Patio / 庭院之声。",
+      "truncated": false,
+      "omittedChars": 0
+    }
+  ]
+}

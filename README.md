@@ -1,368 +1,163 @@
-# Habenula
+# Commitment Workbench
 
-## The personal agent control harness
+[How it works](#how-it-works) · [Benchmarks](#benchmarks) · [Development approach](#development-approach) · [Try it](#try-it-without-a-model-call)
 
-[![License: AGPL-3.0-only + more permissive exceptions](https://img.shields.io/badge/license-AGPL--3.0--only%20%2B%20more%20permissive%20exceptions-blue.svg)](#license)
+[Contribution map](docs/CONTRIBUTIONS.md) · [Technical walkthrough](docs/WALKTHROUGH.md) · [Upstream project guide](UPSTREAM.md)
 
-An AI agent acting on your behalf can now send email, spend money, delete project files, and post in your name.
+**Promises, not just messages.** Review a correspondence snapshot, identify who owes what, and attach exact source spans to each commitment.
 
-**Powerful agents need powerful controls to keep the user in charge.**
+An independent, AI-assisted extension of [Habenula](https://github.com/habenula-ai/habenula-oss), based on upstream commit `eb5b9462f514a10a1312a76d7e09bb07c9598609`. Experimental and local-first. Not an official release or an endorsed contribution.
 
----
+## What changes
 
-### The model still does the thinking; **[Habenula](https://habenula.ai)** governs the *doing*.
+| Upstream foundation | This fork adds |
+|---|---|
+| Action governance, confirmations, credential custody, audit chain, integrations, ordinary agent, CLI and MCP | An explicit commitment-review workflow, approved/versioned guidance, and optional bounded programmatic-context analysis |
 
-Every consequential action an agent takes is:
+The output is a source-linked **CommitmentLedger** and optional reply **text**. Reviewing a snapshot does not connect a mailbox, save a draft, or send a message. Guidance does not grant permissions.
 
-- **Checked** against your rules — a pure function, no LLM judgement.
-- **Logged** to a tamper-evident chain you can verify yourself.
-- **Run** only with the authority you granted.
-- **Killable** — `habenula kill` revokes all of it at once.
+## Review it in two minutes
 
-All in a deterministic environment the model can't overrule or misrepresent.
+1. **Contract:** inspect the [snapshot and ledger schemas](packages/contracts/src/workflows.ts).
+2. **Execution:** follow the [service](packages/engine/src/workflows/service.ts) → [RLM coordinator](packages/engine/src/workflows/rlm-runtime.ts) → [private Node backend](packages/engine/src/rlm/node-backend.mjs).
+3. **Hard boundary:** see why [native I/O settlement](packages/engine/src/llm/native-operation-scope.ts) is not the same as an aborted promise.
+4. **Evidence:** read the [benchmark report](docs/BENCHMARKS.md), [limitations](docs/LIMITS.md), and [AI-assistance disclosure](docs/DEVELOPMENT.md).
 
-Habenula runs two ways: as a **sidecar** to a coding agent like Cursor or
-Claude Code — you point its MCP config at Habenula, and your agent can hand off consequential actions for you to approve — or
-**standalone**, as its own governed agent driven from the CLI. Governance holds
-identically either way.
+[Architecture lesson](docs/ARCHITECTURE.md) · [Reviewer guide](docs/REVIEW_GUIDE.md) · [Run from source](docs/QUICKSTART.md) · [Failure and repair](docs/REPAIR.md)
 
----
+## How it works
 
-### What this gives you
-
-**Enterprise-style governance, without the enterprise.** The governance large organizations are building themselves, packaged as a product to be runnable by one person.
-
-**Independence you keep.** Precise policies, custom to you, across a wide range of vendors and models.
-
-**Powerful guards for when it matters.** More flexible, reliable, and secure than a generic "approve this?" prompt.
-
-**Trust backed by the security community, not the model.** Everything you need to run it is open source, in one repository.
-
----
-
-Here it is at its simplest in a recorded session — the agent goes to send an email, and the send
-holds for your confirmation:
-
-<table><tr><td>
-<img src="assets/demo.gif" width="520" alt="A recorded terminal session: the user asks Habenula to email sam@example.com, the gmail send call holds for confirmation showing the exact recipient, subject, and body, the user grants it for the session, and the send executes.">
-</td></tr></table>
-
-The same session, as text:
-
-```
-> Send an email to sam@example.com with the subject "Q3 numbers" and this exact
-body: Revenue was up 12% quarter over quarter.
-Habenula › A tool call is awaiting your confirmation:
-    gmail · send · "sam@example.com"
-    requested with:
-      "to": ["sam@example.com"]
-      "subject": "Q3 numbers"
-      "body": "Revenue was up 12% quarter over quarter."
-
-  1. Deny — don't run this; nothing is granted.
-  2. Tell me more — show what this tool does (no decision yet).
-  3. Allow — for this task.
-  4. Allow — for this session (~89m left).
-```
-
-The `gmail · send` line is the entire permission: a service, a verb, and the
-exact thing being acted on. Answer **3** and the grant is consumed by that one
-call. Answer **4** and it lasts until the session ends. A different recipient
-is a different permission, so it asks again. There is no "always allow".
-`habenula kill` clears every grant at once; with none in force, the agent
-can do nothing.
-
-## Contents
-
-- [What makes it different](#what-makes-it-different)
-- [Quick start](#quick-start) · [Self-hosting](#self-hosting) · [Running from source](#running-from-source)
-- [Architecture](#architecture-at-a-glance) · [Packages](#packages) · [Documentation](#documentation) · [External resources](#external-resources)
-- [About this repository](#about-this-repository) · [Security](#security) · [License](#license) · [Trademarks](#trademarks)
-- [Privacy](#privacy) · [Legal](#legal)
-
-## What makes it different
-
-- **Independent, deterministic runtime** — governance is code, not a prompt. The
-  same inputs always reach the same decision, and no amount of clever wording
-  from the model can talk it into a yes.
-- **Credential isolation** — the agent can act in your Gmail but never sees the
-  token behind it. Habenula holds the keys and hands over access one call at a
-  time; the model only ever gets the result.
-- **Audit log** — every action lands in an append-only, SHA-256 hash-chained log
-  before it runs, so the history can't be quietly rewritten. `habenula log
-  verify` recomputes the whole chain on your own machine.
-- **Kill switch** — one command, `habenula kill`, and every agent stops and every
-  grant clears — a global deny that lands in tens of milliseconds.
-- **Required scope bindings** — every action binds to a target — send
-  *to* a recipient, read *from* a folder — never a verb on its own. Scope it
-  tight or widen it deliberately; either way an agent
-  only ever holds what it was given.
-- **MCP surfaces** — other agents can hand work to yours over the Model Context
-  Protocol, and your CLI drives it over a trusted local interface. Both ends run
-  through the same governance.
-
-**Current status:** early alpha, and the first open-source release. The agent
-runtime, governance pipeline, and CLI are functional, with integrations for
-Gmail, Google Calendar, Outlook Mail, Slack, and GitHub. One agent runs in one
-session at a time. Authentication is not yet implemented (see
-[SECURITY.md](SECURITY.md)).
-
-## Quick start
-
-The fastest way to try Habenula — no checkout, from npm with provenance:
-
-```bash
-npx habenula up      # start a local engine on loopback; prints the URL it serves
-npx habenula         # open the governed conversation
-```
-
-The `habenula` package is the front door: it carries the CLI and the engine as exact-pinned dependencies, so one npm resolution installs the whole product and `up` finds the engine inside the same install — no second download. The first `up` writes your secrets to `~/.habenula/config`. Back that file up: without its key, your stored credentials cannot be read again. A conversation also needs a model backend — point it at Anthropic, any OpenAI-compatible endpoint, or a local model such as Ollama. `npx habenula down` stops the engine it started.
-
-The engine runs on loopback and has no authentication yet, so the local machine is the trust boundary — never expose the port. For the full container path, see [Self-hosting](#self-hosting). To read or modify the code, see [Running from source](#running-from-source).
-
-## Self-hosting
-
-**Start here if you want to use Habenula.** This repository holds the full
-agent runtime: the engine, the governance pipeline, the credential vault, and
-the CLI. You run the engine on your own hardware, and your credentials stay
-encrypted on your own disk. You manage your own state and backups. You supply
-the model backend: an Anthropic API key, or any OpenAI-compatible endpoint,
-including a local one such as Ollama.
-
-**The engine has no authentication yet.** The supported path runs it on your
-machine's loopback interface, so the local machine is the trust boundary.
-Never publish the port to a network. Start with the
-[self-host runbook](SELF-HOSTING.md). It covers the
-container path end to end and leads with that boundary.
-
-The packages also publish to npm, with provenance, and one name is the front
-door: `npx habenula up` starts a local engine when none is running and reports
-the URL it serves. The unscoped `habenula` package pins the CLI and the engine
-as exact dependencies, so that one command resolves the whole product — no
-repository checkout, no second download. Install commands, the full package
-list (including the scoped `@habenula-ai/*` names), and the provenance check
-are in [INSTALL.md](INSTALL.md).
-
-A first run also generates your secrets into `~/.habenula/config`. Back that
-file up, because without its encryption key your stored credentials cannot be
-read again. `up` starts an engine and nothing more: a conversation still needs
-a model key, and `up` says so when none is set. `npx habenula down` stops the
-engine it started. Neither command touches governance, so your session and its
-grants are unaffected.
-
-## Running from source
-
-**Start here if you want to read, test, or modify the code.** This path runs
-the engine from source under Miniflare, the Cloudflare Workers runtime. It is
-not the self-hosting path above.
-
-Prerequisite: [mise](https://mise.jdx.dev) — it installs the pinned node and
-`just`. npm comes with node.
-
-Set up once. Start from any directory:
-
-```bash
-git clone https://github.com/habenula-ai/habenula-oss.git
-cd habenula-oss
-mise install
-npm ci
-```
-
-Then run these from the repository root, as often as you need:
-
-```bash
-just dev            # start a local engine and drop into the CLI
-just pre-commit     # lint + typecheck + test, all eight packages
-```
-
-Chat needs a model backend. The example config uses Anthropic — put a real
-`ANTHROPIC_API_KEY` in `packages/engine/.dev.vars` (see
-`packages/engine/.dev.vars.example`; the file is gitignored). To run against
-any OpenAI-compatible endpoint instead, including a local one such as Ollama,
-see `packages/engine/.env.example` and the self-host runbook.
-
-If you intend to commit changes locally, run `just setup` once. It installs
-the pre-commit hook, which runs lint, typecheck, and tests before every
-commit. If `packages/engine/.dev.vars` is missing, it also creates the file
-from its example. `just dev` does the same, and warns about values you still
-must set.
-
-Tests run inside that same Workers runtime — no mocked platform primitives.
-See [Documentation](#documentation) for the architecture, guides, and security model.
-
-## Architecture at a glance
-
-One governed path runs every action, all on your own hardware — whether you
-drive the agent, or an external agent commissions a goal:
+The RLM path lets a model propose computation without giving that computation authority to act. The host keeps the budget, validation, provider access, and decision to return an answer.
 
 ```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'ui-monospace, SFMono-Regular, Menlo, monospace','fontSize':'13px','lineColor':'#9B8D95','primaryColor':'#FBF7F0','primaryTextColor':'#1E1418','primaryBorderColor':'#C9BBA8','clusterBkg':'#F1EADD','clusterBorder':'#D8CBB8','edgeLabelBackground':'#EFE9DA'},'flowchart':{'padding':14,'nodeSpacing':30,'rankSpacing':46,'subGraphTitleMargin':{'top':6,'bottom':14}}}}%%
 flowchart TD
-    You(["You / CLI"]) -->|"&nbsp;drive: HTTP API&nbsp;"| Loop
-    External(["External agents"]) -->|"&nbsp;commission: MCP&nbsp;"| Loop
-
-    subgraph Engine["Engine"]
-        Loop["Conversation loop"]
-        Map["Map to (service, verb, noun)"]
-        Policy["Check policy (pure function)"]
-        Spend["Check spend caps"]
-        AuditW["Write audit entry"]
-        Exec["Execute"]
-        Loop -->|"&nbsp;tool call&nbsp;"| Map
-        Map --> Policy --> Spend --> AuditW --> Exec
-    end
-
-    Loop <-->|"&nbsp;model API&nbsp;"| Planner["Planning agent<br/>Anthropic, OpenAI-compatible, or local"]
-    Exec -->|"&nbsp;act with held credentials&nbsp;"| Services[("Connected services<br/>Gmail, Calendar, Slack, GitHub")]
-    Policy <-->|"&nbsp;policy, grants, kill&nbsp;"| Store[("Store<br/>on your disk")]
-    AuditW -->|"&nbsp;hash chain&nbsp;"| Store
-    Store -->|"&nbsp;credentials&nbsp;"| Exec
-
-    classDef entry fill:#FBF7F0,stroke:#4EBB9D,stroke-width:1.5px,color:#1E1418;
-    classDef accent fill:#4EBB9D,stroke:#2E9B7F,color:#0A1512;
-    classDef store fill:#241A1F,stroke:#45303C,color:#FBF7F2;
-    class You,External entry
-    class Planner accent
-    class Store,Services store
+    S["Supplied correspondence snapshot"] --> A["Local admission and source identity checks"]
+    A --> C["Model generates analysis code"]
+    C --> Q["Node Worker containing QuickJS guests"]
+    Q <-->|"bounded reads"| X["Hash-bound context store"]
+    Q -->|"optional requests"| H["Host-brokered model subtasks"]
+    H --> Q
+    Q --> Y["Model synthesizes a commitment ledger"]
+    Y --> V["Validate answer and execution evidence; confirm local cleanup"]
+    V --> R["Return ledger and optional reply text"]
+    B["One shared task model budget"] -.-> C
+    B -.-> H
+    B -.-> Y
 ```
 
-Full walkthrough: [How it works](packages/engine/docs/public/how-it-works.md).
+1. **Bind the input.** Validate the snapshot and build an answer-free source-offset index. A hash identifies the supplied data; it does not prove that the data is true.
+2. **Generate and execute.** The model returns a code envelope, not an ordinary answer. Real QuickJS executes that code against separately stored context. The guest has no direct Node file, network, or service capabilities.
+3. **Broker optional subtasks.** The host—not the guest—dispatches model requests through the same task budget. Small contexts can need zero children. Extra decomposition is not automatically better.
+4. **Synthesize and validate.** Check the ledger against exact source spans and the workflow contract. For RLM, also require host-observed execution and read evidence. These mechanical checks do not prove semantic correctness.
+5. **Close before success.** Confirm the required local resource settlement. Incomplete RLM execution cannot become a valid-looking ledger through a hidden baseline fallback. Local closure does not prove remote inference or billing stopped.
 
-### Watch that path run
+Ordinary chat remains ordinary chat. RLM is an explicit, **default-off** review mode. The baseline review skips generated-code execution; refinements are approved/versioned guidance, not model-weight training or new permissions.
 
-The engine can draw the same path live, from its own governed state. Start the
-engine with the visual model turned on:
+<details>
+<summary>Current bounds and authority limits</summary>
 
-```bash
-npx habenula up --visual-model   # prints the engine URL, then the page URL
-```
-
-Open the page beside your terminal and drive the agent. The session appears. A
-held call parks in yellow. Answer the confirmation and the grant lands in
-green. The audit chain grows an entry per action, and `habenula kill` sweeps
-every grant back to the deny floor.
-
-The page ships off and serves only when you ask for it. It reads state and
-changes nothing. It is unauthenticated on loopback, like the rest of a local
-engine, so leave it off when you are not watching it. See
-[Visual model](packages/engine/docs/guides/development/visual-model.md).
-
-## Packages
-
-| Package | What it is |
+| Boundary | Current application limit |
 |---|---|
-| [`packages/habenula`](packages/habenula/) | The npm front door — publishes as the unscoped name `habenula`; its bin forwards to the CLI, and it pins the CLI and the engine so one resolution installs the whole product |
-| [`packages/engine`](packages/engine/) | The agent runtime (Cloudflare Worker): tool-execution pipeline, governance, audit log, credential broker |
-| [`packages/cli`](packages/cli/) | The `habenula` command — interactive REPL and governance controls (Node) |
-| [`packages/contracts`](packages/contracts/) | The `/api/*` wire contract: every request and response as a Zod schema |
-| [`packages/tools`](packages/tools/) | Service catalog + tool registry: integrations, their tools, OAuth provider strategies |
-| [`packages/credentials`](packages/credentials/) | Credential vault: AES-256-GCM encryption at rest, token refresh |
-| [`packages/governance`](packages/governance/) | Governance kernel: the pure permission and spending evaluators |
-| [`packages/audit`](packages/audit/) | Audit kernel: the SHA-256 entry hash, the canonical chain verifier, and the decision-closure check |
+| Model calls | 10 shared attempts; concurrency ceiling 2 |
+| Task time | 300 seconds; includes codegen, child calls, synthesis, and possible repair |
+| Guest requests / depth | At most 3 requests; maximum depth 1 |
+| Guest VMs | At most 4 total; children share the Worker's WASM memory |
+| Child prompts | 4,096 UTF-8 bytes each; 8,192 aggregate |
+| Guest completion | 8,192 UTF-8 bytes |
+| Output repair | At most 1; not an extra independent budget |
+| Input snapshot | At most 32 messages; 96,000 total body UTF-16 code units |
 
-## Documentation
+The app's selected limits differ from the primitive protocol ceilings. Byte, character, and token limits are different units. These caps are not a universal native-process containment guarantee. The local caller token is not general account authentication or proof of human presence.
 
-The full index is [`packages/engine/docs/INDEX.md`](packages/engine/docs/INDEX.md). Start here:
+</details>
 
-- [**How it works**](packages/engine/docs/public/how-it-works.md) — the governed path end to end: the commissioning surface an outside agent uses, the planning agent that only proposes, and the client app where you approve.
-- [**Product overview**](packages/engine/docs/public/product-overview.md) — what Habenula is, and what it does today.
-- [**Architecture**](packages/engine/docs/architecture/overview.md) — domain boundaries, the runtime, the governance pipeline, the audit chain, and credential handling.
-- [**Security & threat model**](packages/engine/docs/security/threat-model.md) — the trust boundary, and what this release does and does not defend.
-- [**Whitepapers**](packages/engine/docs/whitepapers/) — governance, architecture, and security in depth.
-- [**Connecting services**](packages/engine/docs/connect/_index.md) — per-provider setup for Google, Microsoft, Slack, and GitHub, and the environment-variable inventory.
-- [**Getting started from source**](packages/engine/docs/guides/development/getting-started.md) — build, run, and test the engine under Miniflare.
+[Full architecture and source links](docs/ARCHITECTURE.md) · [Limits](docs/LIMITS.md) · [Technical walkthrough and exercises](docs/WALKTHROUGH.md)
 
-## External resources
+## What is verified
 
-- **Website** — [habenula.ai](https://habenula.ai)
-- **Whitepapers** — [habenula.ai/whitepapers](https://habenula.ai/whitepapers)
-- **Community** — [the Habenula Discord](https://discord.gg/K8RxQ8PCh)
+**Current local regression status is not clean.** The privacy-normalized source rebuild and offline ledger recheck passed. Three unchanged native-suite attempts passed **57/59, 58/59, and 58/59** tests, with different guest-runtime cases failing. The exact cause is unresolved. A separate targeted diagnostic passed, but does not replace a whole-suite pass. This is experimental source, not a release-ready reliability claim.
 
-## About this repository
+The following results describe the earlier staged revision, before the privacy projection:
 
-This repository is a **read-only mirror** of the Habenula monorepo's
-open-source surface. Each release lands as one snapshot commit stamped
-`Private-RevId: <source revision>`; development history, issues-to-PR flow,
-and code review happen upstream. Consequences:
+| Check | Recorded result | Scope |
+|---|---|---|
+| Source build | Pass | Seven-package build using existing locked dependencies |
+| Native RLM tests | **59 passed** | Actual Worker/QuickJS behavior with controlled provider/client fixtures |
+| Engine tests | **1,168 passed across 104 files** | Engine suite, not live-model efficacy |
+| Compiled-daemon/API fixture | Pass | Real daemon/private binding/Worker/QuickJS path; authored provider replies |
+| Public evidence recheck | Pass | Both released ledgers revalidated and rescored offline |
 
-- **Pull requests are never merged here** — the mirror is rebuilt from a
-  snapshot each release. A pull request is welcome as a way to *propose* a code
-  change; if accepted, it is applied upstream and ships in a later release. See
-  [CONTRIBUTING.md](CONTRIBUTING.md).
-- **Releases are the unit of history.** Per-package versions are independent
-  and tagged `@habenula-ai/<package>@x.y.z`, each with a GitHub Release and
-  changelog.
+These historical checks preceded privacy-only comment/example/documentation edits. They are not GitHub CI, a fresh network install, or an installed-release verification. [Verification summary](evidence/verification.json).
 
-### Versioning
+## Benchmarks
 
-SemVer 2.0.0, with the Cargo-style pre-1.0 rule: **during `0.y`, a breaking
-change bumps the minor** (`0.1.3 → 0.2.0`); features and fixes bump the
-patch. Pinning to a `0.y` line keeps breaking changes out of your updates under this rule.
+**Incomplete pilot—not a benchmark win.** The frozen plan covered four synthetic cases and three arms. Five runs produced recorded outcomes. One later admission has no recovered result or shutdown receipt; six rows were not run. The protocol stopped rather than replaying the uncertain run or changing its rules.
 
-## Security
+| Case | Arm | Outcome | Checks | Seconds |
+|---|---|---|---:|---:|
+| fresh-07 | Stock | Invalid output | — | 179.683 |
+| fresh-07 | Baseline | Contract-valid | 7/8 | 257.589 |
+| fresh-07 | RLM | Contract-valid | 8/8 | 177.205 |
+| fresh-13 | Baseline | Deadline / cancelled | — | 300.162 |
+| fresh-13 | RLM | Execution incomplete | — | 101.452 |
+| fresh-13 | Stock | Interrupted / unknown | — | — |
+| fresh-08 | Stock | Not run | — | — |
+| fresh-08 | RLM | Not run | — | — |
+| fresh-08 | Baseline | Not run | — | — |
+| fresh-14 | RLM | Not run | — | — |
+| fresh-14 | Baseline | Not run | — | — |
+| fresh-14 | Stock | Not run | — | — |
 
-Report vulnerabilities privately to **security@habenula.ai** — see
-[SECURITY.md](SECURITY.md). Please do not open public issues for security
-reports.
+**Read this comparison carefully:**
 
-## License
+- Stock retains the original agent's system, tools, and **1,024-output-token cap**. Stock versus modified is a **product-default comparison**, not an isolated RLM experiment.
+- Baseline versus RLM shares the snapshot, validator, task model budget, and single-repair policy. On `fresh-07`, baseline passed **7/8** authored checks; RLM passed **8/8**. On the demanding case, baseline hit its deadline and RLM failed to complete execution.
+- The successful RLM run used real guest execution and reads, with **two root calls and zero child calls**. It does not establish complete live recursive-child success.
+- Provider-account details and observed token usage are withheld for privacy. A faster failure is not a speedup.
+- Cases and oracles are authored synthetic fixtures, not a blind or representative sample. Gold answers were used only for offline scoring, never in model input. No human semantic-verification claim is made.
 
-Open source under **AGPL v3** (`AGPL-3.0-only`) — see [LICENSE](LICENSE).
+<details>
+<summary>Frozen method and the earlier repair</summary>
 
-One package is deliberately more permissive. `packages/audit` — the entry hash,
-the chain verifier, and the decision-closure check — is **MIT**. An audit log
-proves little when the party checking it is the party that wrote it, so the
-verifier is licensed to run in a codebase you control: your own tooling, your
-auditor's, your SIEM. Verifying a Habenula log does not oblige you to open your
-own source.
+Provider/model identity and account routing are withheld in this privacy-normalized public projection. That limits independent reproduction of the historical provider conditions. The same configured model route was used across the recorded arms; temperature and effort were unspecified. Each row used fresh private state and a cold daemon. Task latency excludes startup/shutdown.
 
-The engine and the CLI ship that MIT code inside their bundles, so both carry a
-`NOTICE` file reproducing its terms.
+The modified task budget stayed at 300 seconds, with a 330-second outer task wait and 370-second native supervisor. Prompts, limits, model route, source, artifacts, and inputs were frozen before inference. Missing native shutdown evidence stops further admission. The interrupted row remains **unknown**, not a fabricated application failure or zero-cost run.
 
-The documentation — the guides, architecture notes, and whitepaper content in
-each package's `docs/` tree — is licensed **CC BY 4.0**: reuse and adapt it
-freely, including commercially, with attribution to Habenula. The **code
-snippets and examples embedded in that documentation are offered under MIT**,
-not CC BY, so you can lift a sample into your own project, open or closed,
-without the attribution requirement.
+An older cohort remains separate: four attempted rows and eight unrun. A separately scoped prompt-contract repair regression passed **8/8** checks in **230.274 seconds**, with two root/zero child calls. The repair clarified actual byte caps, unavailable globals, and source retrieval. It did **not** raise limits or add fallback. The later demanding-case failure remains visible; the repair was not a universal fix.
 
-## Trademarks
+</details>
 
-"Habenula" and "Benya", and the Habenula and Benya logos, are trademarks of
-Habenula, Inc. The open-source license for the code does not grant permission
-to use these marks; see [TRADEMARKS.md](TRADEMARKS.md) for how they may and may
-not be used.
+[Full report and limitations](docs/BENCHMARKS.md) · [Frozen protocol](evidence/comparison-02/protocol.json) · [All result rows](evidence/comparison-02/results.json) · [Failure → repair lesson](docs/REPAIR.md)
 
-## Privacy
+## Development approach
 
-We take your privacy (very) seriously. Please review our
-[privacy policy](https://habenula.ai/privacy).
+This was substantially **AI-assisted**. Assistants contributed to implementation, testing, investigation, review, and documentation. Upstream built the original product and governance infrastructure; this is not presented as unaided human authorship.
 
-## Legal
+The development process used isolated source candidates, regression tests, bounded native commands, and evidence-backed checkpoints. Development tooling is separate from the application's TypeScript/Node/QuickJS runtime. Reviews were author-associated, not independent security certification.
 
-*Disclaimers (things our lawyers make us say).*
+Personal development sessions, provider-account details, and AI usage accounting are not distributed. The public material focuses on implementation, synthetic outcomes, limitations, and reproducible offline checks.
 
-Our representations are made in good faith and we believe them reliable. But we
-don't guarantee them.
+[Engineering process](docs/DEVELOPMENT.md) · [Contribution map](docs/CONTRIBUTIONS.md)
 
-Our opinions and factual claims—including product comparisons and
-characterizations of alternatives—reflect our views and our reading of public
-sources we consider credible. Public sources can be incomplete, dated, or wrong.
-Treat these as our good-faith observations as of their date, not absolute truth.
+## Try it without a model call
 
-This is early-alpha, published for comment. Features and security properties are
-still evolving. Read each document's contents carefully; don't rely on "planned"
-statements as promises.
+After cloning this fork, use the pinned tools and build from source:
 
-Nothing here is legal, security, or other professional advice. You're responsible
-for how you deploy the software and what you grant your agents. To the maximum
-extent permitted by law, we disclaim liability from use of or reliance on these
-materials. Your usage rights are governed by the terms of the AGPL v3 License,
-available [here](https://www.gnu.org/licenses/agpl-3.0.html#license-text).
+```sh
+mise install
+npm ci
+just oss-build
+node --import tsx tools/recheck-evidence.mjs
+```
 
-Third-party names are used for identification and comparison only, with no
-affiliation or endorsement implied.
+The final command checks the privacy projection identities, result accounting, saved response parsing, and both published ledgers with the actual validator/oracle scorer. Historical source identity and the public privacy projection are distinct. **It makes no model request.** It reproduces the saved scores; it does not independently attest historical execution.
 
----
+The recorded build used existing locked dependencies. A clean network `npm ci` and other platforms were not verified. Use the **local built CLI**, not `npx habenula`, to exercise this fork; the npm package is upstream. Live inference is optional and requires your own authorized setup. [Full source quickstart](docs/QUICKSTART.md).
 
-© 2026 Habenula, Inc.
+## Credit and scope
+
+Upstream Habenula supplies the original product and governance infrastructure. QuickJS/quickjs-emscripten supplies the guest interpreter. [Recursive Language Models](https://github.com/alexzhang13/rlm) is a conceptual reference, not an invention claimed here. AI assistants contributed substantially to implementation and review; see [AI-assistance disclosure](docs/DEVELOPMENT.md).
+
+The default code license remains **AGPL-3.0-only**, with the existing **MIT audit-package** and third-party exceptions. Package documentation retains its **CC BY 4.0** terms and supplemental code-example grant. Read [LICENSE](LICENSE), [LICENSE_FAQ.md](LICENSE_FAQ.md), [TRADEMARKS.md](TRADEMARKS.md), and [fork provenance](docs/FORK_PROVENANCE.md). Attribution review is not a legal clearance or a CLA signature.
+
+Habenula and Benya are trademarks of Habenula, Inc.

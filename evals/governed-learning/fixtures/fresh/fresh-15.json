@@ -1,0 +1,225 @@
+{
+  "workflowId": "mail.commitment-handoff.v1",
+  "schemaVersion": 1,
+  "snapshotId": "fresh-15",
+  "userAddress": "sam@example.test",
+  "cutoff": "2026-10-09T23:00:00Z",
+  "timezone": "America/Los_Angeles",
+  "coverage": {
+    "scope": "supplied-snapshot",
+    "source": "synthetic-fixture",
+    "omittedMessages": 3,
+    "note": "Authored synthetic correspondence. Three messages are omitted from the storage branch, one supplied body is truncated, and attachment contents are not supplied. Not a live mailbox or a complete account export."
+  },
+  "messages": [
+    {
+      "id": "fresh-15-m1",
+      "threadId": "fresh-15-t1",
+      "subject": "Material review",
+      "sender": "sam@example.test",
+      "to": "leila@example.test",
+      "timestamp": "2026-10-05T15:10:00Z",
+      "body": "I will finish the reed material-use table review on 12 October 2026. This is the permission check for the northern reed archive, not the southern sediment controls. The archive records have collection dates but several entries still lack a permitted-use category.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-15-m2",
+      "threadId": "fresh-15-t2",
+      "subject": "Material review",
+      "sender": "leila@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-05T15:45:00Z",
+      "body": "I will return the sediment control review to you by 12 October 2026 at 12:00 Europe/London (BST, UTC+01:00). It covers the southern sediment blanks and their contamination ratios. My group is in London; this review does not cover permissions for the reed archive.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-15-m3",
+      "threadId": "fresh-15-t3",
+      "subject": "Reed archive transfer",
+      "sender": "sam@example.test",
+      "to": "collections@example.test",
+      "timestamp": "2026-10-05T16:20:00Z",
+      "body": "I will finish and deliver the reed accession transcription by 7 October 2026 at 11:00 America/Los_Angeles (PDT, UTC-07:00). That is the literal transcription of the accession cards into the table, without deciding the permitted-use categories.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-15-m4",
+      "threadId": "fresh-15-t3",
+      "subject": "Reed archive transfer",
+      "sender": "owen@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-05T17:00:00Z",
+      "body": "I will return the archived reed vial tray to you at the north receiving bench by 10 October 2026 at 10:30 America/Los_Angeles (PDT, UTC-07:00). The labels are brittle, so the tray is traveling upright in its existing carrier. This is the physical tray, not the image folder with the same name.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-15-m5",
+      "threadId": "fresh-15-t1",
+      "subject": "Material review",
+      "sender": "bea@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-06T15:15:00Z",
+      "body": "Both labs have a file called control-review.pdf in their handover folders. The reed copy is a blank permitted-use example from January; the sediment copy contains live ratio results. The pilot batch combines archived reeds with fresh sediment, so neither file by itself clears the mixture.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-15-m6",
+      "threadId": "fresh-15-t4",
+      "subject": "Pooled pilot materials",
+      "sender": "sam@example.test",
+      "to": "leila@example.test, arun@example.test",
+      "timestamp": "2026-10-06T16:05:00Z",
+      "body": "Please return a signed pooled-material eligibility note to me for the pilot mixture. Our lab split is Leila if reed lot C and sediment lot D have the same preservative, or Arun if they differ. Can either of you take it once the lot C certificate establishes which branch applies? This is additional to the two separate material reviews.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-15-m7",
+      "threadId": "fresh-15-t4",
+      "subject": "Pooled pilot materials",
+      "sender": "arun@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-06T17:40:00Z",
+      "body": "Lot D is confirmed as E-10. The photograph of lot C could read E-10 or E-70; glare hides the last digit. The carrier is an E-10 carrier, but storage reuses carriers, so the box label cannot establish the preservative in those vials.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-15-m8",
+      "threadId": "fresh-15-t4",
+      "subject": "Pooled pilot materials",
+      "sender": "storage@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-06T18:25:00Z",
+      "body": "The register has separate entries for the reed collection and its later storage treatment. The code on the carrier comes from the first entry. The certificate scan is on the storage copy rather than this forwarded branch. For the contents of lot C, the preservative entered after the 2022 treatment is",
+      "truncated": true,
+      "omittedChars": 973
+    },
+    {
+      "id": "fresh-15-m9",
+      "threadId": "fresh-15-t4",
+      "subject": "Pooled pilot materials",
+      "sender": "leila@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-07T09:15:00Z",
+      "body": "I could take the pooled-material eligibility note if C and D use the same preservative. I have not accepted that note yet: I have D's certificate, but not C's. My sediment control review is a separate job and is already in progress.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-15-m10",
+      "threadId": "fresh-15-t3",
+      "subject": "Reed archive transfer",
+      "sender": "owen@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-07T16:15:00Z",
+      "body": "The folder now says \"tray returned\" because the label photographs came back from the imaging workstation. That event was a file transfer within the lab. The archived reed vial tray itself remains in freezer B with the upright carrier.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-15-m11",
+      "threadId": "fresh-15-t1",
+      "subject": "Material review",
+      "sender": "leila@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-07T16:50:00Z",
+      "body": "The signed PDF Bea found is my January calibration example. Its \"complete\" stamp refers to that demonstration, and it has no results for the current southern sediment blanks. The live sediment control review is the copy with six blank rows and batch D in the header.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-15-m12",
+      "threadId": "fresh-15-t3",
+      "subject": "Reed archive transfer",
+      "sender": "collections@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-07T17:25:00Z",
+      "body": "The accession cards use a ditto mark for the donor on rows 28 through 31. It means the donor above, not an unknown donor. The permitted-use column was never on these cards, so blanks in that column are not transcription omissions.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-15-m13",
+      "threadId": "fresh-15-t3",
+      "subject": "Reed archive transfer",
+      "sender": "sam@example.test",
+      "to": "collections@example.test",
+      "timestamp": "2026-10-07T17:55:00Z",
+      "body": "I have completed and delivered the reed accession transcription, including the repeated donor on rows 28 through 31. Collections has the checked table and there is no remaining transcription work. The permission decisions belong in my separate material-use review.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-15-m14",
+      "threadId": "fresh-15-t4",
+      "subject": "Pooled pilot materials",
+      "sender": "arun@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-08T15:35:00Z",
+      "body": "A pencil mark next to my name on the pilot sheet is not my acceptance of the pooled-material eligibility note. My group handles differing preservatives, but I still do not have a legible lot C certificate. I have not taken that assignment.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-15-m15",
+      "threadId": "fresh-15-t1",
+      "subject": "Material review",
+      "sender": "sam@example.test",
+      "to": "bea@example.test",
+      "timestamp": "2026-10-08T17:20:00Z",
+      "body": "My reed material-use table review is not finished. The donor transcription is usable now, but the educational-use entries need a different permission category from redistribution. The 12 October review day is still in my calendar; the Tuesday pilot meeting is a different event.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-15-m16",
+      "threadId": "fresh-15-t2",
+      "subject": "Material review",
+      "sender": "leila@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-09T10:30:00Z",
+      "body": "The sediment control review is still with me and has not been returned to Sam. Two contamination ratios fall on opposite sides of the rounding boundary, so I am checking the unrounded readings rather than copying the January example.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-15-m17",
+      "threadId": "fresh-15-t4",
+      "subject": "Pooled pilot materials",
+      "sender": "bea@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-09T18:10:00Z",
+      "body": "The storage correspondence list has three replies that are not in the branch forwarded to us. The long storage message in that branch ends just before the treatment code. The paper binder contains the carrier tag, not the lot C certificate; that adds no independent reading of the vial contents.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-15-m18",
+      "threadId": "fresh-15-t3",
+      "subject": "Reed archive transfer",
+      "sender": "owen@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-09T20:45:00Z",
+      "body": "The archived reed vial tray is still in my custody in freezer B; I have not returned it to you. The receiving bench has space for its existing carrier, so I do not need a repacking stop before the return.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-15-m19",
+      "threadId": "fresh-15-t4",
+      "subject": "Pooled pilot materials",
+      "sender": "sam@example.test",
+      "to": "bea@example.test",
+      "timestamp": "2026-10-09T22:25:00Z",
+      "body": "I still need the pooled-material eligibility note. Neither Leila nor Arun has accepted it, and I still cannot establish which preservative branch applies to lot C. The pooled tray remains on hold; the separate sediment review and reed permission review do not release it.",
+      "truncated": false,
+      "omittedChars": 0
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "kind": "separate-live-repair-regression",
+  "caseId": "fresh-05",
+  "workflowSourceHash": "4bb3ec2b8339d653623d4708f80d51d2fd22f4de81173fc251a3fbfd2205c353",
+  "status": "complete",
+  "elapsedMs": 230274,
+  "score": {
+    "caseId": "fresh-05",
+    "inputHash": "c33829ac769b17b53d1d58824b92a9d71e26fbda67012f39ef871ae366272df3",
+    "outputHash": "eddad12252a10f128efa050a09ff03b154a48c9adfe04f8fea57c1f2ba9b2b9e",
+    "assurance": "synthetic-oracle",
+    "semanticVerified": false,
+    "oraclePassed": true,
+    "contractValid": true,
+    "expectedItems": 2,
+    "matchedItems": 2,
+    "checks": [
+      {
+        "checkId": "contract.valid",
+        "passed": true
+      },
+      {
+        "checkId": "oracle.items",
+        "passed": true
+      },
+      {
+        "checkId": "oracle.state",
+        "passed": true
+      },
+      {
+        "checkId": "oracle.owner",
+        "passed": true
+      },
+      {
+        "checkId": "oracle.due",
+        "passed": true
+      },
+      {
+        "checkId": "oracle.change",
+        "passed": true
+      },
+      {
+        "checkId": "oracle.evidence",
+        "passed": true
+      },
+      {
+        "checkId": "oracle.prior-evidence",
+        "passed": true
+      }
+    ],
+    "corrections": [],
+    "error": null
+  },
+  "scope": "One synthetic-source case; not part of either comparative cohort",
+  "semanticVerified": false,
+  "localClosureObserved": true,
+  "notClaimed": [
+    "general speedup",
+    "live recursive child success",
+    "billing",
+    "remote compute closure"
+  ],
+  "privacyProjection": {
+    "observedUsage": "withheld-not-zero",
+    "providerIdentity": "withheld",
+    "personalDevelopmentRecords": "not-distributed",
+    "outcomesAndScores": "unchanged"
+  }
+}

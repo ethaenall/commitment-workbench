@@ -11,6 +11,14 @@ import type { FetchFn } from "./api-client";
  */
 const NULL_BODY_STATUSES = new Set([101, 204, 205, 304]);
 
+/** A reachable peer exceeded a request-local resource bound, not an availability failure. */
+export class ResponseSizeError extends Error {
+  constructor() {
+    super("Response exceeds the configured byte limit.");
+    this.name = "ResponseSizeError";
+  }
+}
+
 /**
  * The CLI's production transport: `node:http(s)` behind the `FetchFn` seam,
  * with NO transport-imposed timeout. Every request the CLI sends is already
@@ -35,6 +43,8 @@ const NULL_BODY_STATUSES = new Set([101, 204, 205, 304]);
  *     connection error.
  *   - No redirect following: the engine API never redirects; a 3xx surfaces
  *     as its status like any other response.
+ *   - An optional request-local maxResponseBytes rejects before retaining the
+ *     chunk that crosses the cap. No option preserves the existing behavior.
  *
  * The rejection contract matches the global fetch it replaces: an abort
  * rejects with the signal's reason, and a socket-level failure rejects with a
@@ -54,6 +64,11 @@ const NULL_BODY_STATUSES = new Set([101, 204, 205, 304]);
  */
 export const nodeFetch: FetchFn = (input, init) =>
   new Promise((resolve, reject) => {
+    const maxResponseBytes = init?.maxResponseBytes;
+    if (maxResponseBytes !== undefined && (!Number.isSafeInteger(maxResponseBytes) || maxResponseBytes < 1)) {
+      reject(new RangeError("maxResponseBytes must be a positive safe integer"));
+      return; // Reject before constructing a URL or opening a socket.
+    }
     const url = new URL(input);
     const requestFn = url.protocol === "https:" ? httpsRequest : httpRequest;
     const signal = init?.signal;
@@ -107,9 +122,28 @@ export const nodeFetch: FetchFn = (input, init) =>
       { method: init?.method ?? "GET", headers, agent: false },
       (res) => {
         const chunks: Buffer[] = [];
-        res.on("data", (chunk: Buffer) => chunks.push(chunk));
-        res.on("error", settleRejectFetchShaped);
+        let receivedBytes = 0;
+        res.on("data", (chunk: Buffer) => {
+          if (settled) return;
+          // Never trust Content-Length. Count delivered bytes before retaining a
+          // chunk, and subtract to avoid overflow even for a large valid limit.
+          if (maxResponseBytes !== undefined && chunk.byteLength > maxResponseBytes - receivedBytes) {
+            chunks.length = 0;
+            const error = new ResponseSizeError();
+            settleReject(error);
+            res.destroy(error);
+            req.destroy(error);
+            return;
+          }
+          receivedBytes += chunk.byteLength;
+          chunks.push(chunk);
+        });
+        res.on("error", (err) => {
+          chunks.length = 0;
+          settleRejectFetchShaped(err);
+        });
         res.on("end", () => {
+          if (settled) { chunks.length = 0; return; }
           // Built before settling so a constructor throw (a status outside
           // the Response range) rejects the promise instead of escaping the
           // event handler as an uncatchable.

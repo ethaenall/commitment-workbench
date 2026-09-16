@@ -22,7 +22,9 @@
   "exports": {
     ".": "./src/index.ts",
     "./requests": "./src/requests/index.ts",
-    "./responses": "./src/responses/index.ts"
+    "./responses": "./src/responses/index.ts",
+    "./refinements": "./src/refinements.ts",
+    "./workflows": "./src/workflows.ts"
   },
   "scripts": {
     "build": "tsc -p tsconfig.build.json",

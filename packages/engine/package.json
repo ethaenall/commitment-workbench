@@ -39,9 +39,12 @@
     "@habenula-ai/credentials": "1.0.0",
     "@habenula-ai/governance": "1.0.0",
     "@habenula-ai/tools": "1.0.0",
+    "@jitl/quickjs-ffi-types": "0.31.0",
+    "@jitl/quickjs-wasmfile-release-sync": "0.31.0",
     "@modelcontextprotocol/sdk": "1.29.0",
     "agents": "0.17.4",
     "miniflare": "4.20260710.0",
+    "quickjs-emscripten-core": "0.31.0",
     "zod": "4.4.3",
     "zod-mcp": "npm:zod@3.25.76"
   },

@@ -39,6 +39,13 @@ function makeRunners() {
     log: async (opts) => { calls.push({ command: "log", args: [opts] }); return 0; },
     logDump: async (path) => { calls.push({ command: "logDump", args: [path] }); return 0; },
     logVerify: async (opts) => { calls.push({ command: "logVerify", args: [opts] }); return 0; },
+    refinementDescribe: async (opts) => { calls.push({ command: "refinementDescribe", args: [opts] }); return 0; },
+    refinementList: async (opts) => { calls.push({ command: "refinementList", args: [opts] }); return 0; },
+    refinementShow: async (id, opts) => { calls.push({ command: "refinementShow", args: [id, opts] }); return 0; },
+    refinementPropose: async (path, opts) => { calls.push({ command: "refinementPropose", args: [path, opts] }); return 0; },
+    refinementValidate: async (id, opts) => { calls.push({ command: "refinementValidate", args: [id, opts] }); return 0; },
+    refinementTransition: async (action, id, opts) => { calls.push({ command: "refinementTransition", args: [action, id, opts] }); return 0; },
+    review: async (path, opts) => { calls.push({ command: "review", args: [path, opts] }); return 0; },
   };
   return { runners, calls };
 }
@@ -633,5 +640,55 @@ describe("runWalkStandalone (the log dump / log verify SIGINT wiring)", () => {
     } finally {
       trap.stop();
     }
+  });
+});
+
+
+describe("governed-learning command registration", () => {
+  it("routes review with an explicit mode and JSON flag", async () => {
+    const { runners, calls } = makeRunners();
+    await createProgram(runners).parseAsync(["review", "snapshot.json", "--mode", "both", "--json"], { from: "user" });
+    expect(calls).toEqual([{ command: "review", args: ["snapshot.json", { mode: "both", json: true }] }]);
+  });
+  it.each(["approve", "activate", "disable", "rollback"] as const)("routes exact refinement %s choices without manufacturing consent", async (action) => {
+    const { runners, calls } = makeRunners();
+    const reason = action === "disable" || action === "rollback" ? ["--reason", "test change"] : [];
+    await createProgram(runners).parseAsync(["refinement", action, "version-1", ...reason, "--json"], { from: "user" });
+    expect(calls).toEqual([{ command: "refinementTransition", args: [action, "version-1", {
+      ...(reason.length ? { reason: "test change" } : {}), json: true,
+    }] }]);
+  });
+  it("routes refinement describe through discovery DI", async () => {
+    const { runners, calls } = makeRunners();
+    await createProgram(runners).parseAsync(["refinement", "describe", "--json"], { from: "user" });
+    expect(calls).toEqual([{ command: "refinementDescribe", args: [{ json: true }] }]);
+  });
+  it("routes refinement list/show/propose/validate to injected runners", async () => {
+    const { runners, calls } = makeRunners();
+    for (const argv of [["list", "--limit", "8", "--cursor", "page-2"], ["show", "version-1"],
+      ["propose", "proposal.json"], ["validate", "version-1", "--suite", "contract-suite"]]) {
+      await createProgram(runners).parseAsync(["refinement", ...argv], { from: "user" });
+    }
+    expect(calls).toEqual([
+      { command: "refinementList", args: [{ limit: 8, cursor: "page-2" }] },
+      { command: "refinementShow", args: ["version-1", {}] },
+      { command: "refinementPropose", args: ["proposal.json", {}] },
+      { command: "refinementValidate", args: ["version-1", { suite: "contract-suite" }] },
+    ]);
+  });
+  it.each([
+    ["review", "snapshot.json"], ["review", "snapshot.json", "--mode", "invented"],
+    ["refinement", "approve", "version-1", "--yes"], ["refinement", "rollback", "version-1"],
+    ["refinement", "list", "--limit", "51"],
+  ])("refuses incomplete or unsafe options %j", async (...argv) => {
+    const { runners, calls } = makeRunners();
+    const program = createProgram(runners);
+    const configure = (cmd: import("commander").Command): void => {
+      cmd.exitOverride(); cmd.configureOutput({ writeErr: () => {} });
+      for (const child of cmd.commands) configure(child);
+    };
+    configure(program);
+    await expect(program.parseAsync(argv, { from: "user" })).rejects.toThrow();
+    expect(calls).toEqual([]);
   });
 });

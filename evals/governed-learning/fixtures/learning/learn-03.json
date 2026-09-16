@@ -1,0 +1,60 @@
+{
+  "workflowId": "mail.commitment-handoff.v1",
+  "schemaVersion": 1,
+  "snapshotId": "learn-03",
+  "userAddress": "sam@example.test",
+  "cutoff": "2026-10-09T23:00:00Z",
+  "timezone": "America/Los_Angeles",
+  "coverage": {
+    "scope": "supplied-snapshot",
+    "source": "synthetic-fixture",
+    "omittedMessages": 0,
+    "note": "Authored synthetic correspondence. Not a live mailbox or a complete account export."
+  },
+  "messages": [
+    {
+      "id": "learn-03-m1",
+      "threadId": "learn-03-t1",
+      "subject": "Field visit preparation",
+      "sender": "sam@example.test",
+      "to": "team@example.test",
+      "timestamp": "2026-10-05T10:00:00Z",
+      "body": "I will deliver the trail briefing on Wednesday 14 October. We have not set a time of day.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "learn-03-m2",
+      "threadId": "learn-03-t2",
+      "subject": "Route survey",
+      "sender": "taylor@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-06T10:00:00Z",
+      "body": "I will send you the route survey by 13 October at 16:00 UTC so you can finish the trail briefing.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "learn-03-m3",
+      "threadId": "learn-03-t1",
+      "subject": "Field visit preparation",
+      "sender": "ren@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-07T10:00:00Z",
+      "body": "Could the trail briefing be ready at 09:00 on the Wednesday? The visit team would prefer morning.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "learn-03-m4",
+      "threadId": "learn-03-t1",
+      "subject": "Field visit preparation",
+      "sender": "sam@example.test",
+      "to": "team@example.test",
+      "timestamp": "2026-10-08T10:00:00Z",
+      "body": "Wednesday 14 October still works for the trail briefing, but I cannot promise 09:00. Let us leave the time open; the route survey has not arrived yet.",
+      "truncated": false,
+      "omittedChars": 0
+    }
+  ]
+}

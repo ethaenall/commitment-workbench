@@ -70,6 +70,8 @@ export type FetchFn = (
     headers?: Record<string, string>;
     body?: string;
     signal?: AbortSignal;
+    /** Optional per-request cap, enforced before the production transport buffers a body. */
+    maxResponseBytes?: number;
   },
 ) => Promise<Response>;
 

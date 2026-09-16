@@ -1,0 +1,22 @@
+{
+  "caseId": "fresh-01",
+  "items": [
+    {
+      "key": "invoice",
+      "titleTerms": [
+        "invoice review"
+      ],
+      "owner": "sam@example.test",
+      "state": "due",
+      "dueAt": "2026-10-12T16:00:00Z",
+      "changed": false,
+      "evidence": [
+        {
+          "messageId": "fresh-01-m1",
+          "quote": "I will finish the invoice review by 12 October at 16:00 UTC."
+        }
+      ],
+      "priorEvidence": []
+    }
+  ]
+}

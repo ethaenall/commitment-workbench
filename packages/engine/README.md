@@ -118,6 +118,34 @@ Set these in the daemon's environment. There is no config file on the host path.
 | `HABENULA_PERSIST_ROOT` | no | Where engine state lives. Default `~/.habenula`. |
 | `<PROVIDER>_CLIENT_ID`, `<PROVIDER>_CLIENT_SECRET` | per connect | OAuth app credentials for real service connects (Google, Slack, GitHub, Microsoft). See [docs/connect/](docs/connect/_index.md). |
 
+### Local RLM Analysis (Opt-in)
+
+RLM runs through the local Node daemon above. Keep the existing encryption
+key, caller token, and provider configuration. Set both flags in the daemon
+environment, then start or restart it:
+
+```bash
+export GOVERNED_LEARNING=true
+export GOVERNED_RLM=true
+# From packages/engine/, after the normal build:
+node dist/daemon/index.js
+```
+
+Set the CLI's `HABENULA_INTERNAL_MCP_TOKEN` to the daemon's
+`INTERNAL_MCP_TOKEN`, then review a valid sealed snapshot:
+
+```bash
+node ../cli/dist/index.js review snapshot.json --mode rlm
+```
+
+`--mode both` also requires an active, eligible refinement. The daemon
+provides the private Node backend; requests cannot select a backend.
+Standalone `wrangler dev` or a Wrangler deployment has no private Node
+backend and still refuses RLM. It does not fall back to ordinary analysis.
+
+Local tests do not establish live-model efficacy or provider billing.
+Local cancellation does not guarantee that provider inference or charges stop.
+
 ### Where State Lives
 
 Engine state — the audit chain, connected services, and their encrypted

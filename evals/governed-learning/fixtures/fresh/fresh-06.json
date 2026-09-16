@@ -1,0 +1,82 @@
+{
+  "workflowId": "mail.commitment-handoff.v1",
+  "schemaVersion": 1,
+  "snapshotId": "fresh-06",
+  "userAddress": "sam@example.test",
+  "cutoff": "2026-10-09T23:00:00Z",
+  "timezone": "America/Los_Angeles",
+  "coverage": {
+    "scope": "supplied-snapshot",
+    "source": "synthetic-fixture",
+    "omittedMessages": 0,
+    "note": "Authored synthetic correspondence. Not a live mailbox or a complete account export."
+  },
+  "messages": [
+    {
+      "id": "fresh-06-m1",
+      "threadId": "fresh-06-t1",
+      "subject": "Foster handover",
+      "sender": "sam@example.test",
+      "to": "team@example.test",
+      "timestamp": "2026-10-05T10:00:00Z",
+      "body": "I will finish the foster handover note on Tuesday 13 October. We have not chosen a delivery time. I am also preparing the kit inventory for the shelter records.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-06-m2",
+      "threadId": "fresh-06-t2",
+      "subject": "Vaccination record",
+      "sender": "vet-records@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-06T10:00:00Z",
+      "body": "The vaccination log now lists the doses already given. Its review dates are medical-record dates, not deadlines for your handover note or kit inventory.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-06-m3",
+      "threadId": "fresh-06-t1",
+      "subject": "Foster handover",
+      "sender": "sam@example.test",
+      "to": "team@example.test",
+      "timestamp": "2026-10-07T10:00:00Z",
+      "body": "The kit inventory has been uploaded and accepted by the shelter. There is no more inventory work for me.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-06-m4",
+      "threadId": "fresh-06-t1",
+      "subject": "Foster handover",
+      "sender": "mara@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-08T08:00:00Z",
+      "body": "Would Wednesday 14 October be easier for the foster handover note? We can discuss it at the desk.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-06-m5",
+      "threadId": "fresh-06-t1",
+      "subject": "Foster handover",
+      "sender": "sam@example.test",
+      "to": "team@example.test",
+      "timestamp": "2026-10-08T10:00:00Z",
+      "body": "Tuesday 13 October remains my day for the foster handover note. I am not moving it to Wednesday, and I have not agreed a specific hour.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-06-m6",
+      "threadId": "fresh-06-t2",
+      "subject": "Inventory receipt",
+      "sender": "shelter-desk@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-09T08:00:00Z",
+      "body": "The uploaded kit inventory is the accepted version. The foster handover note is not inside that upload.",
+      "truncated": false,
+      "omittedChars": 0
+    }
+  ]
+}

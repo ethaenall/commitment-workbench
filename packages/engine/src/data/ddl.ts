@@ -182,6 +182,68 @@ export const TABLES = {
     `,
     indexes: [],
   },
+  refinement_versions: {
+    ddl: `
+      CREATE TABLE IF NOT EXISTS refinement_versions (
+        id TEXT PRIMARY KEY NOT NULL,
+        family_id TEXT NOT NULL,
+        revision INTEGER NOT NULL CHECK(typeof(revision) = 'integer' AND revision > 0),
+        parent_id TEXT,
+        scope_key TEXT NOT NULL,
+        version_hash TEXT NOT NULL,
+        proposal_request_hash TEXT NOT NULL UNIQUE,
+        envelope_json TEXT NOT NULL,
+        state TEXT NOT NULL CHECK(state IN ('proposed','validated','approved','active','disabled')),
+        latest_attempt_id TEXT,
+        validated_attempt_id TEXT,
+        approval_audit_id TEXT,
+        last_transition_audit_id TEXT NOT NULL,
+        last_transition_json TEXT NOT NULL,
+        created_at TEXT NOT NULL,
+        updated_at TEXT NOT NULL
+      )
+    `,
+    indexes: [
+      `CREATE UNIQUE INDEX IF NOT EXISTS idx_refinement_revision ON refinement_versions(family_id, revision)`,
+      `CREATE UNIQUE INDEX IF NOT EXISTS idx_refinement_active ON refinement_versions(scope_key) WHERE state = 'active'`,
+      `CREATE INDEX IF NOT EXISTS idx_refinement_created ON refinement_versions(created_at DESC, id DESC)`,
+      `CREATE INDEX IF NOT EXISTS idx_refinement_scope ON refinement_versions(scope_key, created_at DESC, id DESC)`,
+    ],
+  },
+  refinement_validations: {
+    ddl: `
+      CREATE TABLE IF NOT EXISTS refinement_validations (
+        id TEXT PRIMARY KEY NOT NULL,
+        version_id TEXT NOT NULL,
+        version_hash TEXT NOT NULL,
+        status TEXT NOT NULL CHECK(status IN ('running','passed','failed','error')),
+        assurance TEXT NOT NULL CHECK(assurance IN ('contract_only','behavior_measured')),
+        bindings_json TEXT NOT NULL,
+        report_json TEXT,
+        report_hash TEXT,
+        reason TEXT,
+        started_at TEXT NOT NULL,
+        deadline_at TEXT NOT NULL,
+        completed_at TEXT
+      )
+    `,
+    indexes: [
+      `CREATE UNIQUE INDEX IF NOT EXISTS idx_refinement_validating ON refinement_validations(version_id) WHERE status = 'running'`,
+      `CREATE INDEX IF NOT EXISTS idx_refinement_attempts ON refinement_validations(version_id, started_at DESC, id DESC)`,
+    ],
+  },
+  refinement_scopes: {
+    ddl: `
+      CREATE TABLE IF NOT EXISTS refinement_scopes (
+        scope_key TEXT PRIMARY KEY NOT NULL,
+        active_version_id TEXT,
+        generation INTEGER NOT NULL CHECK(typeof(generation) = 'integer' AND generation >= 0),
+        last_transition_audit_id TEXT,
+        last_transition_json TEXT
+      )
+    `,
+    indexes: [],
+  },
   spend_ledger: {
     // One row per committed spend. Both windows are
     // SUM queries over this table — no counters, so no increment to

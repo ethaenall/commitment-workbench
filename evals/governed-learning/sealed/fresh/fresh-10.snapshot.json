@@ -1,0 +1,89 @@
+{
+  "workflowId": "mail.commitment-handoff.v1",
+  "schemaVersion": 1,
+  "snapshotId": "fresh-10",
+  "snapshotHash": "042c99ebe9ddffd360fc7301bff62f4bdb8fa935ba2919a066f41b435aacfa26",
+  "userAddress": "sam@example.test",
+  "cutoff": "2026-10-09T23:00:00Z",
+  "timezone": "America/Los_Angeles",
+  "coverage": {
+    "scope": "supplied-snapshot",
+    "source": "synthetic-fixture",
+    "omittedMessages": null,
+    "note": "Authored synthetic correspondence. Not a live mailbox or a complete account export."
+  },
+  "messages": [
+    {
+      "id": "fresh-10-m1",
+      "threadId": "fresh-10-t1",
+      "subject": "Chess room access",
+      "sender": "sam@example.test",
+      "to": "team@example.test",
+      "timestamp": "2026-10-05T10:00:00Z",
+      "body": "For the chess room, I need an accessible entrance diagram. Can someone take that on? No owner or delivery time has been agreed.",
+      "bodyHash": "b8a600348667d760abddb2c189f7d5b4acbb30e0abae31b825d85cabeb3cdf0b",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-10-m2",
+      "threadId": "fresh-10-t1",
+      "subject": "Chess room access",
+      "sender": "kim@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-06T10:00:00Z",
+      "body": "I might be able to prepare the accessible entrance diagram if the caretaker can",
+      "bodyHash": "eb6459f9f2cd168de25aaf59a516cf4748782c31fd7297d971a7c0d2174e7780",
+      "truncated": true,
+      "omittedChars": 91
+    },
+    {
+      "id": "fresh-10-m3",
+      "threadId": "fresh-10-t2",
+      "subject": "Chess room seating",
+      "sender": "sam@example.test",
+      "to": "team@example.test",
+      "timestamp": "2026-10-07T10:00:00Z",
+      "body": "I will finish the seating plan by 14 October at 15:00 UTC.",
+      "bodyHash": "1cf3b9d2682f958a8e7f6b52f8c89b44c7b1627228d17a5427be549c5c5746b2",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-10-m4",
+      "threadId": "fresh-10-t1",
+      "subject": "Chess room access",
+      "sender": "maintenance@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-08T08:00:00Z",
+      "body": "The north entrance is level with the pavement, while the west entrance has stairs. The room booking already covers access through the north door.",
+      "bodyHash": "354f3792b176a84debe1a13a9f7515591b9644effae849bf3cfa6b05342bdb02",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-10-m5",
+      "threadId": "fresh-10-t2",
+      "subject": "Chess room seating",
+      "sender": "room-bookings@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-08T10:00:00Z",
+      "body": "The room booking is confirmed. A booking receipt is not a seating plan, and the plan has not been uploaded here.",
+      "bodyHash": "13f8c7e58d48f78769d4880ebba14cdf34e3e73c17d00359537e685fda59ef54",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-10-m6",
+      "threadId": "fresh-10-t1",
+      "subject": "Chess room access",
+      "sender": "sam@example.test",
+      "to": "team@example.test",
+      "timestamp": "2026-10-09T08:00:00Z",
+      "body": "I still have no confirmed owner for the accessible entrance diagram. Please do not assume Kim has accepted it or put a delivery time in the room notice.",
+      "bodyHash": "3768b53148da09f3b2e130f2de2e3bfc3b71a5371d8a2304cd44d1185adaa102",
+      "truncated": false,
+      "omittedChars": 0
+    }
+  ]
+}

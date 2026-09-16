@@ -1,0 +1,134 @@
+{
+  "caseId": "fresh-13",
+  "items": [
+    {
+      "key": "spanish-panel",
+      "titleTerms": [
+        "Spanish cooling-center panel",
+        "Spanish cooling center panel",
+        "Spanish panel",
+        "panel de refugios climáticos en español",
+        "panel en español",
+        "panel español"
+      ],
+      "owner": "sam@example.test",
+      "state": "due",
+      "dueAt": null,
+      "changed": true,
+      "evidence": [
+        {
+          "messageId": "fresh-13-m7",
+          "quote": "De acuerdo: entregaré el panel de refugios climáticos en español el 10 de octubre de 2026, en lugar del plazo del 9 de octubre a las 11:30 PDT. Confirmo el día 10, aunque todavía no puedo fijar una hora de entrega."
+        },
+        {
+          "messageId": "fresh-13-m17",
+          "quote": "Sigo corrigiendo el panel de refugios climáticos en español; todavía no lo he entregado."
+        }
+      ],
+      "priorEvidence": [
+        {
+          "messageId": "fresh-13-m1",
+          "quote": "Me encargo del panel de refugios climáticos en español y lo entregaré el 9 de octubre de 2026 a las 11:30 PDT (America/Los_Angeles, UTC−07:00)."
+        }
+      ]
+    },
+    {
+      "key": "chinese-panel",
+      "titleTerms": [
+        "Chinese cooling-center panel",
+        "Chinese cooling center panel",
+        "Chinese panel",
+        "中文版避暑点栏",
+        "panel chino",
+        "panel en chino"
+      ],
+      "owner": "sam@example.test",
+      "state": "closed",
+      "dueAt": null,
+      "changed": false,
+      "evidence": [
+        {
+          "messageId": "fresh-13-m8",
+          "quote": "中文版避暑点栏已由我交付给印厂，回执号是 CN-208。中文目录里的 panel-final.pdf 是交付的最终文件。"
+        }
+      ],
+      "priorEvidence": []
+    },
+    {
+      "key": "bilingual-proof",
+      "titleTerms": [
+        "imposed bilingual proof",
+        "bilingual proof",
+        "folded-sheet proof",
+        "folded sheet proof",
+        "prueba bilingüe",
+        "prueba de imposición"
+      ],
+      "owner": "leon@fold-press.example.test",
+      "state": "waiting",
+      "dueAt": "2026-10-09T22:00:00Z",
+      "changed": false,
+      "evidence": [
+        {
+          "messageId": "fresh-13-m4",
+          "quote": "I will send you the imposed bilingual proof with trim marks by 9 October 2026 at 15:00 PDT (America/Los_Angeles, UTC−07:00)."
+        },
+        {
+          "messageId": "fresh-13-m16",
+          "quote": "The imposed bilingual proof is still on the compositor’s workstation and has not been sent to you. The fold position is fixed now, but the trim marks are missing."
+        }
+      ],
+      "priorEvidence": []
+    },
+    {
+      "key": "print-authorization",
+      "titleTerms": [
+        "print-run authorization",
+        "print run authorization",
+        "print-run approval",
+        "print run approval",
+        "authorize the print run",
+        "autorización de impresión",
+        "autorización de tirada"
+      ],
+      "owner": "sam@example.test",
+      "state": "due",
+      "dueAt": null,
+      "changed": false,
+      "evidence": [
+        {
+          "messageId": "fresh-13-m5",
+          "quote": "I will give you the print-run authorization after I have reviewed the corrected language panels and the imposed bilingual proof. I am the person who will release the run. We have not set a date or hour for that authorization;"
+        },
+        {
+          "messageId": "fresh-13-m14",
+          "quote": "The press is still on hold. There is no print-run authorization from Sam in the job envelope."
+        }
+      ],
+      "priorEvidence": []
+    },
+    {
+      "key": "paper-stock",
+      "titleTerms": [
+        "paper stock selection",
+        "paper stock approval",
+        "paper selection",
+        "paper choice",
+        "stock selection",
+        "cream 100 gsm",
+        "selección de papel"
+      ],
+      "owner": "sam@example.test",
+      "state": "closed",
+      "dueAt": null,
+      "changed": false,
+      "evidence": [
+        {
+          "messageId": "fresh-13-m11",
+          "quote": "For the paper stock selection, I approve the cream 100 gsm sheet. The lighter paper shows the Chinese characters through the reverse side. This approval is for the paper stock, not the print-run authorization."
+        }
+      ],
+      "priorEvidence": []
+    }
+  ]
+}

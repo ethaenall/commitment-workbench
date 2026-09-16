@@ -1,0 +1,71 @@
+{
+  "version": {
+    "envelope": {
+      "versionId": "version-1",
+      "familyId": "family-1",
+      "revision": 1,
+      "parentVersionId": null,
+      "content": {
+        "schemaVersion": 1,
+        "kind": "workflow-guidance",
+        "title": "Offline proposal DTO reproduction",
+        "rationale": "Exercise the real HTTP route response schema, not DB side effects.",
+        "scope": {
+          "workflowId": "mail.commitment-handoff.v1",
+          "slot": "reasoning",
+          "workflowContractHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "procedure": {
+          "steps": [
+            "Compare the current source with prior evidence."
+          ]
+        }
+      },
+      "provenance": {
+        "createdAt": "2026-09-01T00:00:00.000Z",
+        "producerKind": "operator_import",
+        "producerRunId": null,
+        "modelConfigHash": null,
+        "sources": [
+          {
+            "kind": "learning_fixture",
+            "id": "learn-1",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "auditEntryId": null,
+            "resolved": true
+          }
+        ]
+      }
+    },
+    "versionHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "scopeKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "state": "proposed",
+    "latestAttemptId": null,
+    "validatedAttemptId": null,
+    "approvalAuditId": null,
+    "lastTransitionAuditId": "proposal-audit-1",
+    "updatedAt": "2026-09-01T00:00:00.000Z"
+  },
+  "scope": {
+    "scopeKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "activeVersionId": null,
+    "generation": 0,
+    "lastTransitionAuditId": null
+  },
+  "validations": [],
+  "compatible": true,
+  "qualification": {
+    "suiteId": "commitment-guidance-contract.v1",
+    "suiteHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "learningManifestHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "validationManifestHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "caseIds": [
+      "validate-1"
+    ],
+    "checkIds": [
+      "contract"
+    ],
+    "executionKind": "schema_contract",
+    "modelConfigHash": null
+  }
+}

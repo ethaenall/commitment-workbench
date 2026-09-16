@@ -1,0 +1,60 @@
+{
+  "workflowId": "mail.commitment-handoff.v1",
+  "schemaVersion": 1,
+  "snapshotId": "validate-01",
+  "userAddress": "sam@example.test",
+  "cutoff": "2026-10-09T23:00:00Z",
+  "timezone": "America/Los_Angeles",
+  "coverage": {
+    "scope": "supplied-snapshot",
+    "source": "synthetic-fixture",
+    "omittedMessages": 0,
+    "note": "Authored synthetic correspondence. Not a live mailbox or a complete account export."
+  },
+  "messages": [
+    {
+      "id": "validate-01-m1",
+      "threadId": "validate-01-t1",
+      "subject": "Weekly correspondence",
+      "sender": "sam@example.test",
+      "to": "team@example.test",
+      "timestamp": "2026-10-05T10:00:00Z",
+      "body": "Workshop assignments: I will deliver the venue sheet by 9 October at 18:00 UTC. The guest list belongs to Jo, not me.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "validate-01-m2",
+      "threadId": "validate-01-t1",
+      "subject": "Weekly correspondence",
+      "sender": "jo@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-06T10:00:00Z",
+      "body": "The guest list is complete. That says nothing about the venue sheet, which Sam is still preparing.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "validate-01-m3",
+      "threadId": "validate-01-t1",
+      "subject": "Weekly correspondence",
+      "sender": "sam@example.test",
+      "to": "team@example.test",
+      "timestamp": "2026-10-07T10:00:00Z",
+      "body": "Venue sheet is still in progress; my Friday 18:00 UTC commitment stands.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "validate-01-m4",
+      "threadId": "validate-01-t2",
+      "subject": "Venue sheet",
+      "sender": "news@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-08T10:00:00Z",
+      "body": "Venue sheet templates are now available in the product newsletter.",
+      "truncated": false,
+      "omittedChars": 0
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "workflowId": "mail.commitment-handoff.v1",
+  "schemaVersion": 1,
+  "snapshotId": "learn-04",
+  "userAddress": "sam@example.test",
+  "cutoff": "2026-10-09T23:00:00Z",
+  "timezone": "America/Los_Angeles",
+  "coverage": {
+    "scope": "supplied-snapshot",
+    "source": "synthetic-fixture",
+    "omittedMessages": 0,
+    "note": "Authored synthetic correspondence. Not a live mailbox or a complete account export."
+  },
+  "messages": [
+    {
+      "id": "learn-04-m1",
+      "threadId": "learn-04-t1",
+      "subject": "Repository archive",
+      "sender": "sam@example.test",
+      "to": "team@example.test",
+      "timestamp": "2026-10-05T10:00:00Z",
+      "body": "I will prepare the migration note by 13 October at 14:00 UTC.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "learn-04-m2",
+      "threadId": "learn-04-t2",
+      "subject": "Archive index",
+      "sender": "sam@example.test",
+      "to": "team@example.test",
+      "timestamp": "2026-10-06T10:00:00Z",
+      "body": "Forwarding Devon’s message for our archive:\nFrom: devon@example.test\n> I will send Sam the archive index by 12 October at 11:00 UTC.\nI need that index for our records; the quoted promise is Devon’s.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "learn-04-m3",
+      "threadId": "learn-04-t2",
+      "subject": "Archive index",
+      "sender": "devon@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-07T10:00:00Z",
+      "body": "Yes, the archive index is mine. I will send it to you on 12 October at 11:00 UTC.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "learn-04-m4",
+      "threadId": "learn-04-t1",
+      "subject": "Repository archive",
+      "sender": "sam@example.test",
+      "to": "team@example.test",
+      "timestamp": "2026-10-08T10:00:00Z",
+      "body": "The migration note has been delivered and accepted. I have no remaining work on that note.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "learn-04-m5",
+      "threadId": "learn-04-t1",
+      "subject": "Repository archive",
+      "sender": "archive-receipts@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-09T08:00:00Z",
+      "body": "Receipt 714 records the accepted migration note. The archive index was not part of this receipt.",
+      "truncated": false,
+      "omittedChars": 0
+    }
+  ]
+}

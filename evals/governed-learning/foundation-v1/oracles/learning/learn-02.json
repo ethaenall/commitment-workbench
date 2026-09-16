@@ -1,0 +1,22 @@
+{
+  "caseId": "learn-02",
+  "items": [
+    {
+      "key": "renewal",
+      "titleTerms": [
+        "renewal checklist"
+      ],
+      "owner": "sam@example.test",
+      "state": "closed",
+      "dueAt": null,
+      "changed": false,
+      "evidence": [
+        {
+          "messageId": "learn-02-m3",
+          "quote": "The renewal checklist is cancelled and I have no remaining action on it."
+        }
+      ],
+      "priorEvidence": []
+    }
+  ]
+}

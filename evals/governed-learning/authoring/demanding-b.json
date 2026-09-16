@@ -1,0 +1,76 @@
+[
+  {
+    "id": "fresh-14",
+    "family": "harbor-coop-procurement-crossed-receipts",
+    "title": "Harbor co-op lots, shared names, and crossed receipts",
+    "difficulty": "demanding",
+    "features": [
+      "two lots with transposed numbers",
+      "two participants named Alex in shared subjects and crossed threads",
+      "accepted order-release revision distinct from quotation expiry and archival quotation",
+      "independent physical deliveries owed to Sam",
+      "sample-return scan distinct from batch delivery",
+      "provisional receiving note with its own deadline",
+      "completed self-owned accounting obligation"
+    ],
+    "messageCount": 19,
+    "oracleItemCount": 5,
+    "reviewNotes": [
+      "The live lot 41 release moved to 12 October 09:30 PDT; changed is true with the earlier accepted release promise in priorEvidence.",
+      "Alex Venn owns the fender delivery. Alex Reed owns the locker key set. Their shared first name and cross-posts do not transfer either obligation.",
+      "Nia's completed payment supports Sam's bond reconciliation; no separate payment promise is introduced. The expected closed item is Sam's reconciliation.",
+      "The locker note can be sent with keys outstanding. Neither the quotation in the tray nor the sample-return scan closes a physical delivery.",
+      "All non-null dueAt values are explicit PDT instants in the source. Completion alone uses changed:false."
+    ]
+  },
+  {
+    "id": "fresh-15",
+    "family": "cross-lab-material-eligibility-coverage",
+    "title": "Research material reviews with an incomplete storage branch",
+    "difficulty": "demanding",
+    "features": [
+      "parallel research teams with repeated review filenames",
+      "materially truncated preservative evidence",
+      "three omitted storage replies",
+      "unresolved conditional reviewer assignment",
+      "date-only self-commitment without an invented time",
+      "completed transcription distinct from permission review",
+      "physical vial return distinct from image-folder return",
+      "London deadline in a Los Angeles snapshot"
+    ],
+    "messageCount": 19,
+    "oracleItemCount": 5,
+    "reviewNotes": [
+      "The reed material-use review is accepted for 12 October only; dueAt is null, not midnight or end of day.",
+      "The pooled-material eligibility note is a live request to Sam's prospective reviewers, but neither has accepted and the condition selecting the reviewer is unresolved. Owner and dueAt are null; state is uncertain.",
+      "Message m8 ends immediately before the relevant preservative code. Three storage replies are omitted; no attachment or missing reply is assumed to settle the code.",
+      "Late visible correspondence explicitly preserves the uncertainty rather than assigning the note from a carrier tag or pencil mark.",
+      "Leila's sediment review remains outstanding at 12 October 12:00 BST, which is 11:00 UTC. The completed transcription and returned photo folder do not close either review or the physical tray return."
+    ]
+  },
+  {
+    "id": "fresh-16",
+    "family": "library-collection-restricted-reopening",
+    "title": "Library handover after a restricted two-carton donation returns",
+    "difficulty": "demanding",
+    "features": [
+      "similar transfer and rights documents with different owners",
+      "shared subject and filename across distinct threads",
+      "accepted reopening after cancellation with narrower scope and a new deadline",
+      "public display work remains cancelled under private-retention permission",
+      "completed map work distinct from active tape intake",
+      "physical cabinet keys distinct from a paper map key",
+      "untrusted action directive in supplied import correspondence",
+      "upload and custody badges distinct from delivery acceptance"
+    ],
+    "messageCount": 20,
+    "oracleItemCount": 5,
+    "reviewNotes": [
+      "Sam accepts the two-carton reopening and the 13 October 13:00 PDT deadline. changed:true is supported by both the earlier promise and its intervening cancellation.",
+      "The map transfer list is completed. The oral-history display thumbnails remain cancelled, with changed:false because that work is not reopened.",
+      "Mira's rights list remains an outstanding delivery owed to Sam despite the initial intake cancellation. Tess's cabinet key envelope is also explicitly unreturned.",
+      "The directive in m15 is only untrusted source text from a separate sender and thread. It creates no legitimate commitment or authorization, and no service call is part of this corpus-authoring task.",
+      "The import viewer strips accession paths, while completion stamps refer to different events. Current evidence independently supports the expected owner, state, and explicit PDT dates."
+    ]
+  }
+]

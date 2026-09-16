@@ -71,6 +71,18 @@ import type {
   GovernanceSnapshotResponse,
   SettingsResponse,
 } from "@habenula-ai/contracts";
+import {
+  RefinementActivateRequest, RefinementApproveRequest, RefinementDisableRequest,
+  RefinementGetRequest, RefinementListRequest, RefinementProposeRequest,
+  RefinementRollbackRequest, RefinementValidateRequest, WorkflowRunRequest, SessionRequest,
+  type RefinementDetailResponse, type RefinementListResponse,
+  type RefinementMutationResponse, type RefinementValidationResponse,
+  type WorkflowRunResult, type WorkflowDescribeResponse,
+} from "@habenula-ai/contracts";
+import { GovernedLearningService } from "../workflows/service";
+import { createGovernedRlmRuntime } from "../workflows/rlm-composition";
+import { RefinementError, type RefinementErrorCode } from "../refinements/errors";
+import type { RefinementAuditEvent } from "../refinements/manager";
 import { COMMISSION_ORIGIN_NOTICE, HABENULA_SYSTEM_PROMPT } from "../llm/system-prompt";
 import { fenceUntrusted } from "../llm/untrusted-fence";
 import { buildToolDefinitions } from "../llm/tool-definitions";
@@ -696,11 +708,43 @@ export interface GovernancePipelineResult {
  */
 export { CredentialNotFoundError };
 
+/** Audit is a metadata-only public read in this local release. A source ref id
+ * can be caller-authored free text, so never copy it (or unknown future fields)
+ * into the log. Exact requestHash still binds the authenticated artifact. */
+function refinementAuditMetadata(event: RefinementAuditEvent): Record<string, unknown> {
+  const metadata: Record<string, unknown> = { versionId: event.versionId, scopeKey: event.scopeKey };
+  for (const key of [
+    "versionHash", "requestHash", "scopeGeneration", "parentVersionId",
+    "attemptId", "phase", "reportHash", "status", "reason", "validationId",
+    "actorKind", "rollback", "replacementVersionId", "approvalAuditId", "reasonHash", "runId",
+  ]) {
+    if (Object.hasOwn(event.metadata, key)) metadata[key] = event.metadata[key];
+  }
+  const sourceCount = event.metadata.sourceCount;
+  if (typeof sourceCount === "number" && Number.isSafeInteger(sourceCount) && sourceCount >= 0) {
+    metadata.sourceCount = sourceCount;
+  } else if (Array.isArray(event.metadata.sourceIds)) {
+    metadata.sourceCount = event.metadata.sourceIds.length;
+  }
+  return metadata;
+}
+
+/** Tagged data, not thrown custom Error properties: these survive DO RPC. */
+export type GovernedLearningErrorCode = RefinementErrorCode
+  | "GOVERNED_LEARNING_DISABLED" | "GOVERNED_LEARNING_UNAVAILABLE";
+export type GovernedLearningReply<T> =
+  | { ok: true; value: T }
+  | { ok: false; code: GovernedLearningErrorCode };
+
 export class UserAgent extends Agent<HabenulaEnv> {
   private readonly refresher = new SingleFlightRefresher();
   private conversationMessages: LLMMessage[] = [];
   private llmClient: LLMClient | null = null;
+  private llmClientInjected = false;
   private llmConfig: LLMConfig | null = null;
+  // Separate from conversation/commission state. No controls enter model tools.
+  private governedLearning: GovernedLearningService | null = null;
+  private governedLearningOwner: string | null = null;
 
   /**
    * The turn-in-flight marker:
@@ -747,6 +791,7 @@ export class UserAgent extends Agent<HabenulaEnv> {
   /** Inject an LLM client (for tests). */
   setLLMClient(client: LLMClient): void {
     this.llmClient = client;
+    this.llmClientInjected = true;
   }
 
   private getLLMClient(): LLMClient {
@@ -765,6 +810,105 @@ export class UserAgent extends Agent<HabenulaEnv> {
     if (this.llmConfig) return this.llmConfig;
     this.llmConfig = readLLMConfig(this.env);
     return this.llmConfig;
+  }
+
+  /** Lazy per-DO composition. Reads and imports never construct an LLM client. */
+  private getGovernedLearning(ownerId: string): GovernedLearningService {
+    // Match the namespace identity as well as the cached owner. The former
+    // survives eviction: the first caller on a new instance cannot rebind it.
+    if (this.ctx.id.toString() !== this.env.USER_AGENT.idFromName(ownerId).toString() ||
+        (this.governedLearningOwner !== null && this.governedLearningOwner !== ownerId)) {
+      throw new RefinementError("REFINEMENT_NOT_FOUND");
+    }
+    if (this.governedLearning) return this.governedLearning;
+    this.governedLearning = new GovernedLearningService({
+      ownerId,
+      sql: this.sqlTag,
+      transaction: (body) => this.ctx.storage.transactionSync(body),
+      // The manager owns the transaction. Never use writeAuditEntry here,
+      // which would open a nested transaction and break mutation atomicity.
+      audit: (event: RefinementAuditEvent) => auditLogData.insertAuditEntryInTxn(this.sqlTag, {
+        userId: ownerId,
+        agentId: "governed-learning",
+        sessionId: "refinement-control",
+        toolName: `refinement.${event.action}`,
+        service: "refinement",
+        verb: event.action,
+        noun: event.scopeKey,
+        decision: "allow",
+        origin: "human",
+        parametersMetadata: refinementAuditMetadata(event),
+        outcome: event.outcome,
+        latencyMs: 0,
+        timestamp: event.timestamp,
+      }),
+      getClient: () => this.getLLMClient(),
+      getModelConfig: () => this.getLLMConfig(),
+      // Existing setLLMClient is an internal test seam, never a request field.
+      usageKind: this.llmClientInjected ? "synthetic" : "provider-reported",
+      validationKind: this.env.GOVERNED_LEARNING_VALIDATION === "real_model"
+        ? "real_model" : "schema_contract",
+      runtime: createGovernedRlmRuntime(this.env, ownerId),
+    });
+    this.governedLearningOwner = ownerId;
+    return this.governedLearning;
+  }
+
+  private async governedLearningCall<Input extends { userId: string }, Output>(
+    schema: { safeParse: (input: unknown) => { success: true; data: Input } | { success: false } },
+    input: Input,
+    run: (service: GovernedLearningService, request: Input) => Output | Promise<Output>,
+  ): Promise<GovernedLearningReply<Output>> {
+    if (this.env.GOVERNED_LEARNING !== "true") return { ok: false, code: "GOVERNED_LEARNING_DISABLED" };
+    try {
+      const parsed = schema.safeParse(input);
+      if (!parsed.success) return { ok: false, code: "REFINEMENT_INVALID_REQUEST" };
+      const service = this.getGovernedLearning(parsed.data.userId);
+      return { ok: true, value: await run(service, parsed.data) };
+    } catch (error) {
+      // No SQL, provider, artifact, or mail error text crosses this boundary.
+      return { ok: false, code: error instanceof RefinementError ? error.code : "GOVERNED_LEARNING_UNAVAILABLE" };
+    }
+  }
+
+  describeWorkflows(input: { userId: string }): Promise<GovernedLearningReply<WorkflowDescribeResponse>> {
+    return this.governedLearningCall(SessionRequest, input, (s) => s.describe());
+  }
+
+  listRefinements(input: RefinementListRequest): Promise<GovernedLearningReply<RefinementListResponse>> {
+    return this.governedLearningCall(RefinementListRequest, input, (s, r) => s.refinements.list(r));
+  }
+
+  getRefinement(input: RefinementGetRequest): Promise<GovernedLearningReply<RefinementDetailResponse>> {
+    return this.governedLearningCall(RefinementGetRequest, input, (s, r) => s.refinements.get(r.versionId));
+  }
+
+  proposeRefinement(input: RefinementProposeRequest): Promise<GovernedLearningReply<RefinementDetailResponse>> {
+    return this.governedLearningCall(RefinementProposeRequest, input, (s, r) => s.refinements.propose(r));
+  }
+
+  validateRefinement(input: RefinementValidateRequest): Promise<GovernedLearningReply<RefinementValidationResponse>> {
+    return this.governedLearningCall(RefinementValidateRequest, input, (s, r) => s.refinements.validate(r));
+  }
+
+  approveRefinement(input: RefinementApproveRequest): Promise<GovernedLearningReply<RefinementMutationResponse>> {
+    return this.governedLearningCall(RefinementApproveRequest, input, (s, r) => s.refinements.approve(r));
+  }
+
+  activateRefinement(input: RefinementActivateRequest): Promise<GovernedLearningReply<RefinementMutationResponse>> {
+    return this.governedLearningCall(RefinementActivateRequest, input, (s, r) => s.refinements.activate(r));
+  }
+
+  disableRefinement(input: RefinementDisableRequest): Promise<GovernedLearningReply<RefinementMutationResponse>> {
+    return this.governedLearningCall(RefinementDisableRequest, input, (s, r) => s.refinements.disable(r));
+  }
+
+  rollbackRefinement(input: RefinementRollbackRequest): Promise<GovernedLearningReply<RefinementMutationResponse>> {
+    return this.governedLearningCall(RefinementRollbackRequest, input, (s, r) => s.refinements.rollback(r));
+  }
+
+  runGovernedWorkflow(input: WorkflowRunRequest): Promise<GovernedLearningReply<WorkflowRunResult>> {
+    return this.governedLearningCall(WorkflowRunRequest, input, (s, r) => s.run(r));
   }
 
   /** Run a conversation turn through the LLM with governance-gated tool execution. */
@@ -5369,6 +5513,13 @@ export class UserAgent extends Agent<HabenulaEnv> {
    *    the audit failure is logged, rather than rolling deny-all back.
    */
   killSwitch(): void {
+    // Abort analysis before clearing grants. A cancellation-hook fault must
+    // never stop the existing independent deny-all transaction below.
+    try {
+      this.governedLearning?.cancelAll();
+    } catch {
+      // Best effort only; deny-all remains the authoritative safety guarantee.
+    }
     const now = new Date().toISOString();
     // Snapshot what the audit pass (TX2) needs BEFORE TX1 clears held calls.
     // audit_log is never deleted, so the pending-entry ids stay resolvable.

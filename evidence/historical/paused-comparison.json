@@ -1,0 +1,184 @@
+{
+  "schemaVersion": 1,
+  "cohort": "comparison-01",
+  "state": "PAUSED_AFTER_FOUR_ATTEMPTS",
+  "planned": 12,
+  "attempted": 4,
+  "notRun": 8,
+  "rows": [
+    {
+      "id": "01-fresh-05-original",
+      "caseId": "fresh-05",
+      "arm": "original",
+      "difficulty": "routine",
+      "status": "invalid_output",
+      "elapsedMs": 287427.463959,
+      "score": null,
+      "validation": null,
+      "error": null,
+      "rlmExecutionEvidence": null,
+      "stopBenchmark": false
+    },
+    {
+      "id": "02-fresh-05-baseline",
+      "caseId": "fresh-05",
+      "arm": "baseline",
+      "difficulty": "routine",
+      "status": "complete",
+      "elapsedMs": 272569.155125,
+      "score": {
+        "caseId": "fresh-05",
+        "inputHash": "c33829ac769b17b53d1d58824b92a9d71e26fbda67012f39ef871ae366272df3",
+        "outputHash": "8a1e600611f3817a3cc7871676ab75bfc0b50a6bb131fb081eae2c0641e47ca0",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": false,
+        "contractValid": true,
+        "expectedItems": 2,
+        "matchedItems": 2,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": false
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [
+          {
+            "itemKey": "packet",
+            "field": "evidence",
+            "reason": "Does not satisfy the pre-authored fixture oracle"
+          }
+        ],
+        "error": null
+      },
+      "validation": {
+        "level": "contract-only",
+        "valid": true,
+        "semanticVerified": false,
+        "issues": []
+      },
+      "error": null,
+      "rlmExecutionEvidence": null,
+      "stopBenchmark": false
+    },
+    {
+      "id": "03-fresh-05-rlm",
+      "caseId": "fresh-05",
+      "arm": "rlm",
+      "difficulty": "routine",
+      "status": "error",
+      "elapsedMs": 159413.208209,
+      "score": null,
+      "validation": null,
+      "error": null,
+      "rlmExecutionEvidence": false,
+      "stopBenchmark": false
+    },
+    {
+      "id": "04-fresh-11-baseline",
+      "caseId": "fresh-11",
+      "arm": "baseline",
+      "difficulty": "demanding",
+      "status": "cancelled",
+      "elapsedMs": 300317.64708300005,
+      "score": null,
+      "validation": null,
+      "error": null,
+      "stopBenchmark": false
+    },
+    {
+      "id": "05-fresh-11-rlm",
+      "caseId": "fresh-11",
+      "arm": "rlm",
+      "difficulty": "demanding",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "06-fresh-11-original",
+      "caseId": "fresh-11",
+      "arm": "original",
+      "difficulty": "demanding",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "07-fresh-06-original",
+      "caseId": "fresh-06",
+      "arm": "original",
+      "difficulty": "routine",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "08-fresh-06-rlm",
+      "caseId": "fresh-06",
+      "arm": "rlm",
+      "difficulty": "routine",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "09-fresh-06-baseline",
+      "caseId": "fresh-06",
+      "arm": "baseline",
+      "difficulty": "routine",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "10-fresh-12-rlm",
+      "caseId": "fresh-12",
+      "arm": "rlm",
+      "difficulty": "demanding",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "11-fresh-12-baseline",
+      "caseId": "fresh-12",
+      "arm": "baseline",
+      "difficulty": "demanding",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "12-fresh-12-original",
+      "caseId": "fresh-12",
+      "arm": "original",
+      "difficulty": "demanding",
+      "status": "NOT_RUN"
+    }
+  ],
+  "notPooledWithNewCohort": true,
+  "noReplay": true,
+  "assurance": "synthetic-oracle",
+  "semanticVerified": false,
+  "privacyProjection": {
+    "observedUsage": "withheld-not-zero",
+    "providerIdentity": "withheld",
+    "personalDevelopmentRecords": "not-distributed",
+    "outcomesAndScores": "unchanged"
+  }
+}

@@ -1,0 +1,225 @@
+{
+  "workflowId": "mail.commitment-handoff.v1",
+  "schemaVersion": 1,
+  "snapshotId": "fresh-14",
+  "userAddress": "sam@example.test",
+  "cutoff": "2026-10-09T23:00:00Z",
+  "timezone": "America/Los_Angeles",
+  "coverage": {
+    "scope": "supplied-snapshot",
+    "source": "synthetic-fixture",
+    "omittedMessages": 0,
+    "note": "Authored synthetic correspondence. Not a live mailbox or a complete account export."
+  },
+  "messages": [
+    {
+      "id": "fresh-14-m1",
+      "threadId": "fresh-14-t1",
+      "subject": "October co-op receipts",
+      "sender": "mia@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-05T16:05:00Z",
+      "body": "The harbor co-op has two numbers in circulation: lot 41 is the fenders from Breakwater Supply; lot 14 is the locker cabinet already on the loading apron. The cabinet invoice includes keys, but those keys were packed separately. The fender samples came against a refundable $72 bond, not the purchase price.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-14-m2",
+      "threadId": "fresh-14-t1",
+      "subject": "October co-op receipts",
+      "sender": "sam@example.test",
+      "to": "mia@example.test",
+      "timestamp": "2026-10-05T16:35:00Z",
+      "body": "I will send the signed fender order release for lot 41 by 9 October 2026 at 14:00 America/Los_Angeles (PDT, UTC-07:00). The release authorizes the full batch of 24; the two sample fenders are not an installment of that batch.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-14-m3",
+      "threadId": "fresh-14-t2",
+      "subject": "October co-op receipts",
+      "sender": "alex.venn@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-05T17:10:00Z",
+      "body": "For Breakwater Supply, I will deliver the 24-fender batch for lot 41 to you at the south shed by 13 October 2026 at 11:00 America/Los_Angeles (PDT, UTC-07:00). We have the stock reserved. Alex",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-14-m4",
+      "threadId": "fresh-14-t2",
+      "subject": "October co-op receipts",
+      "sender": "alex.reed@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-05T18:15:00Z",
+      "body": "I will bring the locker key set for lot 14 to you at the co-op desk by 9 October 2026 at 16:30 America/Los_Angeles (PDT, UTC-07:00). The cabinet is already here; the set is still at the inland store. Alex",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-14-m5",
+      "threadId": "fresh-14-t3",
+      "subject": "Locker receiving note",
+      "sender": "sam@example.test",
+      "to": "mia@example.test",
+      "timestamp": "2026-10-06T16:10:00Z",
+      "body": "I will send the locker receiving note to Mia by 9 October 2026 at 15:15 America/Los_Angeles (PDT, UTC-07:00). It will record the cabinet as received with keys outstanding. This is a provisional receiving note, not a claim that the entire locker invoice has been fulfilled.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-14-m6",
+      "threadId": "fresh-14-t4",
+      "subject": "Sample bond credit",
+      "sender": "sam@example.test",
+      "to": "mia@example.test",
+      "timestamp": "2026-10-06T16:45:00Z",
+      "body": "The two fender samples are back with Breakwater, undamaged. I will finish the fender sample bond reconciliation in our ledger by 9 October 2026 at 15:45 America/Los_Angeles (PDT, UTC-07:00). It is the $72 refundable bond, separate from the lot 41 purchase balance.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-14-m7",
+      "threadId": "fresh-14-t1",
+      "subject": "October co-op receipts",
+      "sender": "alex.venn@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-06T17:20:00Z",
+      "body": "The new price quotation replaces 150 mm fenders with 180 mm ones at the same unit cost. Its printed \"valid until 14 October 2026, 17:00 PDT\" is the offer expiry. The warehouse allocation is 24 of the larger size; neither the sample bond nor the locker cabinet appears on this quotation.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-14-m8",
+      "threadId": "fresh-14-t1",
+      "subject": "October co-op receipts",
+      "sender": "mia@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-06T19:00:00Z",
+      "body": "The larger diameter clears the piling, but our spending cap still shows the earlier size. Could you defer the fender order release to 12 October 2026 at 09:30 America/Los_Angeles (PDT, UTC-07:00)? The revised cap is posted Monday morning. A later truck would conflict with the berth reopening.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-14-m9",
+      "threadId": "fresh-14-t2",
+      "subject": "October co-op receipts",
+      "sender": "alex.venn@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-07T15:50:00Z",
+      "body": "Mia, the reservation covers a Monday-morning release without losing the Tuesday truck. The co-op key run is not on our vehicle; I only have lot 41 in the route book. The south shed can take the larger diameter through its existing door.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-14-m10",
+      "threadId": "fresh-14-t1",
+      "subject": "October co-op receipts",
+      "sender": "alex.reed@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-07T16:20:00Z",
+      "body": "Your reply about a truck reached me rather than the supplier. I am Alex Reed, the co-op storekeeper; Alex Venn is at Breakwater. My van carries the lot 14 keys. The paper in the desk tray is his price quotation, although the desk log calls it \"Alex delivery\".",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-14-m11",
+      "threadId": "fresh-14-t1",
+      "subject": "October co-op receipts",
+      "sender": "sam@example.test",
+      "to": "mia@example.test",
+      "timestamp": "2026-10-07T18:05:00Z",
+      "body": "Agreed on the cap timing. I will now send the signed fender order release for lot 41 by 12 October 2026 at 09:30 America/Los_Angeles (PDT, UTC-07:00), replacing my 9 October deadline. I have not released it yet; the larger-size line is ready for the Monday cap.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-14-m12",
+      "threadId": "fresh-14-t4",
+      "subject": "Sample bond credit",
+      "sender": "nia@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-08T17:00:00Z",
+      "body": "I have paid the $72 fender sample bond reimbursement in full to the co-op account. The bank receipt is B-204 and this refund is complete. It is not a credit against the 24-fender order.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-14-m13",
+      "threadId": "fresh-14-t2",
+      "subject": "October co-op receipts",
+      "sender": "mia@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-08T18:10:00Z",
+      "body": "The desk log now has both \"Alex delivery\" and a carrier scan reading \"delivered, 2 pieces\". The cabinet count is one, not two. The scan is addressed to Breakwater rather than our shed, so I cannot use either line as a receipt for the 24-fender batch.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-14-m14",
+      "threadId": "fresh-14-t1",
+      "subject": "October co-op receipts",
+      "sender": "mia@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-08T19:25:00Z",
+      "body": "The bond audit folder contains the first release email and the new quotation. The email printout says:\n> Sam, 5 October: I will send the signed fender order release for lot 41 by 9 October 2026 at 14:00 America/Los_Angeles (PDT, UTC-07:00).\nThe quotation beside it expires on 14 October at 17:00 PDT. Both are retained because the bond calculation predates the size substitution.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-14-m15",
+      "threadId": "fresh-14-t2",
+      "subject": "October co-op receipts",
+      "sender": "alex.venn@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-09T18:35:00Z",
+      "body": "That two-piece carrier scan is the return of the samples to Breakwater, not our outbound shipment. The 24-fender batch is still in my warehouse and has not been delivered. The Monday release slot Sam accepted fits my reserved truck.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-14-m16",
+      "threadId": "fresh-14-t2",
+      "subject": "October co-op receipts",
+      "sender": "alex.reed@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-09T20:20:00Z",
+      "body": "The locker key set is now in my van but has not reached the co-op desk. The inland-store stop is over; the ferry queue is the remaining part of my run. The quotation in the tray was the only thing I left there yesterday.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-14-m17",
+      "threadId": "fresh-14-t3",
+      "subject": "Locker receiving note",
+      "sender": "sam@example.test",
+      "to": "mia@example.test",
+      "timestamp": "2026-10-09T22:05:00Z",
+      "body": "The cabinet weigh ticket arrived at 14:55 PDT and its serial matches lot 14. My locker receiving note is still unsent. The missing-key entry is in the note, so Alex Reed's later key run does not prevent me from sending it at the time I promised.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-14-m18",
+      "threadId": "fresh-14-t4",
+      "subject": "Sample bond credit",
+      "sender": "sam@example.test",
+      "to": "mia@example.test",
+      "timestamp": "2026-10-09T22:35:00Z",
+      "body": "The co-op bank shows Nia's $72 as settled, with B-204 in the reference field. I have completed the fender sample bond reconciliation and posted the matching ledger entry; nothing remains on that reconciliation. The separate lot 41 purchase balance remains untouched; this posting does not release the order.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-14-m19",
+      "threadId": "fresh-14-t2",
+      "subject": "October co-op receipts",
+      "sender": "harbor.office@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-09T22:50:00Z",
+      "body": "The storm notice closes the floating berth through 12 October, not the south shed or its road gate. The posted sign saying \"No deliveries Monday\" is mounted on the berth ramp. Storehouse access for the co-op remains available from the road.",
+      "truncated": false,
+      "omittedChars": 0
+    }
+  ]
+}

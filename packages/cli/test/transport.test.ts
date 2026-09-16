@@ -1,9 +1,9 @@
-import { afterEach, describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { createServer, type IncomingMessage, type Server, type ServerResponse } from "node:http";
 import type { AddressInfo } from "node:net";
 import { CHAT_DEADLINE_MS } from "../src/api-client";
 import { classifyPort } from "../src/engine/probe";
-import { nodeFetch } from "../src/transport";
+import { nodeFetch, ResponseSizeError } from "../src/transport";
 
 /**
  * These tests drive the production transport against a real `node:http`
@@ -173,5 +173,78 @@ describe("nodeFetch", () => {
     // and deadline were aligned to remove). If the ceiling moves, both the
     // deadline and this number move with it.
     expect(CHAT_DEADLINE_MS).toBeGreaterThan(600_000);
+  });
+});
+
+
+describe("request-local response byte caps", () => {
+  it("accepts exactly the byte cap across chunk boundaries", async () => {
+    const base = await serve((_req, _body, res) => {
+      res.writeHead(200, { "content-type": "text/plain" });
+      res.write(Buffer.from([0xc3]));
+      setImmediate(() => { res.write(Buffer.from([0xa9, 0x21])); res.end(); });
+    });
+    expect(await (await nodeFetch(base, { maxResponseBytes: 3 })).text()).toBe("é!");
+  });
+
+  it("counts chunked bytes before concatenating and closes an oversized response", async () => {
+    let close!: () => void;
+    const closed = new Promise<void>((resolve) => { close = resolve; });
+    const base = await serve((_req, _body, res) => {
+      res.once("close", close);
+      res.writeHead(200, { "transfer-encoding": "chunked" });
+      res.write("abcd");
+      setImmediate(() => res.write("efghi")); // Do not end: the client must destroy this stream.
+    });
+    const controller = new AbortController();
+    const removed = vi.spyOn(controller.signal, "removeEventListener");
+    await expect(nodeFetch(base, { maxResponseBytes: 8, signal: controller.signal })).rejects.toBeInstanceOf(ResponseSizeError);
+    await closed;
+    expect(removed).toHaveBeenCalledWith("abort", expect.any(Function));
+  });
+
+  it("does not trust a lying Content-Length header or an error status", async () => {
+    const base = await serve((_req, _body, res) => {
+      res.writeHead(503, { "content-length": "999999999" });
+      res.write("012345678");
+    });
+    await expect(nodeFetch(base, { maxResponseBytes: 8 })).rejects.toThrow("Response exceeds the configured byte limit.");
+  });
+
+  it.each([0, -1, 1.5, NaN, Infinity, Number.MAX_SAFE_INTEGER + 1])(
+    "rejects invalid maxResponseBytes %s before dialing", async (maxResponseBytes) => {
+      let requests = 0;
+      const base = await serve((_req, _body, res) => { requests++; res.end("ok"); });
+      await expect(nodeFetch(base, { maxResponseBytes })).rejects.toThrow("positive safe integer");
+      expect(requests).toBe(0);
+    },
+  );
+
+  it("keeps uncapped ordinary requests and raw bytes unchanged", async () => {
+    const bytes = Buffer.from([0xff, ...Buffer.from("more than eight bytes")]);
+    const base = await serve((_req, _body, res) => { res.write(bytes); res.end(); });
+    const res = await nodeFetch(base);
+    expect(Buffer.from(await res.arrayBuffer())).toEqual(bytes);
+  });
+
+  it("aborts a hung partial bounded body with the original reason and removes the signal listener", async () => {
+    let started!: () => void;
+    let closed!: () => void;
+    const start = new Promise<void>((resolve) => { started = resolve; });
+    const close = new Promise<void>((resolve) => { closed = resolve; });
+    const base = await serve((_req, _body, res) => {
+      res.once("close", closed);
+      res.writeHead(200); res.write("partial"); started();
+    });
+    const controller = new AbortController();
+    const removed = vi.spyOn(controller.signal, "removeEventListener");
+    const reason = new Error("fixture cancellation");
+    const pending = nodeFetch(base, { maxResponseBytes: 32, signal: controller.signal });
+    const assertion = expect(pending).rejects.toBe(reason);
+    await start;
+    controller.abort(reason);
+    await assertion;
+    await close;
+    expect(removed).toHaveBeenCalledWith("abort", expect.any(Function));
   });
 });

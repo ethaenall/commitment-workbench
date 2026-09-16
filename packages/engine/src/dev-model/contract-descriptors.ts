@@ -63,6 +63,21 @@ import {
   SettingsResponse,
   SettingsUpdateRequest,
   UserIdQuery,
+  RefinementActivateRequest,
+  RefinementApproveRequest,
+  RefinementDetailResponse,
+  RefinementDisableRequest,
+  RefinementGetRequest,
+  RefinementListRequest,
+  RefinementListResponse,
+  RefinementMutationResponse,
+  RefinementProposeRequest,
+  RefinementRollbackRequest,
+  RefinementValidateRequest,
+  RefinementValidationResponse,
+  WorkflowDescribeResponse,
+  WorkflowRunRequest,
+  WorkflowRunResult,
 } from "@habenula-ai/contracts";
 import type { ContractDescriptorsResponse as DescriptorsShape } from "@habenula-ai/contracts";
 
@@ -77,6 +92,16 @@ interface RouteContract {
 }
 
 const ROUTE_CONTRACTS: RouteContract[] = [
+  { route: "/api/refinements", method: "GET", query: RefinementListRequest, request: null, response: RefinementListResponse },
+  { route: "/api/refinements/get", method: "GET", query: RefinementGetRequest, request: null, response: RefinementDetailResponse },
+  { route: "/api/refinements/propose", method: "POST", query: null, request: RefinementProposeRequest, response: RefinementDetailResponse },
+  { route: "/api/refinements/validate", method: "POST", query: null, request: RefinementValidateRequest, response: RefinementValidationResponse },
+  { route: "/api/refinements/approve", method: "POST", query: null, request: RefinementApproveRequest, response: RefinementMutationResponse },
+  { route: "/api/refinements/activate", method: "POST", query: null, request: RefinementActivateRequest, response: RefinementMutationResponse },
+  { route: "/api/refinements/disable", method: "POST", query: null, request: RefinementDisableRequest, response: RefinementMutationResponse },
+  { route: "/api/refinements/rollback", method: "POST", query: null, request: RefinementRollbackRequest, response: RefinementMutationResponse },
+  { route: "/api/workflows", method: "GET", query: UserIdQuery, request: null, response: WorkflowDescribeResponse },
+  { route: "/api/workflows/run", method: "POST", query: null, request: WorkflowRunRequest, response: WorkflowRunResult },
   { route: "/api/chat", method: "POST", query: null, request: ChatRequest, response: ChatResponse },
   { route: "/api/resolve", method: "POST", query: null, request: ResolveRequest, response: ResolveResponse },
   { route: "/api/tools/execute", method: "POST", query: null, request: ToolExecuteRequest, response: ExecuteToolResponse },

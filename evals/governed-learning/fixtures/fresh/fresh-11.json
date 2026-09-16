@@ -1,0 +1,225 @@
+{
+  "workflowId": "mail.commitment-handoff.v1",
+  "schemaVersion": 1,
+  "snapshotId": "fresh-11",
+  "userAddress": "sam@example.test",
+  "cutoff": "2026-10-09T23:00:00Z",
+  "timezone": "America/Los_Angeles",
+  "coverage": {
+    "scope": "supplied-snapshot",
+    "source": "synthetic-fixture",
+    "omittedMessages": 0,
+    "note": "Authored synthetic correspondence. Not a live mailbox or a complete account export."
+  },
+  "messages": [
+    {
+      "id": "fresh-11-m1",
+      "threadId": "fresh-11-t1",
+      "subject": "Cedar pump station — clearance.pdf",
+      "sender": "sam@example.test",
+      "to": "alex.rivera@alder-city.example.test",
+      "timestamp": "2026-10-05T15:00:00Z",
+      "body": "For Alder’s Cedar pump station at 18 Cedar Lane, I own the Alder clearance filing. I will submit clearance.pdf by 9 October 2026 at 10:30 PDT (America/Los_Angeles, UTC−07:00). The cover uses parcel A-18; the pump-room photograph is already in the file.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-11-m2",
+      "threadId": "fresh-11-t2",
+      "subject": "Cedar pump station — clearance.pdf",
+      "sender": "Alex Rivera <alex.rivera@birch-city.example.test>",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-05T15:20:00Z",
+      "body": "I am preparing the Birch clearance filing for Cedar pump station, 81 Hill Road, parcel B-81. I will submit clearance.pdf to you and the permit portal by 9 October 2026 at 14:00 PDT (America/Los_Angeles, UTC−07:00). The upload account is mine, not Sam’s. — Alex Rivera, Birch",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-11-m3",
+      "threadId": "fresh-11-t1",
+      "subject": "Cedar pump station — clearance.pdf",
+      "sender": "Alex Rivera <alex.rivera@alder-city.example.test>",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-05T16:00:00Z",
+      "body": "The directory renders both me and the Birch inspector as Alex Rivera. A-18 is my Alder site; B-81 belongs to the other Alex. Both stations are called Cedar pump station, and the portal insists on the filename clearance.pdf for each. The cover parcel is the useful distinction on a downloaded copy.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-11-m4",
+      "threadId": "fresh-11-t3",
+      "subject": "Cedar pump station — pressure.csv",
+      "sender": "Alex Rivera <alex.rivera@alder-city.example.test>",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-05T16:30:00Z",
+      "body": "I own the Alder pressure upload and will put pressure.csv into the A-18 portal for you on 9 October 2026. That is the day entered on the permit, with no appointment time. You need this attachment before your clearance filing can pass. These are the tankhouse readings, not the Hill Road readings. — Alex Rivera, Alder",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-11-m5",
+      "threadId": "fresh-11-t4",
+      "subject": "Cedar pump station — pressure.csv",
+      "sender": "sam@example.test",
+      "to": "alex.rivera@birch-city.example.test",
+      "timestamp": "2026-10-05T17:00:00Z",
+      "body": "I will complete the Birch pressure upload by 8 October 2026 at 11:00 PDT (America/Los_Angeles, UTC−07:00), using pressure.csv under B-81. This is the Hill Road trace from the portable gauge, not Alder’s fixed sensor.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-11-m6",
+      "threadId": "fresh-11-t5",
+      "subject": "Shared valve on the district line",
+      "sender": "Permit Records <permits@district.example.test>",
+      "to": "sam@example.test, alex.rivera@alder-city.example.test, alex.rivera@birch-city.example.test",
+      "timestamp": "2026-10-06T15:00:00Z",
+      "body": "Sam, your two station permits require one boundary witness statement for the valve on the municipal line. Its signature box says Alex Rivera without a town or email address. The permit packet does not assign the signer more precisely or give a delivery date. The valve cannot be signed off using two unsigned station covers instead.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-11-m7",
+      "threadId": "fresh-11-t1",
+      "subject": "Cedar pump station — clearance.pdf",
+      "sender": "Alex Rivera <alex.rivera@alder-city.example.test>",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-06T16:00:00Z",
+      "body": "Alder’s inspection vehicle is out of service on Friday. Can you move the Alder clearance filing to 12 October 2026 at 08:15 PDT (America/Los_Angeles, UTC−07:00)? That would put clearance.pdf in A-18 before the replacement vehicle reaches Cedar Lane.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-11-m8",
+      "threadId": "fresh-11-t2",
+      "subject": "Cedar pump station — clearance.pdf",
+      "sender": "Alex Rivera <alex.rivera@birch-city.example.test>",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-06T16:25:00Z",
+      "body": "The other Alex copied me on the vehicle note:\n> Can you move the Alder clearance filing to 12 October 2026 at 08:15 PDT (America/Los_Angeles, UTC−07:00)?\nCould I use that slot for my Birch clearance filing too? Our Hill Road inspection still appears on Friday’s route. I have asked the Birch permit desk; there is no revised appointment on my account.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-11-m9",
+      "threadId": "fresh-11-t1",
+      "subject": "Cedar pump station — clearance.pdf",
+      "sender": "sam@example.test",
+      "to": "alex.rivera@alder-city.example.test",
+      "timestamp": "2026-10-06T17:00:00Z",
+      "body": "Yes, I accept the new Alder slot. I will submit the Alder clearance filing on 12 October 2026 at 08:15 PDT (America/Los_Angeles, UTC−07:00), replacing my 9 October 10:30 PDT deadline. The submission will carry parcel A-18.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-11-m10",
+      "threadId": "fresh-11-t3",
+      "subject": "Cedar pump station — pressure.csv",
+      "sender": "Alex Rivera <alex.rivera@alder-city.example.test>",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-07T15:00:00Z",
+      "body": "The Alder sensor run is complete and the pressure values pass the tolerance check. The A-18 upload page rejects the session token, so pressure.csv is still only on my laptop. A completed measurement is all I can report so far.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-11-m11",
+      "threadId": "fresh-11-t2",
+      "subject": "Cedar pump station — clearance.pdf",
+      "sender": "Birch Permit Desk <desk@birch-city.example.test>",
+      "to": "sam@example.test, alex.rivera@birch-city.example.test",
+      "timestamp": "2026-10-07T16:00:00Z",
+      "body": "The request for Monday is with the route supervisor; no replacement slot has been issued for B-81. Birch’s clearance filing still has the accepted deadline of 9 October 2026 at 14:00 PDT (America/Los_Angeles, UTC−07:00). The Friday route is full, so an unfiled cover would affect this inspection rather than Alder’s.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-11-m12",
+      "threadId": "fresh-11-t5",
+      "subject": "Shared valve on the district line",
+      "sender": "Alex Rivera <alex.rivera@alder-city.example.test>",
+      "to": "sam@example.test, permits@district.example.test",
+      "timestamp": "2026-10-07T17:00:00Z",
+      "body": "My authority covers the Alder tankhouse, not the shared valve. I have not accepted the boundary witness statement. The box bearing my display name may have come from the combined directory; it cannot serve as my agreement to sign for both towns.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-11-m13",
+      "threadId": "fresh-11-t4",
+      "subject": "Cedar pump station — pressure.csv",
+      "sender": "sam@example.test",
+      "to": "alex.rivera@birch-city.example.test",
+      "timestamp": "2026-10-08T17:45:00Z",
+      "body": "I have delivered the Birch pressure upload: pressure.csv is now in B-81, receipt BP-447. The uploaded trace includes the Hill Road gauge serial number and all sixty readings.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-11-m14",
+      "threadId": "fresh-11-t4",
+      "subject": "Cedar pump station — pressure.csv",
+      "sender": "Birch Permit Desk <desk@birch-city.example.test>",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-08T18:00:00Z",
+      "body": "Receipt BP-447 accepted pressure.csv for Birch, parcel B-81. All rows imported successfully. The clearance.pdf attachment slot in that same permit is empty.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-11-m15",
+      "threadId": "fresh-11-t3",
+      "subject": "Cedar pump station — pressure.csv",
+      "sender": "Alex Rivera <alex.rivera@alder-city.example.test>",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-08T18:30:00Z",
+      "body": "The shared mailbox search returned this under pressure.csv:\n> Receipt BP-447 accepted pressure.csv for Birch, parcel B-81.\nMy screen hides the parcel column, so at first this looked like the receipt for my upload. Did the desk merge the permit attachments, or is this only Hill Road?",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-11-m16",
+      "threadId": "fresh-11-t3",
+      "subject": "Cedar pump station — pressure.csv",
+      "sender": "Alex Rivera <alex.rivera@alder-city.example.test>",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-08T19:00:00Z",
+      "body": "I opened BP-447: it is Sam’s Birch trace, not mine. My Alder pressure upload has not reached A-18; pressure.csv remains local while the portal token is rejected. The permit accounts have not been merged.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-11-m17",
+      "threadId": "fresh-11-t2",
+      "subject": "Cedar pump station — clearance.pdf",
+      "sender": "Alex Rivera <alex.rivera@birch-city.example.test>",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-09T16:00:00Z",
+      "body": "The Birch clearance filing is still in my draft folder. Its second page had Alder’s parcel A-18 from the reused template; I have corrected that to B-81, but the seal is not applied and I have not submitted it. My Monday request still has no response from the route supervisor.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-11-m18",
+      "threadId": "fresh-11-t1",
+      "subject": "Cedar pump station — clearance.pdf",
+      "sender": "sam@example.test",
+      "to": "alex.rivera@alder-city.example.test",
+      "timestamp": "2026-10-09T17:00:00Z",
+      "body": "I have replaced the vehicle photograph inside the Alder clearance filing. The cover and photograph are together now, but I have not submitted clearance.pdf to A-18. The Monday vehicle registration is printed correctly in this version.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-11-m19",
+      "threadId": "fresh-11-t5",
+      "subject": "Shared valve on the district line",
+      "sender": "Alex Rivera <alex.rivera@birch-city.example.test>",
+      "to": "sam@example.test, permits@district.example.test",
+      "timestamp": "2026-10-09T20:00:00Z",
+      "body": "I have not accepted the boundary witness statement either. Birch legal says the Alder permit holder may need to sign, while Alder operations has pointed back to Birch. The district has not named an authorized signer or set a date; the statement remains unsigned.",
+      "truncated": false,
+      "omittedChars": 0
+    }
+  ]
+}

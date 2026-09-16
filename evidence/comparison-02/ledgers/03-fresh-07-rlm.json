@@ -1,0 +1,78 @@
+{
+  "workflowId": "mail.commitment-handoff.v1",
+  "snapshotId": "fresh-07",
+  "snapshotHash": "fc46927a474da159107af487eaed4b1beac7fa75807e943ba6ff82a16ecc0268",
+  "items": [
+    {
+      "itemId": "regional-score-csv",
+      "title": "regional score CSV",
+      "owner": "sam@example.test",
+      "state": "closed",
+      "dueAt": null,
+      "changed": false,
+      "evidence": [
+        {
+          "messageId": "fresh-07-m1",
+          "bodyHash": "cc305a813b7d689e6197e1a4b3ce3096ff5142dc21430834311c3ed6cbb5b295",
+          "start": 0,
+          "end": 64,
+          "quote": "I will publish the regional score CSV by 9 October at 12:00 UTC."
+        },
+        {
+          "messageId": "fresh-07-m3",
+          "bodyHash": "4f1bd0d96d5c642ce18c507d2c91d246319d7adad246ca5c379473778fc9bbc6",
+          "start": 0,
+          "end": 91,
+          "quote": "The regional score CSV is published and has been accepted. My work on that CSV is finished."
+        }
+      ],
+      "priorEvidence": [],
+      "uncertainty": "Close-out is only sam@example.test's own statement in this snapshot, not a tournament-desk confirmation. fresh-07-m2 asked to keep player aliases in this CSV; the close-out text does not say whether aliases were included. Original body due '9 October at 12:00 UTC' (year not in body; timestamps are 2026) is omitted from dueAt because the item is closed.",
+      "nextAction": "No further delivery on this CSV in-snapshot; treat as closed unless a later message outside this snapshot reopens it.",
+      "replyText": null
+    },
+    {
+      "itemId": "venue-overlay",
+      "title": "venue overlay",
+      "owner": "sam@example.test",
+      "state": "due",
+      "dueAt": "2026-10-12T19:00:00Z",
+      "changed": false,
+      "evidence": [
+        {
+          "messageId": "fresh-07-m1",
+          "bodyHash": "cc305a813b7d689e6197e1a4b3ce3096ff5142dc21430834311c3ed6cbb5b295",
+          "start": 65,
+          "end": 130,
+          "quote": "I will also deliver the venue overlay by 12 October at 19:00 UTC."
+        },
+        {
+          "messageId": "fresh-07-m5",
+          "bodyHash": "f8779fecfbeea0d426a620d23ae685ed325c7447f51b5bc55234f6d3cbea0db1",
+          "start": 0,
+          "end": 105,
+          "quote": "The venue overlay remains mine and is not yet delivered. The 12 October, 19:00 UTC delivery still stands."
+        }
+      ],
+      "priorEvidence": [],
+      "uncertainty": "Calendar year is not in the body phrase '12 October, 19:00 UTC'; 2026 is taken from message timestamps, not from that phrase. changed is false because m5 restates the original instant rather than revising owner, date, or scope. fresh-07-m2 asked for entrance labels and two separate files; sam@example.test never accepted or refused those terms in this snapshot.",
+      "nextAction": "User still owes the undelivered venue overlay by 2026-10-12T19:00:00Z. Unresolved: whether entrance labels and a separate-file upload from fresh-07-m2 apply.",
+      "replyText": null
+    }
+  ],
+  "coverage": {
+    "scope": "supplied-snapshot",
+    "omittedMessages": 0,
+    "truncatedMessageIds": [],
+    "limitations": [
+      "Coverage is the supplied snapshot only; this is not a complete mailbox search or live account export.",
+      "Declared snapshot coverage: source synthetic-fixture; authored synthetic correspondence; omittedMessages 0.",
+      "Five message bodies are fully indexed (fresh-07-m1 through fresh-07-m5); sourceIndex lineIndexComplete is true and each omittedLineCount is 0; findings mark truncated false.",
+      "Findings declare cutoff 2026-10-09T23:00:00Z and userAddress sam@example.test; nothing after that cutoff is in this snapshot.",
+      "fresh-07-m4 (subject Score CSV bulletin) states the commercial score CSV is not the regional tournament export and that no upload is requested; it is excluded as an unrelated broadcast.",
+      "fresh-07-m2 content requirements are not a separate ledger row; they are unresolved dependencies noted on the two user deliverables.",
+      "A structurally valid citation is not proof the claim is true; CSV acceptance is user-reported only.",
+      "Ledger is bounded to material user commitments in these five messages; identifiers and hashes are copied from the snapshot, not from a mailbox crawl."
+    ]
+  }
+}

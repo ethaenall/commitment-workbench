@@ -1,0 +1,44 @@
+{
+  "caseId": "fresh-07",
+  "items": [
+    {
+      "key": "scores",
+      "titleTerms": [
+        "regional score csv",
+        "regional scores"
+      ],
+      "owner": "sam@example.test",
+      "state": "closed",
+      "dueAt": null,
+      "changed": false,
+      "evidence": [
+        {
+          "messageId": "fresh-07-m3",
+          "quote": "The regional score CSV is published and has been accepted. My work on that CSV is finished."
+        }
+      ],
+      "priorEvidence": []
+    },
+    {
+      "key": "overlay",
+      "titleTerms": [
+        "venue overlay"
+      ],
+      "owner": "sam@example.test",
+      "state": "due",
+      "dueAt": "2026-10-12T19:00:00Z",
+      "changed": false,
+      "evidence": [
+        {
+          "messageId": "fresh-07-m1",
+          "quote": "I will also deliver the venue overlay by 12 October at 19:00 UTC."
+        },
+        {
+          "messageId": "fresh-07-m5",
+          "quote": "The venue overlay remains mine and is not yet delivered. The 12 October, 19:00 UTC delivery still stands."
+        }
+      ],
+      "priorEvidence": []
+    }
+  ]
+}

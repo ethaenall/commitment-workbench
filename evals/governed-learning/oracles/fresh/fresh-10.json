@@ -1,0 +1,44 @@
+{
+  "caseId": "fresh-10",
+  "items": [
+    {
+      "key": "entrance",
+      "titleTerms": [
+        "accessible entrance diagram",
+        "entrance diagram"
+      ],
+      "owner": null,
+      "state": "uncertain",
+      "dueAt": null,
+      "changed": false,
+      "evidence": [
+        {
+          "messageId": "fresh-10-m1",
+          "quote": "For the chess room, I need an accessible entrance diagram. Can someone take that on? No owner or delivery time has been agreed."
+        },
+        {
+          "messageId": "fresh-10-m6",
+          "quote": "I still have no confirmed owner for the accessible entrance diagram. Please do not assume Kim has accepted it or put a delivery time in the room notice."
+        }
+      ],
+      "priorEvidence": []
+    },
+    {
+      "key": "seating",
+      "titleTerms": [
+        "seating plan"
+      ],
+      "owner": "sam@example.test",
+      "state": "due",
+      "dueAt": "2026-10-14T15:00:00Z",
+      "changed": false,
+      "evidence": [
+        {
+          "messageId": "fresh-10-m3",
+          "quote": "I will finish the seating plan by 14 October at 15:00 UTC."
+        }
+      ],
+      "priorEvidence": []
+    }
+  ]
+}

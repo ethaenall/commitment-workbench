@@ -16,7 +16,15 @@
 // Declared in @habenula-ai/tools (every Tool carries one); re-exported here
 // so the adapter's consumers keep one import site for LLM types.
 import type { LLMToolInputSchema } from "@habenula-ai/tools";
+import type { NativeOperationScope } from "./native-operation-scope.js";
 export type { LLMToolInputSchema };
+
+/**
+ * Host-only native observer. Symbol keys are not JSON-enumerable and are not a
+ * public DTO field. Adapters must never copy this onto provider wire.
+ * NativeOperationScope defines this contract; this is not a second DTO.
+ */
+export const LLM_NATIVE_OPERATIONS = Symbol.for("habenula.internal.llmNativeOperations");
 
 export interface LLMToolDefinition {
   name: string;
@@ -57,6 +65,11 @@ export interface LLMResponse {
   usage: {
     input_tokens: number;
     output_tokens: number;
+    /** Anthropic reports cache reads/writes separately from uncached input. */
+    cache_read_input_tokens?: number;
+    cache_creation_input_tokens?: number;
+    /** False if the adapter did not receive valid usage; zero is not a quote. */
+    reported?: boolean;
   };
 }
 
@@ -66,6 +79,14 @@ export interface LLMCreateParams {
   system?: string;
   messages: LLMMessage[];
   tools?: LLMToolDefinition[];
+  /** Request-local cancellation; never persisted in conversation state. */
+  signal?: AbortSignal;
+  /** Bounded workflows count attempts themselves; suppress hidden SDK retries. */
+  disableRetries?: boolean;
+  /** Host-only, per-request wire-body cap (1..1MiB); never sent to a provider. */
+  max_response_bytes?: number;
+  /** Host-only native observer. Never provider JSON. Transport-06 owns the type. */
+  [LLM_NATIVE_OPERATIONS]?: NativeOperationScope;
 }
 
 export interface LLMClient {

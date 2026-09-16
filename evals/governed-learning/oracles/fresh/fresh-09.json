@@ -1,0 +1,53 @@
+{
+  "caseId": "fresh-09",
+  "items": [
+    {
+      "key": "card",
+      "titleTerms": [
+        "río calibration card",
+        "rio calibration card"
+      ],
+      "owner": "sam@example.test",
+      "state": "due",
+      "dueAt": "2026-10-13T14:00:00Z",
+      "changed": true,
+      "evidence": [
+        {
+          "messageId": "fresh-09-m3",
+          "quote": "I can move the Río calibration card to 13 October at 14:00 UTC if that works for you."
+        },
+        {
+          "messageId": "fresh-09-m4",
+          "quote": "Agreed: your Río calibration card will now arrive on 13 October at 14:00 UTC."
+        }
+      ],
+      "priorEvidence": [
+        {
+          "messageId": "fresh-09-m1",
+          "quote": "I will send the Río calibration card by 12 October at 14:00 UTC."
+        }
+      ]
+    },
+    {
+      "key": "plot",
+      "titleTerms": [
+        "drift plot"
+      ],
+      "owner": "sam@example.test",
+      "state": "due",
+      "dueAt": "2026-10-14T18:00:00Z",
+      "changed": false,
+      "evidence": [
+        {
+          "messageId": "fresh-09-m1",
+          "quote": "I will deliver the drift plot by 14 October at 18:00 UTC."
+        },
+        {
+          "messageId": "fresh-09-m4",
+          "quote": "The drift plot remains due on 14 October at 18:00 UTC."
+        }
+      ],
+      "priorEvidence": []
+    }
+  ]
+}

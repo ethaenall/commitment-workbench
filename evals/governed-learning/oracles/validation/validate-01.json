@@ -1,0 +1,26 @@
+{
+  "caseId": "validate-01",
+  "items": [
+    {
+      "key": "venue",
+      "titleTerms": [
+        "venue sheet"
+      ],
+      "owner": "sam@example.test",
+      "state": "due",
+      "dueAt": "2026-10-09T18:00:00Z",
+      "changed": false,
+      "evidence": [
+        {
+          "messageId": "validate-01-m1",
+          "quote": "I will deliver the venue sheet by 9 October at 18:00 UTC."
+        },
+        {
+          "messageId": "validate-01-m3",
+          "quote": "Venue sheet is still in progress; my Friday 18:00 UTC commitment stands."
+        }
+      ],
+      "priorEvidence": []
+    }
+  ]
+}

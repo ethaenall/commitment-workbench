@@ -1,0 +1,65 @@
+{
+  "workflowId": "mail.commitment-handoff.v1",
+  "schemaVersion": 1,
+  "snapshotId": "validate-01",
+  "snapshotHash": "b3bbaa5da804d0a11cd1801a8c9274055e533c988d622fdffa291c21b2940c7b",
+  "userAddress": "sam@example.test",
+  "cutoff": "2026-10-09T23:00:00Z",
+  "timezone": "America/Los_Angeles",
+  "coverage": {
+    "scope": "supplied-snapshot",
+    "source": "synthetic-fixture",
+    "omittedMessages": 0,
+    "note": "Authored synthetic correspondence. Not a live mailbox or a complete account export."
+  },
+  "messages": [
+    {
+      "id": "validate-01-m1",
+      "threadId": "validate-01-t1",
+      "subject": "Weekly correspondence",
+      "sender": "sam@example.test",
+      "to": "team@example.test",
+      "timestamp": "2026-10-05T10:00:00Z",
+      "body": "Workshop assignments: I will deliver the venue sheet by 9 October at 18:00 UTC. The guest list belongs to Jo, not me.",
+      "bodyHash": "5e8266e0f2686985f36bc2a4763786850e1492a49f0acd66310acf914fa9d488",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "validate-01-m2",
+      "threadId": "validate-01-t1",
+      "subject": "Weekly correspondence",
+      "sender": "jo@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-06T10:00:00Z",
+      "body": "The guest list is complete. That says nothing about the venue sheet, which Sam is still preparing.",
+      "bodyHash": "2ab42e2a34cdb1155fb84b0c49556aa48d9386089ce0fd101640e76e7405142f",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "validate-01-m3",
+      "threadId": "validate-01-t1",
+      "subject": "Weekly correspondence",
+      "sender": "sam@example.test",
+      "to": "team@example.test",
+      "timestamp": "2026-10-07T10:00:00Z",
+      "body": "Venue sheet is still in progress; my Friday 18:00 UTC commitment stands.",
+      "bodyHash": "66524da6f683907f425a2579c4211da0c122dbdf15a8d501a55d36d75c3f2d2f",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "validate-01-m4",
+      "threadId": "validate-01-t2",
+      "subject": "Venue sheet",
+      "sender": "news@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-08T10:00:00Z",
+      "body": "Venue sheet templates are now available in the product newsletter.",
+      "bodyHash": "66371504e2159d99542ca497deef12484091984d4025ca003093b22f80f2f4f1",
+      "truncated": false,
+      "omittedChars": 0
+    }
+  ]
+}

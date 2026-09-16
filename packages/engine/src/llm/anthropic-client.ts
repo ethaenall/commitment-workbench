@@ -10,8 +10,16 @@ import type {
   LLMMessage,
   LLMToolDefinition,
 } from "./types";
+import { LLM_NATIVE_OPERATIONS } from "./types";
+import {
+  BoundedResponseError,
+  fetchBoundedResponse,
+  validateMaxResponseBytes,
+} from "./bounded-response";
 import {
   UpstreamLLMError,
+  UpstreamResponseError,
+  UPSTREAM_INVALID_RESPONSE_MESSAGE,
   UPSTREAM_UNAVAILABLE_MESSAGE,
   isRetryableLLMStatus,
 } from "./errors";
@@ -89,48 +97,98 @@ function toCanonicalStopReason(
 }
 
 export function createAnthropicClient(apiKey: string): LLMClient {
-  const client = new Anthropic({ apiKey });
+  const fetchFn = fetch;
+  const client = new Anthropic({ apiKey, fetch: fetchFn });
 
   return {
     async createMessage(params: LLMCreateParams): Promise<LLMResponse> {
-      // `.catch` that always rethrows: classify the SDK failure without a typed
-      // `let` (the callback returns `never`, so `response` keeps the SDK type).
-      const response = await client.messages
-        .create({
-          model: params.model,
-          max_tokens: params.max_tokens,
-          ...(params.system !== undefined ? { system: params.system } : {}),
-          messages: toAnthropicMessages(params.messages),
-          ...(params.tools ? { tools: toAnthropicTools(params.tools) } : {}),
-          stream: false,
-        })
-        .catch((err: unknown) => {
-          throw classifyLLMError(err);
+      const maxBytes = validateMaxResponseBytes(params.max_response_bytes);
+      const observer = params[LLM_NATIVE_OPERATIONS];
+      // Observe the trusted SDK lifetime before its first async preparation step.
+      // Raw uncapped calls are not covered by the bounded fetch adapter.
+      const sdkLifetime = maxBytes === undefined ? undefined : observer?.openTransport();
+      try {
+        let boundedFailure: BoundedResponseError | undefined;
+        // Official SDK injection, scoped to this call. Never mutate the shared
+        // client's fetch/options: simultaneous calls can have different caps.
+        // Observer is host-only; the SDK request body never receives it.
+        const requestClient = maxBytes === undefined ? client : client.withOptions({
+          maxRetries: 0,
+          fetch: async (input, init) => {
+            try {
+              return await fetchBoundedResponse(fetchFn, input, init, maxBytes, observer);
+            } catch (error) {
+              boundedFailure = error instanceof BoundedResponseError ? error : new BoundedResponseError("RESPONSE_READ_FAILED");
+              throw boundedFailure;
+            }
+          },
         });
-
-      const content: LLMContentBlock[] = [];
-      for (const block of response.content) {
-        if (block.type === "text") {
-          content.push({ type: "text", text: block.text });
-        } else if (block.type === "tool_use") {
-          content.push({
-            type: "tool_use",
-            id: block.id,
-            name: block.name,
-            input: block.input as Record<string, unknown>,
+        // `.catch` that always rethrows: classify the SDK failure without a typed
+        // `let` (the callback returns `never`, so `response` keeps the SDK type).
+        const response = await requestClient.messages
+          .create({
+            model: params.model,
+            max_tokens: params.max_tokens,
+            ...(params.system !== undefined ? { system: params.system } : {}),
+            messages: toAnthropicMessages(params.messages),
+            ...(params.tools ? { tools: toAnthropicTools(params.tools) } : {}),
+            stream: false,
+          }, {
+            ...(params.signal ? { signal: params.signal } : {}),
+            ...(params.disableRetries || maxBytes !== undefined ? { maxRetries: 0 } : {}),
+          })
+          .catch((err: unknown) => {
+            // The SDK wraps a custom-fetch failure as a connection error. Preserve
+            // our fixed reason, never the SDK's provider/body-bearing error cause.
+            if (boundedFailure) throw boundedFailure;
+            if (maxBytes !== undefined) {
+              if (params.signal?.aborted) throw new BoundedResponseError("RESPONSE_ABORTED");
+              if (classifyLLMError(err) instanceof UpstreamLLMError) throw new UpstreamLLMError(UPSTREAM_UNAVAILABLE_MESSAGE);
+              throw new UpstreamResponseError(UPSTREAM_INVALID_RESPONSE_MESSAGE);
+            }
+            throw classifyLLMError(err);
           });
-        }
-      }
+        if (maxBytes !== undefined && params.signal?.aborted) throw new BoundedResponseError("RESPONSE_ABORTED");
 
-      return {
-        id: response.id,
-        content,
-        stop_reason: toCanonicalStopReason(response.stop_reason),
-        usage: {
-          input_tokens: response.usage.input_tokens,
-          output_tokens: response.usage.output_tokens,
-        },
-      };
+        if (!response.usage) throw new UpstreamResponseError(UPSTREAM_INVALID_RESPONSE_MESSAGE);
+        const usage = response.usage;
+        const validUsage = (value: unknown): boolean => typeof value === "number" && Number.isSafeInteger(value) && value >= 0;
+        const reported = validUsage(usage.input_tokens) && validUsage(usage.output_tokens)
+          && (usage.cache_read_input_tokens === undefined || validUsage(usage.cache_read_input_tokens))
+          && (usage.cache_creation_input_tokens === undefined || validUsage(usage.cache_creation_input_tokens));
+        const content: LLMContentBlock[] = [];
+        for (const block of response.content) {
+          if (block.type === "text") {
+            content.push({ type: "text", text: block.text });
+          } else if (block.type === "tool_use") {
+            content.push({
+              type: "tool_use",
+              id: block.id,
+              name: block.name,
+              input: block.input as Record<string, unknown>,
+            });
+          }
+        }
+
+        return {
+          id: response.id,
+          content,
+          stop_reason: toCanonicalStopReason(response.stop_reason),
+          usage: {
+            input_tokens: usage.input_tokens,
+            output_tokens: usage.output_tokens,
+            ...(usage.cache_read_input_tokens != null
+              ? { cache_read_input_tokens: usage.cache_read_input_tokens }
+              : {}),
+            ...(usage.cache_creation_input_tokens != null
+              ? { cache_creation_input_tokens: usage.cache_creation_input_tokens }
+              : {}),
+            ...(reported ? {} : { reported: false }),
+          },
+        };
+      } finally {
+        sdkLifetime?.closeProducer();
+      }
     },
   };
 }

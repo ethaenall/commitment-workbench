@@ -1,0 +1,71 @@
+{
+  "workflowId": "mail.commitment-handoff.v1",
+  "schemaVersion": 1,
+  "snapshotId": "fresh-05",
+  "userAddress": "sam@example.test",
+  "cutoff": "2026-10-09T23:00:00Z",
+  "timezone": "America/Los_Angeles",
+  "coverage": {
+    "scope": "supplied-snapshot",
+    "source": "synthetic-fixture",
+    "omittedMessages": 0,
+    "note": "Authored synthetic correspondence. Not a live mailbox or a complete account export."
+  },
+  "messages": [
+    {
+      "id": "fresh-05-m1",
+      "threadId": "fresh-05-t1",
+      "subject": "Mediation packet",
+      "sender": "sam@example.test",
+      "to": "team@example.test",
+      "timestamp": "2026-10-05T10:00:00Z",
+      "body": "I will send the mediation packet by Monday 12 October at 10:00 America/Los_Angeles time. Elise, please send me your signed availability note before then; it belongs in the packet.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-05-m2",
+      "threadId": "fresh-05-t2",
+      "subject": "Signed availability note",
+      "sender": "elise@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-06T10:00:00Z",
+      "body": "I will send you the signed availability note by 11 October at 18:00 UTC.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-05-m3",
+      "threadId": "fresh-05-t1",
+      "subject": "Courier quotation",
+      "sender": "print-desk@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-07T10:00:00Z",
+      "body": "Our standard courier tariff lists a 17:00 UTC collection. No collection has been booked for your mediation packet; this is a price quotation.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-05-m4",
+      "threadId": "fresh-05-t2",
+      "subject": "Signed availability note",
+      "sender": "elise@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-08T10:00:00Z",
+      "body": "The signature appointment is booked, but the availability note has not been signed or sent yet. My delivery time to you is unchanged.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-05-m5",
+      "threadId": "fresh-05-t1",
+      "subject": "Mediation packet",
+      "sender": "sam@example.test",
+      "to": "team@example.test",
+      "timestamp": "2026-10-09T09:00:00Z",
+      "body": "The mediation packet is still with me. I will send it at the agreed Monday 10:00 Los Angeles time, which is 17:00 UTC on 12 October.",
+      "truncated": false,
+      "omittedChars": 0
+    }
+  ]
+}

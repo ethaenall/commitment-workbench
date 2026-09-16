@@ -1,0 +1,135 @@
+{
+  "schemaVersion": 1,
+  "status": "deterministic-foundation-not-efficacy",
+  "workflowId": "mail.commitment-handoff.v1",
+  "spanUnit": "utf16-code-units-half-open",
+  "modelPolicy": {
+    "model": "openai-codex/gpt-6-astra",
+    "thinking": "max",
+    "liveCallsAuthorized": false
+  },
+  "arms": [
+    "baseline",
+    "refinements",
+    "rlm",
+    "both"
+  ],
+  "splitManifestHashes": {
+    "learning": "133d6eea31bd111e0ac0a84fc21e98a360a028cadc90515aa443bc3f1bf8ebca",
+    "validation": "a342395607ba5ce235200154e0c0f9570e4772bd6aa0862dac16c98fd70ae8f8",
+    "fresh": "35be87807e72edff54448a516e4557babf482d5749173a04aca66b576a58b9a0"
+  },
+  "validationSuite": {
+    "id": "commitment-validation.v1",
+    "workflowId": "mail.commitment-handoff.v1",
+    "revision": "1",
+    "split": "validation",
+    "caseIds": [
+      "validate-01",
+      "validate-02"
+    ],
+    "checkIds": [
+      "contract.valid",
+      "oracle.items",
+      "oracle.state",
+      "oracle.owner",
+      "oracle.due",
+      "oracle.change",
+      "oracle.evidence",
+      "oracle.prior-evidence"
+    ],
+    "learningManifestHash": "133d6eea31bd111e0ac0a84fc21e98a360a028cadc90515aa443bc3f1bf8ebca",
+    "validationManifestHash": "a342395607ba5ce235200154e0c0f9570e4772bd6aa0862dac16c98fd70ae8f8",
+    "suiteHash": "cd1a8becafc43c93599c968cb2ec6674d93395dfde9a7b16b4d852a1760692c2"
+  },
+  "thresholds": {
+    "criticalFailuresAllowed": 0,
+    "oraclePassRequiredForRegisteredSuite": "all-cases-all-checks",
+    "freshPilotCases": 4,
+    "realEfficacyClaim": "not-supported-by-this-small-synthetic-foundation",
+    "baselineFailureRequired": false,
+    "retainAllRuns": true
+  },
+  "cases": [
+    {
+      "id": "learn-01",
+      "split": "learning",
+      "family": "studio-revision",
+      "sourcePath": "fixtures/learning/learn-01.json",
+      "sourceFileHash": "01b3d9f6a1126b9d9f436bae1981c0fe20298d7f46e67db74ca24cfb9654a2f3",
+      "snapshotHash": "70c2036353adaf45fe21d077d5f784b63cb219247aa64f98a65dd0b962ec7f48",
+      "oraclePath": "oracles/learning/learn-01.json",
+      "oracleFileHash": "a71eafe2879ec9d655d9ba652f57c53a1018f788de71ecf7fb630b9db70c5660"
+    },
+    {
+      "id": "learn-02",
+      "split": "learning",
+      "family": "renewal-withdrawal",
+      "sourcePath": "fixtures/learning/learn-02.json",
+      "sourceFileHash": "c84d4d3c1a5bac853d1bd87b8224be0b74b6d77ccecfb0f36261e0459b35e7d2",
+      "snapshotHash": "46dc841d6504317a083e0742fad08d70d1750f4048c2a39eae7cb17d064a1c36",
+      "oraclePath": "oracles/learning/learn-02.json",
+      "oracleFileHash": "1252f44f18a194a9b2764fc9d7705a79686b314730b9ad2ff182be4ab77a560c"
+    },
+    {
+      "id": "validate-01",
+      "split": "validation",
+      "family": "workshop-parallel-ownership",
+      "sourcePath": "fixtures/validation/validate-01.json",
+      "sourceFileHash": "ae8ca77ec385f52ba315fdb2d2ee1490a0124988746c639a04d60bc79b4272ec",
+      "snapshotHash": "b3bbaa5da804d0a11cd1801a8c9274055e533c988d622fdffa291c21b2940c7b",
+      "oraclePath": "oracles/validation/validate-01.json",
+      "oracleFileHash": "8fdc3f8ca9a25c80540ad3070bef91bb2168fc67acec8a5e266e0129363fcafe"
+    },
+    {
+      "id": "validate-02",
+      "split": "validation",
+      "family": "access-proposal-not-acceptance",
+      "sourcePath": "fixtures/validation/validate-02.json",
+      "sourceFileHash": "cd5279bdeea1c0386b7900a28ad31d13c72f429d8cbd255cd75f833aaaa9690b",
+      "snapshotHash": "cc55d62b0392a365c9d78272e80666aea954eaf3a70645eb300ee2692524ba9a",
+      "oraclePath": "oracles/validation/validate-02.json",
+      "oracleFileHash": "a3074fe1f42e631bac7de835a9a2a5ab4af480de7eb2902a5234c87d8548ecaf"
+    },
+    {
+      "id": "fresh-01",
+      "split": "fresh",
+      "family": "invoice-routine",
+      "sourcePath": "fixtures/fresh/fresh-01.json",
+      "sourceFileHash": "04e51bcb4124b56f53e44ec28634e4ed31ef7be016d97f865acd16973c27c42d",
+      "snapshotHash": "f95738885d647ed5af8ce7d5266b28c9d83f6279ea48cf07131250ba4088fc59",
+      "oraclePath": "oracles/fresh/fresh-01.json",
+      "oracleFileHash": "dbe78b3d0d4648b4f4befb33e0e76c24521ea4b1379d108e5e6e733506e6bf69"
+    },
+    {
+      "id": "fresh-02",
+      "split": "fresh",
+      "family": "roster-incomplete-evidence",
+      "sourcePath": "fixtures/fresh/fresh-02.json",
+      "sourceFileHash": "34a61164f932c78ee038ffc62f0d61216f989c567ab807a956d03edfe3c2b499",
+      "snapshotHash": "023708aa008b8f973b3d11cca8ba2520f60a9e56a75dc6d1bc096470fe042ab0",
+      "oraclePath": "oracles/fresh/fresh-02.json",
+      "oracleFileHash": "76d73fe734127a6c3b844613e69f89eb868a1a295de6a91f86ea4747bf0f84ef"
+    },
+    {
+      "id": "fresh-03",
+      "split": "fresh",
+      "family": "rehearsal-two-obligations",
+      "sourcePath": "fixtures/fresh/fresh-03.json",
+      "sourceFileHash": "2031e7d3c36ef865c0972c9d945506ca2362cdec7963665c698d48ac3547e0d5",
+      "snapshotHash": "d1845866a0fd86f8327c3fae2fe762abf0a1aad063d63cc642c076a170943dc5",
+      "oraclePath": "oracles/fresh/fresh-03.json",
+      "oracleFileHash": "fb197835ef23bb855cd2df0fb050e21f1ede6ff0a6acb4a86e0e5018be03362a"
+    },
+    {
+      "id": "fresh-04",
+      "split": "fresh",
+      "family": "recruitment-dependency-timezone",
+      "sourcePath": "fixtures/fresh/fresh-04.json",
+      "sourceFileHash": "77d0b90f72bd8b68606f4aaba3ae1440d7975aaa6b367224dd48f827ad585515",
+      "snapshotHash": "718f103e47a1b21f6cee3323389f90b3029a27dff58eab6ef53054eef959f62c",
+      "oraclePath": "oracles/fresh/fresh-04.json",
+      "oracleFileHash": "5b4c3bef95d9c4fb07c5ea4391cd4d81e7279509e8707e7529253cd69771bb3a"
+    }
+  ]
+}

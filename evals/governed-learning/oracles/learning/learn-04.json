@@ -1,0 +1,39 @@
+{
+  "caseId": "learn-04",
+  "items": [
+    {
+      "key": "migration",
+      "titleTerms": [
+        "migration note"
+      ],
+      "owner": "sam@example.test",
+      "state": "closed",
+      "dueAt": null,
+      "changed": false,
+      "evidence": [
+        {
+          "messageId": "learn-04-m4",
+          "quote": "The migration note has been delivered and accepted. I have no remaining work on that note."
+        }
+      ],
+      "priorEvidence": []
+    },
+    {
+      "key": "index",
+      "titleTerms": [
+        "archive index"
+      ],
+      "owner": "devon@example.test",
+      "state": "waiting",
+      "dueAt": "2026-10-12T11:00:00Z",
+      "changed": false,
+      "evidence": [
+        {
+          "messageId": "learn-04-m3",
+          "quote": "Yes, the archive index is mine. I will send it to you on 12 October at 11:00 UTC."
+        }
+      ],
+      "priorEvidence": []
+    }
+  ]
+}

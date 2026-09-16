@@ -1,0 +1,65 @@
+{
+  "workflowId": "mail.commitment-handoff.v1",
+  "schemaVersion": 1,
+  "snapshotId": "learn-03",
+  "snapshotHash": "901c225afbd615125fe24d57b8b4679e3ba8c6e302f34d68bbd14bd617bb159b",
+  "userAddress": "sam@example.test",
+  "cutoff": "2026-10-09T23:00:00Z",
+  "timezone": "America/Los_Angeles",
+  "coverage": {
+    "scope": "supplied-snapshot",
+    "source": "synthetic-fixture",
+    "omittedMessages": 0,
+    "note": "Authored synthetic correspondence. Not a live mailbox or a complete account export."
+  },
+  "messages": [
+    {
+      "id": "learn-03-m1",
+      "threadId": "learn-03-t1",
+      "subject": "Field visit preparation",
+      "sender": "sam@example.test",
+      "to": "team@example.test",
+      "timestamp": "2026-10-05T10:00:00Z",
+      "body": "I will deliver the trail briefing on Wednesday 14 October. We have not set a time of day.",
+      "bodyHash": "b3f3f392faa6bd46e2f4c89ec3d10125ef6cfeba1111ae2ccd23d4663c9ffbd3",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "learn-03-m2",
+      "threadId": "learn-03-t2",
+      "subject": "Route survey",
+      "sender": "taylor@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-06T10:00:00Z",
+      "body": "I will send you the route survey by 13 October at 16:00 UTC so you can finish the trail briefing.",
+      "bodyHash": "25cc3b4ee39daba6a4b36f00be3459d3b1ec1de1c5d5fe3d85d476fdd5b23098",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "learn-03-m3",
+      "threadId": "learn-03-t1",
+      "subject": "Field visit preparation",
+      "sender": "ren@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-07T10:00:00Z",
+      "body": "Could the trail briefing be ready at 09:00 on the Wednesday? The visit team would prefer morning.",
+      "bodyHash": "1012e34b838bd4f3a218a975b7629a94d271cf321d35dcbf664b490cdedda07a",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "learn-03-m4",
+      "threadId": "learn-03-t1",
+      "subject": "Field visit preparation",
+      "sender": "sam@example.test",
+      "to": "team@example.test",
+      "timestamp": "2026-10-08T10:00:00Z",
+      "body": "Wednesday 14 October still works for the trail briefing, but I cannot promise 09:00. Let us leave the time open; the route survey has not arrived yet.",
+      "bodyHash": "47d0618ee34d248fcf4889b713d9eb982839279135af488e49ea706b3abf2df3",
+      "truncated": false,
+      "omittedChars": 0
+    }
+  ]
+}

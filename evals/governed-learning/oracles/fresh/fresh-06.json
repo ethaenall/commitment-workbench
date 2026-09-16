@@ -1,0 +1,43 @@
+{
+  "caseId": "fresh-06",
+  "items": [
+    {
+      "key": "handover",
+      "titleTerms": [
+        "foster handover note"
+      ],
+      "owner": "sam@example.test",
+      "state": "due",
+      "dueAt": null,
+      "changed": false,
+      "evidence": [
+        {
+          "messageId": "fresh-06-m1",
+          "quote": "I will finish the foster handover note on Tuesday 13 October. We have not chosen a delivery time."
+        },
+        {
+          "messageId": "fresh-06-m5",
+          "quote": "Tuesday 13 October remains my day for the foster handover note. I am not moving it to Wednesday, and I have not agreed a specific hour."
+        }
+      ],
+      "priorEvidence": []
+    },
+    {
+      "key": "inventory",
+      "titleTerms": [
+        "kit inventory"
+      ],
+      "owner": "sam@example.test",
+      "state": "closed",
+      "dueAt": null,
+      "changed": false,
+      "evidence": [
+        {
+          "messageId": "fresh-06-m3",
+          "quote": "The kit inventory has been uploaded and accepted by the shelter. There is no more inventory work for me."
+        }
+      ],
+      "priorEvidence": []
+    }
+  ]
+}

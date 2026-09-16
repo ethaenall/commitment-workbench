@@ -10,6 +10,9 @@ import { PolicyEntriesRow } from "../../src/data/schemas/policy-entries";
 import { SessionStateRow } from "../../src/data/schemas/session-state";
 import { SpendLedgerRow } from "../../src/data/schemas/spend-ledger";
 import { UserSettingsRow } from "../../src/data/schemas/user-settings";
+import { RefinementVersionsRow } from "../../src/data/schemas/refinement-versions";
+import { RefinementValidationsRow } from "../../src/data/schemas/refinement-validations";
+import { RefinementScopesRow } from "../../src/data/schemas/refinement-scopes";
 import { extractCheckEnums } from "../../src/data/codegen/extract-check-enums";
 
 /**
@@ -33,6 +36,9 @@ const SCHEMAS = {
   session_state: SessionStateRow,
   spend_ledger: SpendLedgerRow,
   user_settings: UserSettingsRow,
+  refinement_versions: RefinementVersionsRow,
+  refinement_validations: RefinementValidationsRow,
+  refinement_scopes: RefinementScopesRow,
 } as const;
 
 // Hand-maintained expected CHECK-enum sets — typed literally here, never
@@ -71,6 +77,12 @@ const EXPECTED_ENUMS: Record<string, Record<string, string[]>> = {
   session_state: {},
   spend_ledger: {},
   user_settings: {},
+  refinement_versions: { state: ["proposed", "validated", "approved", "active", "disabled"] },
+  refinement_validations: {
+    status: ["running", "passed", "failed", "error"],
+    assurance: ["contract_only", "behavior_measured"],
+  },
+  refinement_scopes: {},
 };
 
 interface PragmaColumn {

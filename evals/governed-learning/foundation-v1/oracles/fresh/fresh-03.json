@@ -1,0 +1,44 @@
+{
+  "caseId": "fresh-03",
+  "items": [
+    {
+      "key": "fallback",
+      "titleTerms": [
+        "fallback card"
+      ],
+      "owner": "sam@example.test",
+      "state": "closed",
+      "dueAt": null,
+      "changed": false,
+      "evidence": [
+        {
+          "messageId": "fresh-03-m2",
+          "quote": "The fallback card is complete and delivered."
+        }
+      ],
+      "priorEvidence": []
+    },
+    {
+      "key": "captions",
+      "titleTerms": [
+        "demo captions",
+        "caption review"
+      ],
+      "owner": "sam@example.test",
+      "state": "due",
+      "dueAt": "2026-10-12T15:00:00Z",
+      "changed": false,
+      "evidence": [
+        {
+          "messageId": "fresh-03-m1",
+          "quote": "I will also review the demo captions by 12 October at 15:00 UTC."
+        },
+        {
+          "messageId": "fresh-03-m2",
+          "quote": "The demo captions are still waiting for my review."
+        }
+      ],
+      "priorEvidence": []
+    }
+  ]
+}

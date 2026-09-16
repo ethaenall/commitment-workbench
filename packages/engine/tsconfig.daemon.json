@@ -7,6 +7,7 @@
     "lib": ["ES2022"],
     "types": ["node"],
     "strict": true,
+    "declaration": true,
     "noUncheckedIndexedAccess": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,

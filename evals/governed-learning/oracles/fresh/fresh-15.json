@@ -1,0 +1,121 @@
+{
+  "caseId": "fresh-15",
+  "items": [
+    {
+      "key": "reed-use-review",
+      "titleTerms": [
+        "reed material-use table review",
+        "reed material-use review",
+        "review the reed material-use table",
+        "reed permission review",
+        "reed permissions review"
+      ],
+      "owner": "sam@example.test",
+      "state": "due",
+      "dueAt": null,
+      "changed": false,
+      "evidence": [
+        {
+          "messageId": "fresh-15-m1",
+          "quote": "I will finish the reed material-use table review on 12 October 2026."
+        },
+        {
+          "messageId": "fresh-15-m15",
+          "quote": "My reed material-use table review is not finished."
+        }
+      ],
+      "priorEvidence": []
+    },
+    {
+      "key": "sediment-review",
+      "titleTerms": [
+        "sediment control review",
+        "sediment review",
+        "review the sediment controls"
+      ],
+      "owner": "leila@example.test",
+      "state": "waiting",
+      "dueAt": "2026-10-12T11:00:00Z",
+      "changed": false,
+      "evidence": [
+        {
+          "messageId": "fresh-15-m2",
+          "quote": "I will return the sediment control review to you by 12 October 2026 at 12:00 Europe/London (BST, UTC+01:00)."
+        },
+        {
+          "messageId": "fresh-15-m16",
+          "quote": "The sediment control review is still with me and has not been returned to Sam."
+        }
+      ],
+      "priorEvidence": []
+    },
+    {
+      "key": "reed-transcription",
+      "titleTerms": [
+        "reed accession transcription",
+        "accession transcription",
+        "transcribe the reed accession"
+      ],
+      "owner": "sam@example.test",
+      "state": "closed",
+      "dueAt": null,
+      "changed": false,
+      "evidence": [
+        {
+          "messageId": "fresh-15-m13",
+          "quote": "I have completed and delivered the reed accession transcription, including the repeated donor on rows 28 through 31. Collections has the checked table and there is no remaining transcription work."
+        }
+      ],
+      "priorEvidence": []
+    },
+    {
+      "key": "reed-tray-return",
+      "titleTerms": [
+        "archived reed vial tray",
+        "reed vial tray",
+        "return the reed tray",
+        "reed tray return"
+      ],
+      "owner": "owen@example.test",
+      "state": "waiting",
+      "dueAt": "2026-10-10T17:30:00Z",
+      "changed": false,
+      "evidence": [
+        {
+          "messageId": "fresh-15-m4",
+          "quote": "I will return the archived reed vial tray to you at the north receiving bench by 10 October 2026 at 10:30 America/Los_Angeles (PDT, UTC-07:00)."
+        },
+        {
+          "messageId": "fresh-15-m18",
+          "quote": "The archived reed vial tray is still in my custody in freezer B; I have not returned it to you."
+        }
+      ],
+      "priorEvidence": []
+    },
+    {
+      "key": "pooled-eligibility",
+      "titleTerms": [
+        "pooled-material eligibility note",
+        "pooled material eligibility note",
+        "pooled eligibility note",
+        "pilot eligibility note",
+        "mixture eligibility note"
+      ],
+      "owner": null,
+      "state": "uncertain",
+      "dueAt": null,
+      "changed": false,
+      "evidence": [
+        {
+          "messageId": "fresh-15-m6",
+          "quote": "Please return a signed pooled-material eligibility note to me for the pilot mixture. Our lab split is Leila if reed lot C and sediment lot D have the same preservative, or Arun if they differ."
+        },
+        {
+          "messageId": "fresh-15-m19",
+          "quote": "I still need the pooled-material eligibility note. Neither Leila nor Arun has accepted it, and I still cannot establish which preservative branch applies to lot C."
+        }
+      ],
+      "priorEvidence": []
+    }
+  ]
+}

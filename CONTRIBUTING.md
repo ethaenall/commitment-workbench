@@ -1,3 +1,5 @@
+> **Independent-fork notice (2026-09-16).** The retained text below is upstream Habenula contribution policy/history. This fork is not its release mirror, has no CLA-request bot, and does not solicit or accept its CLA. No upstream acceptance is implied. Read [fork provenance](docs/FORK_PROVENANCE.md) before proposing changes; upstream contributions must follow the maintainers’ current process.
+
 # Contributing to Habenula
 
 Thanks for your interest in Habenula. Two things to know up front about how

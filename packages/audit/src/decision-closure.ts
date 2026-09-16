@@ -19,20 +19,30 @@ import type { ChainEntry } from "./verify-chain.js";
 
 /**
  * Lifecycle rows record something that happened to the SYSTEM, not a governed
- * tool call: synthetic `service`/`verb` outside the tool registry, fixed
- * `decision`/`outcome` placeholders, the real disposition in `errorMessage`.
+ * tool call: synthetic `service`/`verb` outside the tool registry and a fixed
+ * governance `decision` placeholder. Lifecycle metadata, `outcome`, and
+ * `errorMessage` describe the event, not a governed service execution.
  * Matched on `toolName` because the record carries no column saying "this row
  * is a lifecycle event". This is the one definition (moved here from the CLI
  * render); `packages/engine/src/dev-model/page.ts` keeps an inline copy only
  * because that file is client JavaScript inside a template string and can
  * import nothing — keep the two in step until the record gains an explicit
  * discriminator. The engine writers are `createSessionInTxn`,
- * `writeSessionEnd`, and `writeTaskCancelAudit`.
+ * `writeSessionEnd`, `writeTaskCancelAudit`, and the refinement manager
+ * transaction callback in `UserAgent`. Refinement rows describe local artifact
+ * lifecycle, never a resolved service attempt or an authorization grant.
  */
 export const LIFECYCLE_TOOLS: ReadonlySet<string> = new Set([
   "session.start",
   "session.end",
   "task.cancel",
+  "refinement.propose",
+  "refinement.validate",
+  "refinement.approve",
+  "refinement.activate",
+  "refinement.disable",
+  "refinement.rollback",
+  "refinement.use",
 ]);
 
 /**

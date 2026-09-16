@@ -1,0 +1,90 @@
+{
+  "workflowId": "mail.commitment-handoff.v1",
+  "snapshotId": "fresh-07",
+  "snapshotHash": "fc46927a474da159107af487eaed4b1beac7fa75807e943ba6ff82a16ecc0268",
+  "items": [
+    {
+      "itemId": "regional-score-csv",
+      "title": "regional score CSV",
+      "owner": "sam@example.test",
+      "state": "closed",
+      "dueAt": null,
+      "changed": false,
+      "evidence": [
+        {
+          "messageId": "fresh-07-m1",
+          "bodyHash": "cc305a813b7d689e6197e1a4b3ce3096ff5142dc21430834311c3ed6cbb5b295",
+          "start": 0,
+          "end": 64,
+          "quote": "I will publish the regional score CSV by 9 October at 12:00 UTC."
+        },
+        {
+          "messageId": "fresh-07-m3",
+          "bodyHash": "4f1bd0d96d5c642ce18c507d2c91d246319d7adad246ca5c379473778fc9bbc6",
+          "start": 0,
+          "end": 91,
+          "quote": "The regional score CSV is published and has been accepted. My work on that CSV is finished."
+        }
+      ],
+      "priorEvidence": [],
+      "uncertainty": "Closure is Sam's own 2026-10-07 statement; this snapshot has no later acceptor note. The 2026-10-06 request to keep player aliases is not mentioned in the close-out. Original due wording was 9 October at 12:00 UTC (year not restated in-body).",
+      "nextAction": "None on this CSV in-snapshot; Sam stated publication, acceptance, and that work is finished.",
+      "replyText": null
+    },
+    {
+      "itemId": "venue-overlay",
+      "title": "venue overlay",
+      "owner": "sam@example.test",
+      "state": "due",
+      "dueAt": "2026-10-12T19:00:00Z",
+      "changed": false,
+      "evidence": [
+        {
+          "messageId": "fresh-07-m1",
+          "bodyHash": "cc305a813b7d689e6197e1a4b3ce3096ff5142dc21430834311c3ed6cbb5b295",
+          "start": 65,
+          "end": 130,
+          "quote": "I will also deliver the venue overlay by 12 October at 19:00 UTC."
+        },
+        {
+          "messageId": "fresh-07-m5",
+          "bodyHash": "f8779fecfbeea0d426a620d23ae685ed325c7447f51b5bc55234f6d3cbea0db1",
+          "start": 0,
+          "end": 56,
+          "quote": "The venue overlay remains mine and is not yet delivered."
+        },
+        {
+          "messageId": "fresh-07-m5",
+          "bodyHash": "f8779fecfbeea0d426a620d23ae685ed325c7447f51b5bc55234f6d3cbea0db1",
+          "start": 57,
+          "end": 105,
+          "quote": "The 12 October, 19:00 UTC delivery still stands."
+        },
+        {
+          "messageId": "fresh-07-m2",
+          "bodyHash": "10ea722debae0340e0c758b7fc0e7f1020682a95e9d28f1283f6267599a06b9c",
+          "start": 0,
+          "end": 94,
+          "quote": "Please keep player aliases in the regional score CSV and entrance labels in the venue overlay."
+        }
+      ],
+      "priorEvidence": [],
+      "uncertainty": "Bodies give 12 October, 19:00 UTC without a calendar year; 2026 is taken from message timestamps and cutoff, not an in-body year. Sam did not confirm entrance labels after the 2026-10-06 request. Reaffirmation of the same UTC delivery is not treated as a live-term change.",
+      "nextAction": "Sam still owes the venue overlay as a separate file by 12 October 2026, 19:00 UTC; include entrance labels unless a later out-of-snapshot note drops that request.",
+      "replyText": null
+    }
+  ],
+  "coverage": {
+    "scope": "supplied-snapshot",
+    "omittedMessages": 0,
+    "truncatedMessageIds": [],
+    "limitations": [
+      "Coverage is the supplied snapshot only (synthetic-fixture); not a live mailbox search or a complete account export.",
+      "Authored synthetic correspondence. Not a live mailbox or a complete account export.",
+      "Snapshot cutoff is 2026-10-09T23:00:00Z; omittedMessages is 0; none of the five supplied messages is truncated.",
+      "October day-month dates in bodies omit the calendar year; 2026 is inferred from message timestamps.",
+      "Sponsor bulletin commercial score CSV is excluded as unrelated broadcast with no upload requested from Sam.",
+      "Field requests (player aliases, entrance labels) are attached to the two export items rather than extra rows."
+    ]
+  }
+}

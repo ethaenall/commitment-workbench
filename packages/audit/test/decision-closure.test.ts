@@ -74,8 +74,12 @@ describe("owesCloser — the clause order is the rule", () => {
     ).toBe(false);
   });
 
-  it("clause 2: all three lifecycle tool names are non-decisions", () => {
-    expect([...LIFECYCLE_TOOLS].sort()).toEqual(["session.end", "session.start", "task.cancel"]);
+  it("clause 2: the exact lifecycle tool names are non-decisions", () => {
+    expect([...LIFECYCLE_TOOLS].sort()).toEqual([
+      "refinement.activate", "refinement.approve", "refinement.disable",
+      "refinement.propose", "refinement.rollback", "refinement.use", "refinement.validate",
+      "session.end", "session.start", "task.cancel",
+    ]);
     for (const toolName of LIFECYCLE_TOOLS) {
       // session.end stamps deny/timeout, session.start and task.cancel stamp
       // allow/success — placeholders either way, never an owed decision.
@@ -83,6 +87,16 @@ describe("owesCloser — the clause order is the rule", () => {
       expect(owesCloser(entry("lc", { toolName, decision: "deny" }))).toBe(false);
       expect(owesCloser(entry("lc", { toolName, decision: "pending" }))).toBe(false);
     }
+  });
+
+  it("refinement-like tool names are not silently classified as lifecycle", () => {
+    for (const toolName of ["refinement.send", "refinement.approve_once", "refinement_use", "refinement.validate.extra"]) {
+      expect(owesCloser(entry("not-lifecycle", { toolName }))).toBe(true);
+    }
+    const verdict = closed(chain([...LIFECYCLE_TOOLS].map((toolName) => entry(toolName, { toolName }))));
+    expect(verdict.decisionsChecked).toBe(0);
+    expect(verdict.unresolved).toEqual([]);
+    expect(verdict.unchecked).toEqual([]);
   });
 
   it("clause 3: a deny is terminal by itself; clauses 4-5: pending and allow owe one", () => {

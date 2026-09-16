@@ -1,0 +1,128 @@
+{
+  "caseId": "fresh-16",
+  "items": [
+    {
+      "key": "oral-transfer",
+      "titleTerms": [
+        "oral-history transfer list",
+        "oral history transfer list",
+        "Harbor Voices transfer list",
+        "tape transfer list"
+      ],
+      "owner": "sam@example.test",
+      "state": "due",
+      "dueAt": "2026-10-13T20:00:00Z",
+      "changed": true,
+      "evidence": [
+        {
+          "messageId": "fresh-16-m14",
+          "quote": "I accept the two-carton intake and am reopening my oral-history transfer list. I will deliver it by 13 October 2026 at 13:00 America/Los_Angeles (PDT, UTC-07:00)."
+        },
+        {
+          "messageId": "fresh-16-m19",
+          "quote": "My reopened oral-history transfer list is not finished or delivered; the tape counts on the second carton are the remaining part of that list."
+        }
+      ],
+      "priorEvidence": [
+        {
+          "messageId": "fresh-16-m2",
+          "quote": "I will deliver the oral-history transfer list for the Harbor Voices tapes by 9 October 2026 at 10:00 America/Los_Angeles (PDT, UTC-07:00)."
+        },
+        {
+          "messageId": "fresh-16-m8",
+          "quote": "I have cancelled my oral-history transfer list and my oral-history display thumbnails."
+        }
+      ]
+    },
+    {
+      "key": "oral-rights",
+      "titleTerms": [
+        "oral-history rights list",
+        "oral history rights list",
+        "Harbor Voices rights list",
+        "tape rights list"
+      ],
+      "owner": "mira@example.test",
+      "state": "waiting",
+      "dueAt": "2026-10-12T17:00:00Z",
+      "changed": false,
+      "evidence": [
+        {
+          "messageId": "fresh-16-m3",
+          "quote": "I will send the oral-history rights list to you by 12 October 2026 at 10:00 America/Los_Angeles (PDT, UTC-07:00)."
+        },
+        {
+          "messageId": "fresh-16-m16",
+          "quote": "The oral-history rights list is still my unfinished draft and has not been sent to Sam."
+        }
+      ],
+      "priorEvidence": []
+    },
+    {
+      "key": "map-transfer",
+      "titleTerms": [
+        "map transfer list",
+        "Harbor Survey transfer list",
+        "map inventory handover",
+        "map transfer inventory"
+      ],
+      "owner": "sam@example.test",
+      "state": "closed",
+      "dueAt": null,
+      "changed": false,
+      "evidence": [
+        {
+          "messageId": "fresh-16-m10",
+          "quote": "I have completed and delivered the map transfer list for all 38 Harbor Survey sheets. Nora has acknowledged the checked MS numbers; no map transfer-list work remains."
+        }
+      ],
+      "priorEvidence": []
+    },
+    {
+      "key": "cabinet-keys",
+      "titleTerms": [
+        "cabinet key envelope",
+        "cabinet keys",
+        "return the cabinet key",
+        "flat cabinet key"
+      ],
+      "owner": "tess@example.test",
+      "state": "waiting",
+      "dueAt": "2026-10-10T00:00:00Z",
+      "changed": false,
+      "evidence": [
+        {
+          "messageId": "fresh-16-m5",
+          "quote": "I will return the cabinet key envelope to you at the library receiving desk by 9 October 2026 at 17:00 America/Los_Angeles (PDT, UTC-07:00)."
+        },
+        {
+          "messageId": "fresh-16-m18",
+          "quote": "The cabinet key envelope is still with me; I have not handed it back to Sam."
+        }
+      ],
+      "priorEvidence": []
+    },
+    {
+      "key": "oral-thumbnails",
+      "titleTerms": [
+        "oral-history display thumbnails",
+        "oral history display thumbnails",
+        "oral-history thumbnails",
+        "oral history thumbnails",
+        "public catalog thumbnails",
+        "public-catalog thumbnails"
+      ],
+      "owner": "sam@example.test",
+      "state": "closed",
+      "dueAt": null,
+      "changed": false,
+      "evidence": [
+        {
+          "messageId": "fresh-16-m14",
+          "quote": "My oral-history display thumbnails remain cancelled; the private-retention deed does not authorize that public-catalog work."
+        }
+      ],
+      "priorEvidence": []
+    }
+  ]
+}

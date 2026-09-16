@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "scope": "Historical staged checks plus separately identified privacy-publication checks; not a live rerun",
+  "upstreamCommit": "eb5b9462f514a10a1312a76d7e09bb07c9598609",
+  "checks": [
+    {
+      "name": "seven-package source build",
+      "status": "pass",
+      "command": "just oss-build",
+      "dependencyMode": "Existing locked dependencies linked read-only; no fresh network installation",
+      "localReceiptSha256": "273075204525c1fdf352df37bf19ee6ca655877d69da1d5e0f465ee24db6792c"
+    },
+    {
+      "name": "native RLM suite",
+      "status": "pass",
+      "tests": 59,
+      "failures": 0,
+      "cancelled": 0,
+      "provider": "authored/mocked controlled fixtures",
+      "localReceiptSha256": "8b217149381b2dff642611eb57fb3afc0ca76b80dd2901e752fc484cf8a27f67"
+    },
+    {
+      "name": "engine suite",
+      "status": "pass",
+      "files": 104,
+      "tests": 1168,
+      "provider": "test fixtures, not live provider efficacy",
+      "localReceiptSha256": "f9d8b11779e24363b61800c6052ba9fd4e3728698649e41ba033cea21322e771"
+    },
+    {
+      "name": "compiled daemon/API",
+      "status": "PASS_COMPILED_DAEMON_API_LOOPBACK_FAKE_PROVIDER",
+      "provider": "authored loopback responses",
+      "realComponents": [
+        "compiled daemon",
+        "UserAgent/DO",
+        "private Node binding",
+        "Worker",
+        "QuickJS"
+      ],
+      "localReceiptSha256": "7b9d9e645573d47ff0dad0eb08def751d3d1ad28c81681420f7b9ed8d9cdae35"
+    }
+  ],
+  "localProcessClosure": "Observed child closure and process group absence for each recorded scope; not remote compute closure",
+  "notClaimed": [
+    "GitHub CI execution",
+    "fresh npm install",
+    "universal security",
+    "production efficacy",
+    "billing",
+    "independent human review"
+  ],
+  "privacy": "Sanitized summary. Raw private logs/configuration are not distributed.",
+  "historicalWorkflowSourceHash": "cca40381b1090f8399de8e1443538cd87f2ab4c84d9b6b62e7de6904dd45d2a0",
+  "publicationProjection": {
+    "workflowSourceHash": "9853b637f7758b5dd91239dfb8b1c26b0aca3df963af2ff1d2a5969038a4fb15",
+    "build": "pass",
+    "offlineLedgerRecheck": "pass",
+    "nativeRegressionAttempts": [
+      {
+        "passed": 57,
+        "failed": 2
+      },
+      {
+        "passed": 58,
+        "failed": 1
+      },
+      {
+        "passed": 58,
+        "failed": 1
+      }
+    ],
+    "nativeRegressionCleanPassEstablished": false,
+    "historicalSourceByteIdentical": false,
+    "liveInferenceRepeated": false,
+    "limitation": "Different guest-runtime tests failed across three unchanged attempts. Exact cause unresolved. A separate5-test diagnostic passed, but is not a whole-suite pass."
+  }
+}

@@ -41,7 +41,8 @@ export interface HabenulaEnv {
   /** Loopback Host/Origin guard. Any value but "false" enforces. */
   LOCALHOST_ONLY?: string;
   /**
-   * Shared-secret caller token for the `/internal/mcp` trusted drive surface.
+   * Shared-secret caller token for `/internal/mcp` and the opt-in local
+   * governed-learning controls. Token possession is not proof of human presence.
    * A SECRET — synced via the deploy
    * secret path, never `wrangler.toml`. It authenticates the caller; it is
    * not an OAuth credential and never enters the model context (Hard
@@ -49,6 +50,14 @@ export interface HabenulaEnv {
    * trusted caller exists until the secret is provisioned.
    */
   INTERNAL_MCP_TOKEN?: string;
+  /** Local refinement/workflow controls. Only exactly "true" enables reads and writes. */
+  GOVERNED_LEARNING?: string;
+  /** Trusted local RLM opt-in. Requires the private service binding too. */
+  GOVERNED_RLM?: string;
+  /** Private in-process binding only; never a URL or request-selected backend. */
+  RLM_BACKEND?: Fetcher;
+  /** Trusted deployment profile only. Unset is contract-only, behavior unmeasured. */
+  GOVERNED_LEARNING_VALIDATION?: string;
   /** Dev visual model gate. Fail-closed: only exactly "true" enables. */
   VISUAL_MODEL?: string;
   /**

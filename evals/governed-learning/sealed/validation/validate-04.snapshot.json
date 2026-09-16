@@ -1,0 +1,65 @@
+{
+  "workflowId": "mail.commitment-handoff.v1",
+  "schemaVersion": 1,
+  "snapshotId": "validate-04",
+  "snapshotHash": "534a79003bd9b5b8306be4108d16fdca18e7b5cbbeccae3fb0b219ab1dd27ac0",
+  "userAddress": "sam@example.test",
+  "cutoff": "2026-10-09T23:00:00Z",
+  "timezone": "America/Los_Angeles",
+  "coverage": {
+    "scope": "supplied-snapshot",
+    "source": "synthetic-fixture",
+    "omittedMessages": 1,
+    "note": "Authored synthetic correspondence. Not a live mailbox or a complete account export."
+  },
+  "messages": [
+    {
+      "id": "validate-04-m1",
+      "threadId": "validate-04-t1",
+      "subject": "Tasting preparation",
+      "sender": "sam@example.test",
+      "to": "team@example.test",
+      "timestamp": "2026-10-05T10:00:00Z",
+      "body": "I need the allergy matrix before the tasting. Could one of you prepare it? We have not assigned an owner or agreed a delivery time.",
+      "bodyHash": "475d0b46d556c69beee1992a3bbd7b1df29eadc2169d76cddd921048f43388f1",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "validate-04-m2",
+      "threadId": "validate-04-t1",
+      "subject": "Tasting preparation",
+      "sender": "jo@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-06T10:00:00Z",
+      "body": "I could take the allergy matrix if the kitchen can first confirm",
+      "bodyHash": "b652b20c035c82be155d2c6010c9382ddf3d61392cf3355a0a185ecaaa935c10",
+      "truncated": true,
+      "omittedChars": 143
+    },
+    {
+      "id": "validate-04-m3",
+      "threadId": "validate-04-t2",
+      "subject": "Kitchen price list",
+      "sender": "rowan@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-07T10:00:00Z",
+      "body": "The snack price list is already complete in the kitchen account. That list does not identify allergens; the allergy matrix is a separate document.",
+      "bodyHash": "b7279f4a1502dd3f429176ebd75961ddb9f92a40bfefce57472993afef6e42d5",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "validate-04-m4",
+      "threadId": "validate-04-t1",
+      "subject": "Tasting preparation",
+      "sender": "sam@example.test",
+      "to": "team@example.test",
+      "timestamp": "2026-10-08T10:00:00Z",
+      "body": "No acceptance for the allergy matrix has reached me. I still need someone to confirm ownership and a delivery time.",
+      "bodyHash": "615b89d6ff328d23dc4dfdd5d143fd0c995b5e15577e589e79b3aa1e97e99ced",
+      "truncated": false,
+      "omittedChars": 0
+    }
+  ]
+}

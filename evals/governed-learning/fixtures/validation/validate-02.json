@@ -1,0 +1,49 @@
+{
+  "workflowId": "mail.commitment-handoff.v1",
+  "schemaVersion": 1,
+  "snapshotId": "validate-02",
+  "userAddress": "sam@example.test",
+  "cutoff": "2026-10-09T23:00:00Z",
+  "timezone": "America/Los_Angeles",
+  "coverage": {
+    "scope": "supplied-snapshot",
+    "source": "synthetic-fixture",
+    "omittedMessages": 0,
+    "note": "Authored synthetic correspondence. Not a live mailbox or a complete account export."
+  },
+  "messages": [
+    {
+      "id": "validate-02-m1",
+      "threadId": "validate-02-t1",
+      "subject": "Weekly correspondence",
+      "sender": "sam@example.test",
+      "to": "team@example.test",
+      "timestamp": "2026-10-05T10:00:00Z",
+      "body": "I will deliver the access guide by 9 October at 09:00 UTC.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "validate-02-m2",
+      "threadId": "validate-02-t1",
+      "subject": "Weekly correspondence",
+      "sender": "kim@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-06T10:00:00Z",
+      "body": "Could we move the access guide to next week? This is a suggestion, not an agreed change.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "validate-02-m3",
+      "threadId": "validate-02-t1",
+      "subject": "Weekly correspondence",
+      "sender": "sam@example.test",
+      "to": "team@example.test",
+      "timestamp": "2026-10-07T10:00:00Z",
+      "body": "I have not agreed to change the access guide deadline. My existing commitment remains 9 October at 09:00 UTC.",
+      "truncated": false,
+      "omittedChars": 0
+    }
+  ]
+}

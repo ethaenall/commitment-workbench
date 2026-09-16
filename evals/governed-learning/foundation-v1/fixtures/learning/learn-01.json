@@ -1,0 +1,60 @@
+{
+  "workflowId": "mail.commitment-handoff.v1",
+  "schemaVersion": 1,
+  "snapshotId": "learn-01",
+  "userAddress": "sam@example.test",
+  "cutoff": "2026-10-09T23:00:00Z",
+  "timezone": "America/Los_Angeles",
+  "coverage": {
+    "scope": "supplied-snapshot",
+    "source": "synthetic-fixture",
+    "omittedMessages": 0,
+    "note": "Authored synthetic correspondence. Not a live mailbox or a complete account export."
+  },
+  "messages": [
+    {
+      "id": "learn-01-m1",
+      "threadId": "learn-01-t1",
+      "subject": "Weekly correspondence",
+      "sender": "sam@example.test",
+      "to": "team@example.test",
+      "timestamp": "2026-10-05T10:00:00Z",
+      "body": "Design pack: I will send the final files by Friday 9 October at 17:00 UTC.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "learn-01-m2",
+      "threadId": "learn-01-t1",
+      "subject": "Weekly correspondence",
+      "sender": "pat@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-06T10:00:00Z",
+      "body": "The review is moving. Would Monday work for the design pack?",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "learn-01-m3",
+      "threadId": "learn-01-t1",
+      "subject": "Weekly correspondence",
+      "sender": "sam@example.test",
+      "to": "team@example.test",
+      "timestamp": "2026-10-07T10:00:00Z",
+      "body": "Confirmed: I will send the design pack on Monday 12 October at 17:00 UTC instead of Friday.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "learn-01-m4",
+      "threadId": "learn-01-t1",
+      "subject": "Weekly correspondence",
+      "sender": "pat@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-08T10:00:00Z",
+      "body": "Thanks. Quoting the original for the archive, not changing our new agreement:\n> Design pack: I will send the final files by Friday 9 October at 17:00 UTC.",
+      "truncated": false,
+      "omittedChars": 0
+    }
+  ]
+}

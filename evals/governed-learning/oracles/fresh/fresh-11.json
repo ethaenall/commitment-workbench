@@ -1,0 +1,135 @@
+{
+  "caseId": "fresh-11",
+  "items": [
+    {
+      "key": "alder-clearance",
+      "titleTerms": [
+        "Alder clearance filing",
+        "Alder clearance",
+        "Alder’s clearance",
+        "Alder pump station clearance",
+        "clearance.pdf for Alder",
+        "clearance filing for Alder",
+        "Alder clearance.pdf"
+      ],
+      "owner": "sam@example.test",
+      "state": "due",
+      "dueAt": "2026-10-12T15:15:00Z",
+      "changed": true,
+      "evidence": [
+        {
+          "messageId": "fresh-11-m9",
+          "quote": "I will submit the Alder clearance filing on 12 October 2026 at 08:15 PDT (America/Los_Angeles, UTC−07:00), replacing my 9 October 10:30 PDT deadline."
+        },
+        {
+          "messageId": "fresh-11-m18",
+          "quote": "I have replaced the vehicle photograph inside the Alder clearance filing. The cover and photograph are together now, but I have not submitted clearance.pdf to A-18."
+        }
+      ],
+      "priorEvidence": [
+        {
+          "messageId": "fresh-11-m1",
+          "quote": "For Alder’s Cedar pump station at 18 Cedar Lane, I own the Alder clearance filing. I will submit clearance.pdf by 9 October 2026 at 10:30 PDT (America/Los_Angeles, UTC−07:00)."
+        }
+      ]
+    },
+    {
+      "key": "birch-clearance",
+      "titleTerms": [
+        "Birch clearance filing",
+        "Birch clearance",
+        "Birch’s clearance",
+        "Birch pump station clearance",
+        "clearance.pdf for Birch",
+        "clearance filing for Birch",
+        "Birch clearance.pdf"
+      ],
+      "owner": "alex.rivera@birch-city.example.test",
+      "state": "waiting",
+      "dueAt": "2026-10-09T21:00:00Z",
+      "changed": false,
+      "evidence": [
+        {
+          "messageId": "fresh-11-m2",
+          "quote": "I am preparing the Birch clearance filing for Cedar pump station, 81 Hill Road, parcel B-81. I will submit clearance.pdf to you and the permit portal by 9 October 2026 at 14:00 PDT (America/Los_Angeles, UTC−07:00)."
+        },
+        {
+          "messageId": "fresh-11-m17",
+          "quote": "The Birch clearance filing is still in my draft folder. Its second page had Alder’s parcel A-18 from the reused template; I have corrected that to B-81, but the seal is not applied and I have not submitted it. My Monday request still has no response from the route supervisor."
+        }
+      ],
+      "priorEvidence": []
+    },
+    {
+      "key": "alder-pressure",
+      "titleTerms": [
+        "Alder pressure upload",
+        "Alder pressure trace",
+        "Alder pressure.csv",
+        "pressure.csv for Alder",
+        "Alder’s pressure"
+      ],
+      "owner": "alex.rivera@alder-city.example.test",
+      "state": "waiting",
+      "dueAt": null,
+      "changed": false,
+      "evidence": [
+        {
+          "messageId": "fresh-11-m4",
+          "quote": "I own the Alder pressure upload and will put pressure.csv into the A-18 portal for you on 9 October 2026. That is the day entered on the permit, with no appointment time."
+        },
+        {
+          "messageId": "fresh-11-m16",
+          "quote": "My Alder pressure upload has not reached A-18; pressure.csv remains local while the portal token is rejected."
+        }
+      ],
+      "priorEvidence": []
+    },
+    {
+      "key": "birch-pressure",
+      "titleTerms": [
+        "Birch pressure upload",
+        "Birch pressure trace",
+        "Birch pressure.csv",
+        "pressure.csv for Birch",
+        "Birch’s pressure"
+      ],
+      "owner": "sam@example.test",
+      "state": "closed",
+      "dueAt": null,
+      "changed": false,
+      "evidence": [
+        {
+          "messageId": "fresh-11-m13",
+          "quote": "I have delivered the Birch pressure upload: pressure.csv is now in B-81, receipt BP-447."
+        }
+      ],
+      "priorEvidence": []
+    },
+    {
+      "key": "boundary-witness",
+      "titleTerms": [
+        "boundary witness statement",
+        "boundary witness",
+        "shared valve statement",
+        "shared valve witness",
+        "valve witness statement"
+      ],
+      "owner": null,
+      "state": "uncertain",
+      "dueAt": null,
+      "changed": false,
+      "evidence": [
+        {
+          "messageId": "fresh-11-m6",
+          "quote": "Sam, your two station permits require one boundary witness statement for the valve on the municipal line. Its signature box says Alex Rivera without a town or email address."
+        },
+        {
+          "messageId": "fresh-11-m19",
+          "quote": "I have not accepted the boundary witness statement either. Birch legal says the Alder permit holder may need to sign, while Alder operations has pointed back to Birch. The district has not named an authorized signer or set a date; the statement remains unsigned."
+        }
+      ],
+      "priorEvidence": []
+    }
+  ]
+}

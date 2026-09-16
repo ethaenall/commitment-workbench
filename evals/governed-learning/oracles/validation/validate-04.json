@@ -1,0 +1,27 @@
+{
+  "caseId": "validate-04",
+  "items": [
+    {
+      "key": "matrix",
+      "titleTerms": [
+        "allergy matrix",
+        "allergen matrix"
+      ],
+      "owner": null,
+      "state": "uncertain",
+      "dueAt": null,
+      "changed": false,
+      "evidence": [
+        {
+          "messageId": "validate-04-m1",
+          "quote": "I need the allergy matrix before the tasting. Could one of you prepare it? We have not assigned an owner or agreed a delivery time."
+        },
+        {
+          "messageId": "validate-04-m4",
+          "quote": "No acceptance for the allergy matrix has reached me. I still need someone to confirm ownership and a delivery time."
+        }
+      ],
+      "priorEvidence": []
+    }
+  ]
+}

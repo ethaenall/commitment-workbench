@@ -1,0 +1,80 @@
+[
+  {
+    "id": "fresh-11",
+    "family": "municipal-two-site-record-reconciliation",
+    "title": "Cedar pump stations across two municipal permits",
+    "difficulty": "demanding",
+    "features": [
+      "identical participant display names with distinct municipal addresses",
+      "same station name, subjects, and two artifact filenames across sites",
+      "cross-thread receipt mistaken for another site’s upload",
+      "accepted reschedule contrasted with an unanswered reschedule request",
+      "day-only upload commitment without an invented clock time",
+      "unresolved shared-valve signer despite a populated name field",
+      "multi-anchor owner, date, and current-delivery evidence"
+    ],
+    "messageCount": 19,
+    "oracleItemCount": 5,
+    "reviewNotes": [
+      "A-18 identifies Alder at Cedar Lane; B-81 identifies Birch at Hill Road. The two Alex Rivera senders are different people. Neither display name nor filename alone identifies the obligation.",
+      "Only the Alder clearance date changes. Sam accepts 12 October at 08:15 PDT, equal to 2026-10-12T15:15:00Z. Birch’s proposed Monday date is never accepted; its 9 October 14:00 PDT commitment remains active and waiting on the Birch Alex.",
+      "Alder pressure upload has a day but no hour and remains waiting with dueAt null. Birch pressure upload is Sam’s completed delivery and is closed with changed false; BP-447 cannot close Alder’s upload.",
+      "The boundary witness statement is one unresolved dependency for Sam’s permits, not two Alex tasks. Both people disclaim acceptance and the district has selected no authorized signer; owner and dueAt are null, state uncertain.",
+      "All five obligations concern Sam’s own work, a delivery explicitly owed to Sam, or Sam’s unresolved permit dependency. Measurement completion and vehicle/template facts are progress or context, not additional promised deliveries.",
+      "Authored and checked with inherited agent reasoning and Python standard library only. Exact-quote/bounds checks are not native schema validation or model evaluation."
+    ]
+  },
+  {
+    "id": "fresh-12",
+    "family": "film-coop-partial-loan-reinstatement",
+    "title": "Glass Kite recorder loan after the night exterior is cut",
+    "difficulty": "demanding",
+    "features": [
+      "two equipment lines share one loan reference",
+      "cancellation followed by an accepted recorder-only reopening",
+      "late forwarded original lender approval conflicts with current scope",
+      "producer budget authority separated from lender release authority",
+      "delivered condition sheet distinguished from physical collection",
+      "day-only insurance rider owed directly to Sam",
+      "conflicting refund-system reports leave settlement status unresolved"
+    ],
+    "messageCount": 18,
+    "oracleItemCount": 5,
+    "reviewNotes": [
+      "Recorder collection and LED lighting kit collection are separate Sam commitments under GL-42. Noor authorizes and Sam accepts only the recorder’s reopening. Recorder collection is due on 12 October at 10:00 PDT, equal to 2026-10-12T17:00:00Z, with changed true and original/cancelled prior evidence.",
+      "The late Accounts forward contains an approval actually sent on 5 October. It does not revive the LED collection. That cancellation is closed with changed false; inventory availability is not a current release.",
+      "The completed condition sheet was Sam’s own promised delivery. Its signature records bench condition, not equipment custody. It is closed while the recorder still has to be collected.",
+      "Daria owes Sam the recorder-only insurance rider on 12 October, with no dispatch hour. Drafting is not issuing; state waiting and dueAt null.",
+      "Luis accepted responsibility for Sam’s deposit refund. The payment vendor says completed while the bank says rejected, and Luis expressly cannot determine settlement. Owner remains Luis, state uncertain, dueAt null; no carryover to the reopened loan is agreed.",
+      "No equipment-return, insurance-form, replacement-lighting, or refund-tracing promise is introduced as an unscored task. Simple closures use changed false; only the accepted reopening uses changed true.",
+      "Authored and checked with inherited agent reasoning and Python standard library only. Exact-quote/bounds checks are not native schema validation or model evaluation."
+    ]
+  },
+  {
+    "id": "fresh-13",
+    "family": "multilingual-neighborhood-print-release",
+    "title": "Voces del Patio language panels and held print run",
+    "difficulty": "demanding",
+    "features": [
+      "substantive Spanish, Chinese, and English correspondence",
+      "emoji and a multi-code-point emoji sequence before evidence anchors",
+      "a decomposed accent preserved in source text",
+      "two language files share a filename and masthead across threads",
+      "accepted exact-time-to-day-only deadline revision",
+      "color sample distinguished from the outstanding imposed bilingual proof",
+      "clipped stock approval forwarded as possible press authority",
+      "accepted Sam authorization duty remains due despite prerequisites"
+    ],
+    "messageCount": 18,
+    "oracleItemCount": 5,
+    "reviewNotes": [
+      "Sam owns both language-file deliveries. The Chinese final file has been delivered to the printer; Mei’s receipt check does not transfer ownership. The Spanish file remains in progress despite the shared panel-final.pdf name and masthead.",
+      "Sam accepts the Spanish delivery change in Spanish from 9 October at 11:30 PDT to 10 October without an agreed hour. State is due, changed true, dueAt null. Neither the prior 11:30 time nor an end-of-day instant carries forward.",
+      "León owes Sam the imposed bilingual proof with trim marks at 9 October 15:00 PDT, equal to 2026-10-09T22:00:00Z. A one-layer color sample and a repaired fold are partial progress, not that delivery; state waiting.",
+      "Sam’s cream-paper choice is complete and closed. A clipped forward of that choice is not print-run authorization. Sam already accepted responsibility for final authorization, with no date or hour; it remains due with dueAt null while the run is held.",
+      "All nine oracle anchors occur after at least one astral character in their source bodies. The compositor message uses a skin-tone/ZWJ emoji sequence; the municipal notice preserves decomposed Café rather than normalizing it.",
+      "Translation source checks, municipal hours, color-sample progress, and volunteer chat are material context, not additional promised deliveries. Every expected closed item is Sam’s own action.",
+      "Authored and checked with inherited agent reasoning and Python standard library only. Exact-quote/bounds checks are not native schema validation or model evaluation."
+    ]
+  }
+]

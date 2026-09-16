@@ -1,0 +1,28 @@
+{
+  "caseId": "learn-01",
+  "items": [
+    {
+      "key": "design",
+      "titleTerms": [
+        "design pack",
+        "design files"
+      ],
+      "owner": "sam@example.test",
+      "state": "due",
+      "dueAt": "2026-10-12T17:00:00Z",
+      "changed": true,
+      "evidence": [
+        {
+          "messageId": "learn-01-m3",
+          "quote": "Confirmed: I will send the design pack on Monday 12 October at 17:00 UTC instead of Friday."
+        }
+      ],
+      "priorEvidence": [
+        {
+          "messageId": "learn-01-m1",
+          "quote": "Design pack: I will send the final files by Friday 9 October at 17:00 UTC."
+        }
+      ]
+    }
+  ]
+}

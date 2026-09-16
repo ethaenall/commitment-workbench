@@ -57,6 +57,13 @@ function makeRunners(): CliRunners {
     log: noop,
     logDump: async () => 0,
     logVerify: async () => 0,
+    refinementDescribe: noop,
+    refinementList: noop,
+    refinementShow: noop,
+    refinementPropose: noop,
+    refinementValidate: noop,
+    refinementTransition: noop,
+    review: noop,
   };
 }
 

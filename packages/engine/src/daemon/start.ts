@@ -29,6 +29,7 @@ import { Miniflare } from "miniflare";
 
 import { validateCredentialKey } from "../credential-guard.js";
 import { resolveDaemonPort } from "../daemon-port.js";
+import { createRlmServiceBindings } from "./rlm-host.js";
 
 /**
  * The Worker bindings forwarded from the daemon's environment — exactly the
@@ -60,6 +61,9 @@ const FORWARDED_BINDINGS = [
   "LLM_API_KEY",
   "LOCALHOST_ONLY",
   "INTERNAL_MCP_TOKEN",
+  "GOVERNED_LEARNING",
+  "GOVERNED_RLM",
+  "GOVERNED_LEARNING_VALIDATION",
   "VISUAL_MODEL",
   "DEBUG_MODE",
   "OAUTH_REDIRECT_BASE_URL",
@@ -107,10 +111,16 @@ const EXIT_RUNTIME_UNRESPONSIVE = 70;
  * process working directory — two runs from two directories would silently
  * split one user's audit chain and connected services into two stores.
  */
+export interface DaemonHandle {
+  readonly url: URL;
+  /** Trusted local shutdown; repeated calls await the same disposal result. */
+  dispose(): Promise<void>;
+}
+
 export async function startDaemon(
   host: string,
   fallbackPersistRoot: string,
-): Promise<void> {
+): Promise<DaemonHandle> {
   const refusal = validateCredentialKey(process.env.CREDENTIAL_ENCRYPTION_KEY);
   if (refusal !== null) {
     console.error(refusal);
@@ -148,6 +158,7 @@ export async function startDaemon(
     host,
     port,
     bindings,
+    serviceBindings: createRlmServiceBindings(process.env),
   });
 
   // Miniflare surfaces a busy port as MiniflareCoreError ERR_ADDRESS_IN_USE,
@@ -179,7 +190,15 @@ export async function startDaemon(
   }
 
   console.log(`habenula-engine ready at ${url.href}`);
-  superviseRuntime(url);
+  const stopSupervision = superviseRuntime(url);
+  let disposal: Promise<void> | undefined;
+  return Object.freeze({
+    url,
+    dispose(): Promise<void> {
+      disposal ??= (async () => { stopSupervision(); await mf.dispose(); })();
+      return disposal;
+    },
+  });
 }
 
 /**
@@ -206,21 +225,25 @@ export async function startDaemon(
  * probe presents a loopback `Host` and passes the engine's LOCALHOST_ONLY
  * guard without the daemon deriving an address of its own.
  */
-function superviseRuntime(url: URL): void {
+function superviseRuntime(url: URL): () => void {
   const probeUrl = new URL("/api/health", url);
+  const stopped = new AbortController();
   let consecutiveFailures = 0;
 
   const probe = async (): Promise<void> => {
+    if (stopped.signal.aborted) return;
     try {
       const res = await fetch(probeUrl, {
-        signal: AbortSignal.timeout(PROBE_TIMEOUT_MS),
+        signal: AbortSignal.any([stopped.signal, AbortSignal.timeout(PROBE_TIMEOUT_MS)]),
       });
       // Drain before judging the status: an unconsumed body holds its socket
       // open, and this runs every interval for the life of the daemon.
       await res.arrayBuffer();
+      if (stopped.signal.aborted) return;
       if (!res.ok) throw new Error(`unexpected status ${res.status}`);
       consecutiveFailures = 0;
     } catch (err) {
+      if (stopped.signal.aborted) return;
       consecutiveFailures += 1;
       if (consecutiveFailures < PROBE_FAILURE_THRESHOLD) return;
       const reason = err instanceof Error ? err.message : String(err);
@@ -232,5 +255,7 @@ function superviseRuntime(url: URL): void {
   };
 
   // unref: the probe timer must never be the reason the process stays alive.
-  setInterval(() => void probe(), PROBE_INTERVAL_MS).unref();
+  const timer = setInterval(() => void probe(), PROBE_INTERVAL_MS);
+  timer.unref();
+  return () => { clearInterval(timer); stopped.abort(); };
 }

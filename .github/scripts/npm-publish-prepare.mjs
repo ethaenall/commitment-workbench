@@ -32,6 +32,8 @@ export const ENTRY_TABLE = {
       ".": "./dist/index.js",
       "./requests": "./dist/requests/index.js",
       "./responses": "./dist/responses/index.js",
+      "./refinements": "./dist/refinements.js",
+      "./workflows": "./dist/workflows.js",
     },
   },
   credentials: {

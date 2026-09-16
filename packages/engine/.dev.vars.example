@@ -94,6 +94,14 @@ INTERNAL_MCP_TOKEN=your-64-char-hex-token-here
 # See docs/guides/development/visual-model.md.
 #VISUAL_MODEL=true
 
+# Optional local refinement/workflow controls. Reads AND writes stay 404 unless
+# this exact value is true. All controls require INTERNAL_MCP_TOKEN; this proves
+# token possession, not human presence. No new model/MCP management verbs.
+#GOVERNED_LEARNING=true
+# Unset: schema-contract checks only; behavior remains unmeasured. Only an
+# explicit trusted deployment may enable real-model promotion checks:
+#GOVERNED_LEARNING_VALIDATION=real_model
+
 # Optional — debug mode. Set to exactly `true` to serve
 # POST /api/tools/execute, which drives one governed tool call with no
 # conversation behind it. Any other value, or unset, leaves the route

@@ -20,6 +20,7 @@ import {
 } from "@habenula-ai/tools";
 import type { OAuthProviderId, OAuthProviderStrategy } from "@habenula-ai/tools";
 import { respond } from "./respond";
+import { handleGovernedLearning } from "./routes/governed-learning";
 import { PHASE0_AGENT_ID } from "./agent/phase0";
 import { createMcpHandler } from "agents/mcp";
 import { buildCommissionServer } from "./mcp/commission-server";
@@ -233,6 +234,41 @@ export default {
     // /api/* 404 fall-through.
     if (url.pathname === "/api/health" && request.method === "GET") {
       return handleHealth();
+    }
+    // Opt-in local analysis controls. These routes never access credentials:
+    // gate them before the credential guard so disabled means 404 even when
+    // unrelated OAuth configuration is absent. All existing routes retain
+    // their guard below. Host/Origin still ran first, and the shared caller
+    // token check runs before any body parse or DO lookup inside the helper.
+    if (url.pathname === "/api/refinements" && request.method === "GET") {
+      return handleGovernedLearning(request, env, "list", internalCallerAuthorized);
+    }
+    if (url.pathname === "/api/refinements/get" && request.method === "GET") {
+      return handleGovernedLearning(request, env, "get", internalCallerAuthorized);
+    }
+    if (url.pathname === "/api/refinements/propose" && request.method === "POST") {
+      return handleGovernedLearning(request, env, "propose", internalCallerAuthorized);
+    }
+    if (url.pathname === "/api/refinements/validate" && request.method === "POST") {
+      return handleGovernedLearning(request, env, "validate", internalCallerAuthorized);
+    }
+    if (url.pathname === "/api/refinements/approve" && request.method === "POST") {
+      return handleGovernedLearning(request, env, "approve", internalCallerAuthorized);
+    }
+    if (url.pathname === "/api/refinements/activate" && request.method === "POST") {
+      return handleGovernedLearning(request, env, "activate", internalCallerAuthorized);
+    }
+    if (url.pathname === "/api/refinements/disable" && request.method === "POST") {
+      return handleGovernedLearning(request, env, "disable", internalCallerAuthorized);
+    }
+    if (url.pathname === "/api/refinements/rollback" && request.method === "POST") {
+      return handleGovernedLearning(request, env, "rollback", internalCallerAuthorized);
+    }
+    if (url.pathname === "/api/workflows" && request.method === "GET") {
+      return handleGovernedLearning(request, env, "describe", internalCallerAuthorized);
+    }
+    if (url.pathname === "/api/workflows/run" && request.method === "POST") {
+      return handleGovernedLearning(request, env, "run", internalCallerAuthorized);
     }
     // Fail-closed credential-key guard: every route
     // below refuses to run under a missing, malformed, or publicly known

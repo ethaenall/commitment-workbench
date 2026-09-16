@@ -1,0 +1,65 @@
+{
+  "workflowId": "mail.commitment-handoff.v1",
+  "schemaVersion": 1,
+  "snapshotId": "learn-01",
+  "userAddress": "sam@example.test",
+  "cutoff": "2026-10-09T23:00:00Z",
+  "timezone": "America/Los_Angeles",
+  "coverage": {
+    "scope": "supplied-snapshot",
+    "source": "synthetic-fixture",
+    "omittedMessages": 0,
+    "note": "Authored synthetic correspondence. Not a live mailbox or a complete account export."
+  },
+  "messages": [
+    {
+      "id": "learn-01-m1",
+      "threadId": "learn-01-t1",
+      "subject": "Weekly correspondence",
+      "sender": "sam@example.test",
+      "to": "team@example.test",
+      "timestamp": "2026-10-05T10:00:00Z",
+      "body": "Design pack: I will send the final files by Friday 9 October at 17:00 UTC.",
+      "bodyHash": "45880ce23759fa1ed79f36fb4f349af940ee15c8ec4bd580bfe6e69d3ffe4c01",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "learn-01-m2",
+      "threadId": "learn-01-t1",
+      "subject": "Weekly correspondence",
+      "sender": "pat@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-06T10:00:00Z",
+      "body": "The review is moving. Would Monday work for the design pack?",
+      "bodyHash": "6fdceeca068d50bcdbb760f2c96f9663bb4c3f99293fa5e00dac62a36506740f",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "learn-01-m3",
+      "threadId": "learn-01-t1",
+      "subject": "Weekly correspondence",
+      "sender": "sam@example.test",
+      "to": "team@example.test",
+      "timestamp": "2026-10-07T10:00:00Z",
+      "body": "Confirmed: I will send the design pack on Monday 12 October at 17:00 UTC instead of Friday.",
+      "bodyHash": "10e6e04ddb3856f7f87ce2847d1beb26e15a3ad6a8214fcffd4a0d11f251312f",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "learn-01-m4",
+      "threadId": "learn-01-t1",
+      "subject": "Weekly correspondence",
+      "sender": "pat@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-08T10:00:00Z",
+      "body": "Thanks. Quoting the original for the archive, not changing our new agreement:\n> Design pack: I will send the final files by Friday 9 October at 17:00 UTC.",
+      "bodyHash": "257d7e743e73be97c76e505ac6ef501dee934e6b962e87df16cd28af45e29b72",
+      "truncated": false,
+      "omittedChars": 0
+    }
+  ],
+  "snapshotHash": "70c2036353adaf45fe21d077d5f784b63cb219247aa64f98a65dd0b962ec7f48"
+}

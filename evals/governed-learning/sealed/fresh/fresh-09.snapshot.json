@@ -1,0 +1,77 @@
+{
+  "workflowId": "mail.commitment-handoff.v1",
+  "schemaVersion": 1,
+  "snapshotId": "fresh-09",
+  "snapshotHash": "bc0c260a2502dee47e4e2e4562fdb0ab48157fad4f340eac3193a1bec412d9e0",
+  "userAddress": "sam@example.test",
+  "cutoff": "2026-10-09T23:00:00Z",
+  "timezone": "America/Los_Angeles",
+  "coverage": {
+    "scope": "supplied-snapshot",
+    "source": "synthetic-fixture",
+    "omittedMessages": 0,
+    "note": "Authored synthetic correspondence. Not a live mailbox or a complete account export."
+  },
+  "messages": [
+    {
+      "id": "fresh-09-m1",
+      "threadId": "fresh-09-t1",
+      "subject": "Station calibration",
+      "sender": "sam@example.test",
+      "to": "team@example.test",
+      "timestamp": "2026-10-05T10:00:00Z",
+      "body": "🔬 Field log, café desk. I will send the Río calibration card by 12 October at 14:00 UTC. I will deliver the drift plot by 14 October at 18:00 UTC.",
+      "bodyHash": "f1b87f5f8d2322847ad48af7f7cf31c921cdb1e13aed15811d9d4a4f1d951fab",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-09-m2",
+      "threadId": "fresh-09-t1",
+      "subject": "Station calibration",
+      "sender": "ines@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-06T10:00:00Z",
+      "body": "Could the drift plot arrive at 17:00 instead? I have a shorter review slot that day.",
+      "bodyHash": "cae374e924d438be2e125ea6ff253f3b3eaab18dca78634bbf0e18a01cdb629c",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-09-m3",
+      "threadId": "fresh-09-t1",
+      "subject": "Station calibration",
+      "sender": "sam@example.test",
+      "to": "team@example.test",
+      "timestamp": "2026-10-07T10:00:00Z",
+      "body": "I can move the Río calibration card to 13 October at 14:00 UTC if that works for you. I cannot bring the drift plot forward to 17:00.",
+      "bodyHash": "bea629278d0efcdbc7de9ae2c64557ea5e25d0e24731dbd0c241c3ea2eb591fb",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-09-m4",
+      "threadId": "fresh-09-t1",
+      "subject": "Station calibration",
+      "sender": "ines@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-08T10:00:00Z",
+      "body": "Agreed: your Río calibration card will now arrive on 13 October at 14:00 UTC. The drift plot remains due on 14 October at 18:00 UTC.",
+      "bodyHash": "4101ae863701aec28cbd0e8c8bff319a0eddee0cfd97e73eb84cea276bb12d95",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-09-m5",
+      "threadId": "fresh-09-t2",
+      "subject": "Río instrument catalogue",
+      "sender": "station-catalog@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-09T08:00:00Z",
+      "body": "The catalogue lists a Río sensor carrying case and blank calibration cards. This is product information, not a delivery order for either of your station files.",
+      "bodyHash": "114c7c11f34affce588df14c2ca66555a14ee4c930a8faf039bdfecdcbe872d5",
+      "truncated": false,
+      "omittedChars": 0
+    }
+  ]
+}

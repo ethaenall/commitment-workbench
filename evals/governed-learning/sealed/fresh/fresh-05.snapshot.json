@@ -1,0 +1,77 @@
+{
+  "workflowId": "mail.commitment-handoff.v1",
+  "schemaVersion": 1,
+  "snapshotId": "fresh-05",
+  "snapshotHash": "c33829ac769b17b53d1d58824b92a9d71e26fbda67012f39ef871ae366272df3",
+  "userAddress": "sam@example.test",
+  "cutoff": "2026-10-09T23:00:00Z",
+  "timezone": "America/Los_Angeles",
+  "coverage": {
+    "scope": "supplied-snapshot",
+    "source": "synthetic-fixture",
+    "omittedMessages": 0,
+    "note": "Authored synthetic correspondence. Not a live mailbox or a complete account export."
+  },
+  "messages": [
+    {
+      "id": "fresh-05-m1",
+      "threadId": "fresh-05-t1",
+      "subject": "Mediation packet",
+      "sender": "sam@example.test",
+      "to": "team@example.test",
+      "timestamp": "2026-10-05T10:00:00Z",
+      "body": "I will send the mediation packet by Monday 12 October at 10:00 America/Los_Angeles time. Elise, please send me your signed availability note before then; it belongs in the packet.",
+      "bodyHash": "28e444ec17c47b7ab7d513d06892c8cc1c30209e3359f5a7ab3f32dcfa43b802",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-05-m2",
+      "threadId": "fresh-05-t2",
+      "subject": "Signed availability note",
+      "sender": "elise@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-06T10:00:00Z",
+      "body": "I will send you the signed availability note by 11 October at 18:00 UTC.",
+      "bodyHash": "880af87b803ce4770b242de096f0bf0da1b351e784d30046d068d65d85fca94e",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-05-m3",
+      "threadId": "fresh-05-t1",
+      "subject": "Courier quotation",
+      "sender": "print-desk@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-07T10:00:00Z",
+      "body": "Our standard courier tariff lists a 17:00 UTC collection. No collection has been booked for your mediation packet; this is a price quotation.",
+      "bodyHash": "53ed15ff9df8a82ac591426c90d820d5f61ed5c38a7fcdba101a249415bd6dff",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-05-m4",
+      "threadId": "fresh-05-t2",
+      "subject": "Signed availability note",
+      "sender": "elise@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-08T10:00:00Z",
+      "body": "The signature appointment is booked, but the availability note has not been signed or sent yet. My delivery time to you is unchanged.",
+      "bodyHash": "f6571d81e830a2f3a2f2c9bc00b0d4bb41506cd88e6e72eced7ab3e2881cd6cb",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-05-m5",
+      "threadId": "fresh-05-t1",
+      "subject": "Mediation packet",
+      "sender": "sam@example.test",
+      "to": "team@example.test",
+      "timestamp": "2026-10-09T09:00:00Z",
+      "body": "The mediation packet is still with me. I will send it at the agreed Monday 10:00 Los Angeles time, which is 17:00 UTC on 12 October.",
+      "bodyHash": "5211f4f24b395f124557de7c8cda93f724fa2eb86d05f64789faf368e4f19394",
+      "truncated": false,
+      "omittedChars": 0
+    }
+  ]
+}

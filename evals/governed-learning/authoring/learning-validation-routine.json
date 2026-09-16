@@ -1,0 +1,131 @@
+[
+  {
+    "id": "learn-03",
+    "family": "field-visit-day-precision",
+    "title": "Field visit correspondence",
+    "difficulty": null,
+    "features": [
+      "day-only date precision",
+      "explicit dependency",
+      "unaccepted time proposal"
+    ],
+    "messageCount": 4,
+    "oracleItemCount": 2
+  },
+  {
+    "id": "learn-04",
+    "family": "archive-forwarded-speaker",
+    "title": "Archive correspondence",
+    "difficulty": null,
+    "features": [
+      "forwarded speaker",
+      "independent completion",
+      "receipt scope"
+    ],
+    "messageCount": 5,
+    "oracleItemCount": 2
+  },
+  {
+    "id": "validate-03",
+    "family": "radio-accepted-owner-transfer",
+    "title": "Radio correspondence",
+    "difficulty": null,
+    "features": [
+      "accepted ownership transfer",
+      "prior/current evidence"
+    ],
+    "messageCount": 4,
+    "oracleItemCount": 1
+  },
+  {
+    "id": "validate-04",
+    "family": "tasting-incomplete-assignment",
+    "title": "Tasting correspondence",
+    "difficulty": null,
+    "features": [
+      "truncated conditional reply",
+      "omitted coverage",
+      "unresolved owner/date"
+    ],
+    "messageCount": 4,
+    "oracleItemCount": 1
+  },
+  {
+    "id": "fresh-05",
+    "family": "mediation-courier-offset",
+    "title": "Mediation correspondence",
+    "difficulty": "routine",
+    "features": [
+      "source-supported timezone conversion",
+      "direct dependency",
+      "material price quotation"
+    ],
+    "messageCount": 5,
+    "oracleItemCount": 2
+  },
+  {
+    "id": "fresh-06",
+    "family": "foster-day-only-records",
+    "title": "Foster correspondence",
+    "difficulty": "routine",
+    "features": [
+      "day-only due date",
+      "completion scope",
+      "unaccepted date proposal"
+    ],
+    "messageCount": 6,
+    "oracleItemCount": 2
+  },
+  {
+    "id": "fresh-07",
+    "family": "tournament-export-completion-scope",
+    "title": "Tournament correspondence",
+    "difficulty": "routine",
+    "features": [
+      "two artifacts",
+      "completion does not transfer",
+      "subject collision"
+    ],
+    "messageCount": 5,
+    "oracleItemCount": 2
+  },
+  {
+    "id": "fresh-08",
+    "family": "cycle-crate-sale-supersedes-loan",
+    "title": "Cycle workshop correspondence",
+    "difficulty": "routine",
+    "features": [
+      "cancellation",
+      "later archived quotation",
+      "material purchase receipt"
+    ],
+    "messageCount": 5,
+    "oracleItemCount": 1
+  },
+  {
+    "id": "fresh-09",
+    "family": "station-unicode-calibration",
+    "title": "Station correspondence",
+    "difficulty": "routine",
+    "features": [
+      "emoji before span",
+      "combining Unicode",
+      "accepted versus rejected change"
+    ],
+    "messageCount": 5,
+    "oracleItemCount": 2
+  },
+  {
+    "id": "fresh-10",
+    "family": "chess-access-incomplete-response",
+    "title": "Chess room correspondence",
+    "difficulty": "routine",
+    "features": [
+      "truncated offer",
+      "unknown omitted count",
+      "separate accepted commitment"
+    ],
+    "messageCount": 6,
+    "oracleItemCount": 2
+  }
+]

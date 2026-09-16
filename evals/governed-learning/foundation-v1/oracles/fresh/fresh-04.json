@@ -1,0 +1,43 @@
+{
+  "caseId": "fresh-04",
+  "items": [
+    {
+      "key": "consent",
+      "titleTerms": [
+        "consent faq"
+      ],
+      "owner": "sam@example.test",
+      "state": "due",
+      "dueAt": "2026-10-12T16:00:00Z",
+      "changed": false,
+      "evidence": [
+        {
+          "messageId": "fresh-04-m1",
+          "quote": "Consent FAQ: I will deliver it on 12 October at 09:00 America/Los_Angeles (16:00 UTC)."
+        }
+      ],
+      "priorEvidence": []
+    },
+    {
+      "key": "screening",
+      "titleTerms": [
+        "screening notes"
+      ],
+      "owner": "sam@example.test",
+      "state": "waiting",
+      "dueAt": null,
+      "changed": false,
+      "evidence": [
+        {
+          "messageId": "fresh-04-m3",
+          "quote": "For the screening notes, I am waiting on Nora to send the interview criteria."
+        },
+        {
+          "messageId": "fresh-04-m4",
+          "quote": "The screening notes remain blocked on me."
+        }
+      ],
+      "priorEvidence": []
+    }
+  ]
+}

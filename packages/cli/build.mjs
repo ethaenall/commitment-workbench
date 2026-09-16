@@ -4,8 +4,9 @@
 // shebang — Node cannot execute TypeScript directly. esbuild bundles the whole
 // source tree (plus the workspace-local @habenula-ai/audit, whose hash,
 // verify-chain, and decision-closure code the CLI value-imports and which ships
-// as .ts, so it MUST be transpiled; @habenula-ai/contracts is consumed
-// type-only and is erased) into dist/index.js, stamped with a `#!/usr/bin/env node` shebang
+// as .ts, so it MUST be transpiled). Governed-learning commands also value-import
+// @habenula-ai/contracts and its Zod validators for strict local wire/file checks.
+// These are bundled into dist/index.js, stamped with a `#!/usr/bin/env node` shebang
 // and marked executable. Node built-ins stay external. Dev still runs from
 // source via `tsx src/bin.ts` (the `dev` recipe); this bundle is what `bin`
 // points at and what npm publishing ships.
@@ -58,6 +59,7 @@ await build({
     js: [
       "#!/usr/bin/env node",
       "//! Habenula CLI — AGPL-3.0-only. Bundles @habenula-ai/audit (MIT).",
+      "//! Includes Zod (MIT) for runtime contract validation; see NOTICE.",
       "//! Full notices: the NOTICE file shipped alongside this bundle.",
       'import { createRequire as __hbnCreateRequire } from "node:module";',
       "const require = __hbnCreateRequire(import.meta.url);",

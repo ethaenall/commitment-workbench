@@ -1,0 +1,5218 @@
+{
+  "kind": "authored-answer-contract-replay",
+  "manifestHash": "cd1f2c1802cb4ff0da50019d9af17ac3185a74f2361999753a70f0e1fd853e57",
+  "implementationSourceHashes": {
+    "packages/contracts/src/workflows.ts": "c34a74601c2358f5e0a621272a4a3fa48a9897e09ae85f019b4f8a3049e15ee0",
+    "packages/contracts/src/requests/common.ts": "32eadb03376f2bd4f90e7142da869b1804fa241238397ac65c0ec5ecd730850f",
+    "packages/engine/src/workflows/commitment-handoff.ts": "22055195221f974b437f3fced1ad7c5723d25aafb5718a673814e65880945031",
+    "packages/engine/src/workflows/fixtures.ts": "56a3fb4507f111cf14d04519f9c6c814233166db8e83715be96a467e9cce32e2",
+    "evals/governed-learning/harness.mts": "32a2f6e2495bfa500493ebda143c750e980c4285cd1c06b7702a33cb4907ed31",
+    "evals/governed-learning/oracle-ledger.ts": "fcceea5f3a59d6bf913165145895ccaf4cd7cdd5f312be1968af8ce1bfefe8c5",
+    "package-lock.json": "2a1e9bb4b0bb486e8163ecf7484efd0641030dc704f32c94605fcb6e7597e9f3"
+  },
+  "runtime": "node-22.22.1/tsx",
+  "runtimeModesExercised": false,
+  "modelEfficacyMeasured": false,
+  "realModelCalls": 0,
+  "notice": "Oracle-authored answers only. Four arm labels test the evaluation matrix, not four implemented runtimes. No baseline failure is forced. Replay latency and token fields are synthetic.",
+  "summary": [
+    {
+      "mode": "baseline",
+      "attempted": 20,
+      "complete": 20,
+      "blocked": 0,
+      "errors": 0,
+      "authoredOraclePasses": 20,
+      "correctionOperations": 0,
+      "usageComplete": true,
+      "usageKinds": [
+        "synthetic"
+      ],
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "rootCalls": 0,
+      "childCalls": 0,
+      "observedMedianMs": 0,
+      "observedMaxMs": 0
+    },
+    {
+      "mode": "refinements",
+      "attempted": 20,
+      "complete": 20,
+      "blocked": 0,
+      "errors": 0,
+      "authoredOraclePasses": 20,
+      "correctionOperations": 0,
+      "usageComplete": true,
+      "usageKinds": [
+        "synthetic"
+      ],
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "rootCalls": 0,
+      "childCalls": 0,
+      "observedMedianMs": 0,
+      "observedMaxMs": 0
+    },
+    {
+      "mode": "rlm",
+      "attempted": 20,
+      "complete": 20,
+      "blocked": 0,
+      "errors": 0,
+      "authoredOraclePasses": 20,
+      "correctionOperations": 0,
+      "usageComplete": true,
+      "usageKinds": [
+        "synthetic"
+      ],
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "rootCalls": 0,
+      "childCalls": 0,
+      "observedMedianMs": 0,
+      "observedMaxMs": 0
+    },
+    {
+      "mode": "both",
+      "attempted": 20,
+      "complete": 20,
+      "blocked": 0,
+      "errors": 0,
+      "authoredOraclePasses": 20,
+      "correctionOperations": 0,
+      "usageComplete": true,
+      "usageKinds": [
+        "synthetic"
+      ],
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "rootCalls": 0,
+      "childCalls": 0,
+      "observedMedianMs": 0,
+      "observedMaxMs": 0
+    }
+  ],
+  "rows": [
+    {
+      "caseId": "learn-01",
+      "split": "learning",
+      "mode": "baseline",
+      "snapshotHash": "70c2036353adaf45fe21d077d5f784b63cb219247aa64f98a65dd0b962ec7f48",
+      "status": "complete",
+      "score": {
+        "caseId": "learn-01",
+        "inputHash": "70c2036353adaf45fe21d077d5f784b63cb219247aa64f98a65dd0b962ec7f48",
+        "outputHash": "c30dd0c28e974c4f75f7583e93775ee2e8d9299c330cbdbdfa0ceee3cf0bd864",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 1,
+        "matchedItems": 1,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "learn-01",
+      "split": "learning",
+      "mode": "refinements",
+      "snapshotHash": "70c2036353adaf45fe21d077d5f784b63cb219247aa64f98a65dd0b962ec7f48",
+      "status": "complete",
+      "score": {
+        "caseId": "learn-01",
+        "inputHash": "70c2036353adaf45fe21d077d5f784b63cb219247aa64f98a65dd0b962ec7f48",
+        "outputHash": "c30dd0c28e974c4f75f7583e93775ee2e8d9299c330cbdbdfa0ceee3cf0bd864",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 1,
+        "matchedItems": 1,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "learn-01",
+      "split": "learning",
+      "mode": "both",
+      "snapshotHash": "70c2036353adaf45fe21d077d5f784b63cb219247aa64f98a65dd0b962ec7f48",
+      "status": "complete",
+      "score": {
+        "caseId": "learn-01",
+        "inputHash": "70c2036353adaf45fe21d077d5f784b63cb219247aa64f98a65dd0b962ec7f48",
+        "outputHash": "c30dd0c28e974c4f75f7583e93775ee2e8d9299c330cbdbdfa0ceee3cf0bd864",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 1,
+        "matchedItems": 1,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "learn-01",
+      "split": "learning",
+      "mode": "rlm",
+      "snapshotHash": "70c2036353adaf45fe21d077d5f784b63cb219247aa64f98a65dd0b962ec7f48",
+      "status": "complete",
+      "score": {
+        "caseId": "learn-01",
+        "inputHash": "70c2036353adaf45fe21d077d5f784b63cb219247aa64f98a65dd0b962ec7f48",
+        "outputHash": "c30dd0c28e974c4f75f7583e93775ee2e8d9299c330cbdbdfa0ceee3cf0bd864",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 1,
+        "matchedItems": 1,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "learn-02",
+      "split": "learning",
+      "mode": "refinements",
+      "snapshotHash": "46dc841d6504317a083e0742fad08d70d1750f4048c2a39eae7cb17d064a1c36",
+      "status": "complete",
+      "score": {
+        "caseId": "learn-02",
+        "inputHash": "46dc841d6504317a083e0742fad08d70d1750f4048c2a39eae7cb17d064a1c36",
+        "outputHash": "0ee0c54600c6dae121ede976e94d11869e41d01b898d9812bd83fd99d0a9f4e0",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 1,
+        "matchedItems": 1,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "learn-02",
+      "split": "learning",
+      "mode": "rlm",
+      "snapshotHash": "46dc841d6504317a083e0742fad08d70d1750f4048c2a39eae7cb17d064a1c36",
+      "status": "complete",
+      "score": {
+        "caseId": "learn-02",
+        "inputHash": "46dc841d6504317a083e0742fad08d70d1750f4048c2a39eae7cb17d064a1c36",
+        "outputHash": "0ee0c54600c6dae121ede976e94d11869e41d01b898d9812bd83fd99d0a9f4e0",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 1,
+        "matchedItems": 1,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "learn-02",
+      "split": "learning",
+      "mode": "baseline",
+      "snapshotHash": "46dc841d6504317a083e0742fad08d70d1750f4048c2a39eae7cb17d064a1c36",
+      "status": "complete",
+      "score": {
+        "caseId": "learn-02",
+        "inputHash": "46dc841d6504317a083e0742fad08d70d1750f4048c2a39eae7cb17d064a1c36",
+        "outputHash": "0ee0c54600c6dae121ede976e94d11869e41d01b898d9812bd83fd99d0a9f4e0",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 1,
+        "matchedItems": 1,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "learn-02",
+      "split": "learning",
+      "mode": "both",
+      "snapshotHash": "46dc841d6504317a083e0742fad08d70d1750f4048c2a39eae7cb17d064a1c36",
+      "status": "complete",
+      "score": {
+        "caseId": "learn-02",
+        "inputHash": "46dc841d6504317a083e0742fad08d70d1750f4048c2a39eae7cb17d064a1c36",
+        "outputHash": "0ee0c54600c6dae121ede976e94d11869e41d01b898d9812bd83fd99d0a9f4e0",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 1,
+        "matchedItems": 1,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "learn-03",
+      "split": "learning",
+      "mode": "rlm",
+      "snapshotHash": "901c225afbd615125fe24d57b8b4679e3ba8c6e302f34d68bbd14bd617bb159b",
+      "status": "complete",
+      "score": {
+        "caseId": "learn-03",
+        "inputHash": "901c225afbd615125fe24d57b8b4679e3ba8c6e302f34d68bbd14bd617bb159b",
+        "outputHash": "324b424c02c3d2648357dbb3316f57ef9f115b3d083bac570b215aed4a08af79",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 2,
+        "matchedItems": 2,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "learn-03",
+      "split": "learning",
+      "mode": "both",
+      "snapshotHash": "901c225afbd615125fe24d57b8b4679e3ba8c6e302f34d68bbd14bd617bb159b",
+      "status": "complete",
+      "score": {
+        "caseId": "learn-03",
+        "inputHash": "901c225afbd615125fe24d57b8b4679e3ba8c6e302f34d68bbd14bd617bb159b",
+        "outputHash": "324b424c02c3d2648357dbb3316f57ef9f115b3d083bac570b215aed4a08af79",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 2,
+        "matchedItems": 2,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "learn-03",
+      "split": "learning",
+      "mode": "refinements",
+      "snapshotHash": "901c225afbd615125fe24d57b8b4679e3ba8c6e302f34d68bbd14bd617bb159b",
+      "status": "complete",
+      "score": {
+        "caseId": "learn-03",
+        "inputHash": "901c225afbd615125fe24d57b8b4679e3ba8c6e302f34d68bbd14bd617bb159b",
+        "outputHash": "324b424c02c3d2648357dbb3316f57ef9f115b3d083bac570b215aed4a08af79",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 2,
+        "matchedItems": 2,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "learn-03",
+      "split": "learning",
+      "mode": "baseline",
+      "snapshotHash": "901c225afbd615125fe24d57b8b4679e3ba8c6e302f34d68bbd14bd617bb159b",
+      "status": "complete",
+      "score": {
+        "caseId": "learn-03",
+        "inputHash": "901c225afbd615125fe24d57b8b4679e3ba8c6e302f34d68bbd14bd617bb159b",
+        "outputHash": "324b424c02c3d2648357dbb3316f57ef9f115b3d083bac570b215aed4a08af79",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 2,
+        "matchedItems": 2,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "learn-04",
+      "split": "learning",
+      "mode": "both",
+      "snapshotHash": "833c20edd50529b602d2cdafc8ebe31b3f2bdae477112f4248ec5d5a3d0155e3",
+      "status": "complete",
+      "score": {
+        "caseId": "learn-04",
+        "inputHash": "833c20edd50529b602d2cdafc8ebe31b3f2bdae477112f4248ec5d5a3d0155e3",
+        "outputHash": "70c11a5378eee08ea7e92636bbbbe071d40adedfbd4de0ab33df1f7895dc4c3c",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 2,
+        "matchedItems": 2,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "learn-04",
+      "split": "learning",
+      "mode": "baseline",
+      "snapshotHash": "833c20edd50529b602d2cdafc8ebe31b3f2bdae477112f4248ec5d5a3d0155e3",
+      "status": "complete",
+      "score": {
+        "caseId": "learn-04",
+        "inputHash": "833c20edd50529b602d2cdafc8ebe31b3f2bdae477112f4248ec5d5a3d0155e3",
+        "outputHash": "70c11a5378eee08ea7e92636bbbbe071d40adedfbd4de0ab33df1f7895dc4c3c",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 2,
+        "matchedItems": 2,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "learn-04",
+      "split": "learning",
+      "mode": "rlm",
+      "snapshotHash": "833c20edd50529b602d2cdafc8ebe31b3f2bdae477112f4248ec5d5a3d0155e3",
+      "status": "complete",
+      "score": {
+        "caseId": "learn-04",
+        "inputHash": "833c20edd50529b602d2cdafc8ebe31b3f2bdae477112f4248ec5d5a3d0155e3",
+        "outputHash": "70c11a5378eee08ea7e92636bbbbe071d40adedfbd4de0ab33df1f7895dc4c3c",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 2,
+        "matchedItems": 2,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "learn-04",
+      "split": "learning",
+      "mode": "refinements",
+      "snapshotHash": "833c20edd50529b602d2cdafc8ebe31b3f2bdae477112f4248ec5d5a3d0155e3",
+      "status": "complete",
+      "score": {
+        "caseId": "learn-04",
+        "inputHash": "833c20edd50529b602d2cdafc8ebe31b3f2bdae477112f4248ec5d5a3d0155e3",
+        "outputHash": "70c11a5378eee08ea7e92636bbbbe071d40adedfbd4de0ab33df1f7895dc4c3c",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 2,
+        "matchedItems": 2,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "validate-01",
+      "split": "validation",
+      "mode": "baseline",
+      "snapshotHash": "b3bbaa5da804d0a11cd1801a8c9274055e533c988d622fdffa291c21b2940c7b",
+      "status": "complete",
+      "score": {
+        "caseId": "validate-01",
+        "inputHash": "b3bbaa5da804d0a11cd1801a8c9274055e533c988d622fdffa291c21b2940c7b",
+        "outputHash": "779c3081fccd37697f4fad396059a330a345faad66aaeebeb0572298ac940a0d",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 1,
+        "matchedItems": 1,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "validate-01",
+      "split": "validation",
+      "mode": "refinements",
+      "snapshotHash": "b3bbaa5da804d0a11cd1801a8c9274055e533c988d622fdffa291c21b2940c7b",
+      "status": "complete",
+      "score": {
+        "caseId": "validate-01",
+        "inputHash": "b3bbaa5da804d0a11cd1801a8c9274055e533c988d622fdffa291c21b2940c7b",
+        "outputHash": "779c3081fccd37697f4fad396059a330a345faad66aaeebeb0572298ac940a0d",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 1,
+        "matchedItems": 1,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "validate-01",
+      "split": "validation",
+      "mode": "both",
+      "snapshotHash": "b3bbaa5da804d0a11cd1801a8c9274055e533c988d622fdffa291c21b2940c7b",
+      "status": "complete",
+      "score": {
+        "caseId": "validate-01",
+        "inputHash": "b3bbaa5da804d0a11cd1801a8c9274055e533c988d622fdffa291c21b2940c7b",
+        "outputHash": "779c3081fccd37697f4fad396059a330a345faad66aaeebeb0572298ac940a0d",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 1,
+        "matchedItems": 1,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "validate-01",
+      "split": "validation",
+      "mode": "rlm",
+      "snapshotHash": "b3bbaa5da804d0a11cd1801a8c9274055e533c988d622fdffa291c21b2940c7b",
+      "status": "complete",
+      "score": {
+        "caseId": "validate-01",
+        "inputHash": "b3bbaa5da804d0a11cd1801a8c9274055e533c988d622fdffa291c21b2940c7b",
+        "outputHash": "779c3081fccd37697f4fad396059a330a345faad66aaeebeb0572298ac940a0d",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 1,
+        "matchedItems": 1,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "validate-02",
+      "split": "validation",
+      "mode": "refinements",
+      "snapshotHash": "cc55d62b0392a365c9d78272e80666aea954eaf3a70645eb300ee2692524ba9a",
+      "status": "complete",
+      "score": {
+        "caseId": "validate-02",
+        "inputHash": "cc55d62b0392a365c9d78272e80666aea954eaf3a70645eb300ee2692524ba9a",
+        "outputHash": "174edf642f075a3d0fdb971f462034cfd5ac7e867ca6f2026e16102b4aa05f73",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 1,
+        "matchedItems": 1,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "validate-02",
+      "split": "validation",
+      "mode": "rlm",
+      "snapshotHash": "cc55d62b0392a365c9d78272e80666aea954eaf3a70645eb300ee2692524ba9a",
+      "status": "complete",
+      "score": {
+        "caseId": "validate-02",
+        "inputHash": "cc55d62b0392a365c9d78272e80666aea954eaf3a70645eb300ee2692524ba9a",
+        "outputHash": "174edf642f075a3d0fdb971f462034cfd5ac7e867ca6f2026e16102b4aa05f73",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 1,
+        "matchedItems": 1,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "validate-02",
+      "split": "validation",
+      "mode": "baseline",
+      "snapshotHash": "cc55d62b0392a365c9d78272e80666aea954eaf3a70645eb300ee2692524ba9a",
+      "status": "complete",
+      "score": {
+        "caseId": "validate-02",
+        "inputHash": "cc55d62b0392a365c9d78272e80666aea954eaf3a70645eb300ee2692524ba9a",
+        "outputHash": "174edf642f075a3d0fdb971f462034cfd5ac7e867ca6f2026e16102b4aa05f73",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 1,
+        "matchedItems": 1,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "validate-02",
+      "split": "validation",
+      "mode": "both",
+      "snapshotHash": "cc55d62b0392a365c9d78272e80666aea954eaf3a70645eb300ee2692524ba9a",
+      "status": "complete",
+      "score": {
+        "caseId": "validate-02",
+        "inputHash": "cc55d62b0392a365c9d78272e80666aea954eaf3a70645eb300ee2692524ba9a",
+        "outputHash": "174edf642f075a3d0fdb971f462034cfd5ac7e867ca6f2026e16102b4aa05f73",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 1,
+        "matchedItems": 1,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "validate-03",
+      "split": "validation",
+      "mode": "rlm",
+      "snapshotHash": "cd025a31c972fb3478fab9aba4707d48443613353c1dc84318ad269f36802320",
+      "status": "complete",
+      "score": {
+        "caseId": "validate-03",
+        "inputHash": "cd025a31c972fb3478fab9aba4707d48443613353c1dc84318ad269f36802320",
+        "outputHash": "cabf5c7e4db65ea98dc88d4d1839df9bb5e6f9cc5bc6b66c84f3cf8e443506ca",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 1,
+        "matchedItems": 1,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "validate-03",
+      "split": "validation",
+      "mode": "both",
+      "snapshotHash": "cd025a31c972fb3478fab9aba4707d48443613353c1dc84318ad269f36802320",
+      "status": "complete",
+      "score": {
+        "caseId": "validate-03",
+        "inputHash": "cd025a31c972fb3478fab9aba4707d48443613353c1dc84318ad269f36802320",
+        "outputHash": "cabf5c7e4db65ea98dc88d4d1839df9bb5e6f9cc5bc6b66c84f3cf8e443506ca",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 1,
+        "matchedItems": 1,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "validate-03",
+      "split": "validation",
+      "mode": "refinements",
+      "snapshotHash": "cd025a31c972fb3478fab9aba4707d48443613353c1dc84318ad269f36802320",
+      "status": "complete",
+      "score": {
+        "caseId": "validate-03",
+        "inputHash": "cd025a31c972fb3478fab9aba4707d48443613353c1dc84318ad269f36802320",
+        "outputHash": "cabf5c7e4db65ea98dc88d4d1839df9bb5e6f9cc5bc6b66c84f3cf8e443506ca",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 1,
+        "matchedItems": 1,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "validate-03",
+      "split": "validation",
+      "mode": "baseline",
+      "snapshotHash": "cd025a31c972fb3478fab9aba4707d48443613353c1dc84318ad269f36802320",
+      "status": "complete",
+      "score": {
+        "caseId": "validate-03",
+        "inputHash": "cd025a31c972fb3478fab9aba4707d48443613353c1dc84318ad269f36802320",
+        "outputHash": "cabf5c7e4db65ea98dc88d4d1839df9bb5e6f9cc5bc6b66c84f3cf8e443506ca",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 1,
+        "matchedItems": 1,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "validate-04",
+      "split": "validation",
+      "mode": "both",
+      "snapshotHash": "534a79003bd9b5b8306be4108d16fdca18e7b5cbbeccae3fb0b219ab1dd27ac0",
+      "status": "complete",
+      "score": {
+        "caseId": "validate-04",
+        "inputHash": "534a79003bd9b5b8306be4108d16fdca18e7b5cbbeccae3fb0b219ab1dd27ac0",
+        "outputHash": "ba7e9bbcd282c7d57b9457749135b40ef686a90b2111f69c58ff3de1cd470ad3",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 1,
+        "matchedItems": 1,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "validate-04",
+      "split": "validation",
+      "mode": "baseline",
+      "snapshotHash": "534a79003bd9b5b8306be4108d16fdca18e7b5cbbeccae3fb0b219ab1dd27ac0",
+      "status": "complete",
+      "score": {
+        "caseId": "validate-04",
+        "inputHash": "534a79003bd9b5b8306be4108d16fdca18e7b5cbbeccae3fb0b219ab1dd27ac0",
+        "outputHash": "ba7e9bbcd282c7d57b9457749135b40ef686a90b2111f69c58ff3de1cd470ad3",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 1,
+        "matchedItems": 1,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "validate-04",
+      "split": "validation",
+      "mode": "rlm",
+      "snapshotHash": "534a79003bd9b5b8306be4108d16fdca18e7b5cbbeccae3fb0b219ab1dd27ac0",
+      "status": "complete",
+      "score": {
+        "caseId": "validate-04",
+        "inputHash": "534a79003bd9b5b8306be4108d16fdca18e7b5cbbeccae3fb0b219ab1dd27ac0",
+        "outputHash": "ba7e9bbcd282c7d57b9457749135b40ef686a90b2111f69c58ff3de1cd470ad3",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 1,
+        "matchedItems": 1,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "validate-04",
+      "split": "validation",
+      "mode": "refinements",
+      "snapshotHash": "534a79003bd9b5b8306be4108d16fdca18e7b5cbbeccae3fb0b219ab1dd27ac0",
+      "status": "complete",
+      "score": {
+        "caseId": "validate-04",
+        "inputHash": "534a79003bd9b5b8306be4108d16fdca18e7b5cbbeccae3fb0b219ab1dd27ac0",
+        "outputHash": "ba7e9bbcd282c7d57b9457749135b40ef686a90b2111f69c58ff3de1cd470ad3",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 1,
+        "matchedItems": 1,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "fresh-05",
+      "split": "fresh",
+      "mode": "baseline",
+      "snapshotHash": "c33829ac769b17b53d1d58824b92a9d71e26fbda67012f39ef871ae366272df3",
+      "status": "complete",
+      "score": {
+        "caseId": "fresh-05",
+        "inputHash": "c33829ac769b17b53d1d58824b92a9d71e26fbda67012f39ef871ae366272df3",
+        "outputHash": "d54c89e6ed68d2aabefd19b4426c8ae7b22c3775257e6b686cc0301057719520",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 2,
+        "matchedItems": 2,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "fresh-05",
+      "split": "fresh",
+      "mode": "refinements",
+      "snapshotHash": "c33829ac769b17b53d1d58824b92a9d71e26fbda67012f39ef871ae366272df3",
+      "status": "complete",
+      "score": {
+        "caseId": "fresh-05",
+        "inputHash": "c33829ac769b17b53d1d58824b92a9d71e26fbda67012f39ef871ae366272df3",
+        "outputHash": "d54c89e6ed68d2aabefd19b4426c8ae7b22c3775257e6b686cc0301057719520",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 2,
+        "matchedItems": 2,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "fresh-05",
+      "split": "fresh",
+      "mode": "both",
+      "snapshotHash": "c33829ac769b17b53d1d58824b92a9d71e26fbda67012f39ef871ae366272df3",
+      "status": "complete",
+      "score": {
+        "caseId": "fresh-05",
+        "inputHash": "c33829ac769b17b53d1d58824b92a9d71e26fbda67012f39ef871ae366272df3",
+        "outputHash": "d54c89e6ed68d2aabefd19b4426c8ae7b22c3775257e6b686cc0301057719520",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 2,
+        "matchedItems": 2,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "fresh-05",
+      "split": "fresh",
+      "mode": "rlm",
+      "snapshotHash": "c33829ac769b17b53d1d58824b92a9d71e26fbda67012f39ef871ae366272df3",
+      "status": "complete",
+      "score": {
+        "caseId": "fresh-05",
+        "inputHash": "c33829ac769b17b53d1d58824b92a9d71e26fbda67012f39ef871ae366272df3",
+        "outputHash": "d54c89e6ed68d2aabefd19b4426c8ae7b22c3775257e6b686cc0301057719520",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 2,
+        "matchedItems": 2,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "fresh-06",
+      "split": "fresh",
+      "mode": "refinements",
+      "snapshotHash": "fd7845f93b3e5aefc03fbe92ff918cb296a7ba84078fae397089c21515e45fab",
+      "status": "complete",
+      "score": {
+        "caseId": "fresh-06",
+        "inputHash": "fd7845f93b3e5aefc03fbe92ff918cb296a7ba84078fae397089c21515e45fab",
+        "outputHash": "420869f081dcc249106866ea5031c0a52abb304bfe03b60bafa33ed33d460183",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 2,
+        "matchedItems": 2,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "fresh-06",
+      "split": "fresh",
+      "mode": "rlm",
+      "snapshotHash": "fd7845f93b3e5aefc03fbe92ff918cb296a7ba84078fae397089c21515e45fab",
+      "status": "complete",
+      "score": {
+        "caseId": "fresh-06",
+        "inputHash": "fd7845f93b3e5aefc03fbe92ff918cb296a7ba84078fae397089c21515e45fab",
+        "outputHash": "420869f081dcc249106866ea5031c0a52abb304bfe03b60bafa33ed33d460183",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 2,
+        "matchedItems": 2,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "fresh-06",
+      "split": "fresh",
+      "mode": "baseline",
+      "snapshotHash": "fd7845f93b3e5aefc03fbe92ff918cb296a7ba84078fae397089c21515e45fab",
+      "status": "complete",
+      "score": {
+        "caseId": "fresh-06",
+        "inputHash": "fd7845f93b3e5aefc03fbe92ff918cb296a7ba84078fae397089c21515e45fab",
+        "outputHash": "420869f081dcc249106866ea5031c0a52abb304bfe03b60bafa33ed33d460183",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 2,
+        "matchedItems": 2,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "fresh-06",
+      "split": "fresh",
+      "mode": "both",
+      "snapshotHash": "fd7845f93b3e5aefc03fbe92ff918cb296a7ba84078fae397089c21515e45fab",
+      "status": "complete",
+      "score": {
+        "caseId": "fresh-06",
+        "inputHash": "fd7845f93b3e5aefc03fbe92ff918cb296a7ba84078fae397089c21515e45fab",
+        "outputHash": "420869f081dcc249106866ea5031c0a52abb304bfe03b60bafa33ed33d460183",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 2,
+        "matchedItems": 2,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "fresh-07",
+      "split": "fresh",
+      "mode": "rlm",
+      "snapshotHash": "fc46927a474da159107af487eaed4b1beac7fa75807e943ba6ff82a16ecc0268",
+      "status": "complete",
+      "score": {
+        "caseId": "fresh-07",
+        "inputHash": "fc46927a474da159107af487eaed4b1beac7fa75807e943ba6ff82a16ecc0268",
+        "outputHash": "9a5592922efbdadd71f995b8c63afeb7c93f11ab207316769812260d1f145f7f",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 2,
+        "matchedItems": 2,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "fresh-07",
+      "split": "fresh",
+      "mode": "both",
+      "snapshotHash": "fc46927a474da159107af487eaed4b1beac7fa75807e943ba6ff82a16ecc0268",
+      "status": "complete",
+      "score": {
+        "caseId": "fresh-07",
+        "inputHash": "fc46927a474da159107af487eaed4b1beac7fa75807e943ba6ff82a16ecc0268",
+        "outputHash": "9a5592922efbdadd71f995b8c63afeb7c93f11ab207316769812260d1f145f7f",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 2,
+        "matchedItems": 2,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "fresh-07",
+      "split": "fresh",
+      "mode": "refinements",
+      "snapshotHash": "fc46927a474da159107af487eaed4b1beac7fa75807e943ba6ff82a16ecc0268",
+      "status": "complete",
+      "score": {
+        "caseId": "fresh-07",
+        "inputHash": "fc46927a474da159107af487eaed4b1beac7fa75807e943ba6ff82a16ecc0268",
+        "outputHash": "9a5592922efbdadd71f995b8c63afeb7c93f11ab207316769812260d1f145f7f",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 2,
+        "matchedItems": 2,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "fresh-07",
+      "split": "fresh",
+      "mode": "baseline",
+      "snapshotHash": "fc46927a474da159107af487eaed4b1beac7fa75807e943ba6ff82a16ecc0268",
+      "status": "complete",
+      "score": {
+        "caseId": "fresh-07",
+        "inputHash": "fc46927a474da159107af487eaed4b1beac7fa75807e943ba6ff82a16ecc0268",
+        "outputHash": "9a5592922efbdadd71f995b8c63afeb7c93f11ab207316769812260d1f145f7f",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 2,
+        "matchedItems": 2,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "fresh-08",
+      "split": "fresh",
+      "mode": "both",
+      "snapshotHash": "d9cff2c4c0363c66b850f0348f94dd95b884c59d6fd2d038eab2613a462f8c2f",
+      "status": "complete",
+      "score": {
+        "caseId": "fresh-08",
+        "inputHash": "d9cff2c4c0363c66b850f0348f94dd95b884c59d6fd2d038eab2613a462f8c2f",
+        "outputHash": "c5691173296d6e29896e1d2a4f381865cb981e5fc00bd26a12a5f2c79782f462",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 1,
+        "matchedItems": 1,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "fresh-08",
+      "split": "fresh",
+      "mode": "baseline",
+      "snapshotHash": "d9cff2c4c0363c66b850f0348f94dd95b884c59d6fd2d038eab2613a462f8c2f",
+      "status": "complete",
+      "score": {
+        "caseId": "fresh-08",
+        "inputHash": "d9cff2c4c0363c66b850f0348f94dd95b884c59d6fd2d038eab2613a462f8c2f",
+        "outputHash": "c5691173296d6e29896e1d2a4f381865cb981e5fc00bd26a12a5f2c79782f462",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 1,
+        "matchedItems": 1,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "fresh-08",
+      "split": "fresh",
+      "mode": "rlm",
+      "snapshotHash": "d9cff2c4c0363c66b850f0348f94dd95b884c59d6fd2d038eab2613a462f8c2f",
+      "status": "complete",
+      "score": {
+        "caseId": "fresh-08",
+        "inputHash": "d9cff2c4c0363c66b850f0348f94dd95b884c59d6fd2d038eab2613a462f8c2f",
+        "outputHash": "c5691173296d6e29896e1d2a4f381865cb981e5fc00bd26a12a5f2c79782f462",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 1,
+        "matchedItems": 1,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "fresh-08",
+      "split": "fresh",
+      "mode": "refinements",
+      "snapshotHash": "d9cff2c4c0363c66b850f0348f94dd95b884c59d6fd2d038eab2613a462f8c2f",
+      "status": "complete",
+      "score": {
+        "caseId": "fresh-08",
+        "inputHash": "d9cff2c4c0363c66b850f0348f94dd95b884c59d6fd2d038eab2613a462f8c2f",
+        "outputHash": "c5691173296d6e29896e1d2a4f381865cb981e5fc00bd26a12a5f2c79782f462",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 1,
+        "matchedItems": 1,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "fresh-09",
+      "split": "fresh",
+      "mode": "baseline",
+      "snapshotHash": "bc0c260a2502dee47e4e2e4562fdb0ab48157fad4f340eac3193a1bec412d9e0",
+      "status": "complete",
+      "score": {
+        "caseId": "fresh-09",
+        "inputHash": "bc0c260a2502dee47e4e2e4562fdb0ab48157fad4f340eac3193a1bec412d9e0",
+        "outputHash": "f7e87f6d21f1b132ea5fd0dfd680f97393903065cb3f09181940917081358ad2",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 2,
+        "matchedItems": 2,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "fresh-09",
+      "split": "fresh",
+      "mode": "refinements",
+      "snapshotHash": "bc0c260a2502dee47e4e2e4562fdb0ab48157fad4f340eac3193a1bec412d9e0",
+      "status": "complete",
+      "score": {
+        "caseId": "fresh-09",
+        "inputHash": "bc0c260a2502dee47e4e2e4562fdb0ab48157fad4f340eac3193a1bec412d9e0",
+        "outputHash": "f7e87f6d21f1b132ea5fd0dfd680f97393903065cb3f09181940917081358ad2",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 2,
+        "matchedItems": 2,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "fresh-09",
+      "split": "fresh",
+      "mode": "both",
+      "snapshotHash": "bc0c260a2502dee47e4e2e4562fdb0ab48157fad4f340eac3193a1bec412d9e0",
+      "status": "complete",
+      "score": {
+        "caseId": "fresh-09",
+        "inputHash": "bc0c260a2502dee47e4e2e4562fdb0ab48157fad4f340eac3193a1bec412d9e0",
+        "outputHash": "f7e87f6d21f1b132ea5fd0dfd680f97393903065cb3f09181940917081358ad2",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 2,
+        "matchedItems": 2,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "fresh-09",
+      "split": "fresh",
+      "mode": "rlm",
+      "snapshotHash": "bc0c260a2502dee47e4e2e4562fdb0ab48157fad4f340eac3193a1bec412d9e0",
+      "status": "complete",
+      "score": {
+        "caseId": "fresh-09",
+        "inputHash": "bc0c260a2502dee47e4e2e4562fdb0ab48157fad4f340eac3193a1bec412d9e0",
+        "outputHash": "f7e87f6d21f1b132ea5fd0dfd680f97393903065cb3f09181940917081358ad2",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 2,
+        "matchedItems": 2,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "fresh-10",
+      "split": "fresh",
+      "mode": "refinements",
+      "snapshotHash": "042c99ebe9ddffd360fc7301bff62f4bdb8fa935ba2919a066f41b435aacfa26",
+      "status": "complete",
+      "score": {
+        "caseId": "fresh-10",
+        "inputHash": "042c99ebe9ddffd360fc7301bff62f4bdb8fa935ba2919a066f41b435aacfa26",
+        "outputHash": "2d8285619d0bd84f627b2281451ecf0e37d2e519744caa393db3608eaf04105d",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 2,
+        "matchedItems": 2,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "fresh-10",
+      "split": "fresh",
+      "mode": "rlm",
+      "snapshotHash": "042c99ebe9ddffd360fc7301bff62f4bdb8fa935ba2919a066f41b435aacfa26",
+      "status": "complete",
+      "score": {
+        "caseId": "fresh-10",
+        "inputHash": "042c99ebe9ddffd360fc7301bff62f4bdb8fa935ba2919a066f41b435aacfa26",
+        "outputHash": "2d8285619d0bd84f627b2281451ecf0e37d2e519744caa393db3608eaf04105d",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 2,
+        "matchedItems": 2,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "fresh-10",
+      "split": "fresh",
+      "mode": "baseline",
+      "snapshotHash": "042c99ebe9ddffd360fc7301bff62f4bdb8fa935ba2919a066f41b435aacfa26",
+      "status": "complete",
+      "score": {
+        "caseId": "fresh-10",
+        "inputHash": "042c99ebe9ddffd360fc7301bff62f4bdb8fa935ba2919a066f41b435aacfa26",
+        "outputHash": "2d8285619d0bd84f627b2281451ecf0e37d2e519744caa393db3608eaf04105d",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 2,
+        "matchedItems": 2,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "fresh-10",
+      "split": "fresh",
+      "mode": "both",
+      "snapshotHash": "042c99ebe9ddffd360fc7301bff62f4bdb8fa935ba2919a066f41b435aacfa26",
+      "status": "complete",
+      "score": {
+        "caseId": "fresh-10",
+        "inputHash": "042c99ebe9ddffd360fc7301bff62f4bdb8fa935ba2919a066f41b435aacfa26",
+        "outputHash": "2d8285619d0bd84f627b2281451ecf0e37d2e519744caa393db3608eaf04105d",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 2,
+        "matchedItems": 2,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "fresh-11",
+      "split": "fresh",
+      "mode": "rlm",
+      "snapshotHash": "d9d00ed19ec5eb1ca253fbd6678685fef5394cc2383a58d76004357e561b57b1",
+      "status": "complete",
+      "score": {
+        "caseId": "fresh-11",
+        "inputHash": "d9d00ed19ec5eb1ca253fbd6678685fef5394cc2383a58d76004357e561b57b1",
+        "outputHash": "2277cce4b030310921bed2db126523de89e2ea2c6c57c51047f2f54eee4ef6dd",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 5,
+        "matchedItems": 5,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "fresh-11",
+      "split": "fresh",
+      "mode": "both",
+      "snapshotHash": "d9d00ed19ec5eb1ca253fbd6678685fef5394cc2383a58d76004357e561b57b1",
+      "status": "complete",
+      "score": {
+        "caseId": "fresh-11",
+        "inputHash": "d9d00ed19ec5eb1ca253fbd6678685fef5394cc2383a58d76004357e561b57b1",
+        "outputHash": "2277cce4b030310921bed2db126523de89e2ea2c6c57c51047f2f54eee4ef6dd",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 5,
+        "matchedItems": 5,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "fresh-11",
+      "split": "fresh",
+      "mode": "refinements",
+      "snapshotHash": "d9d00ed19ec5eb1ca253fbd6678685fef5394cc2383a58d76004357e561b57b1",
+      "status": "complete",
+      "score": {
+        "caseId": "fresh-11",
+        "inputHash": "d9d00ed19ec5eb1ca253fbd6678685fef5394cc2383a58d76004357e561b57b1",
+        "outputHash": "2277cce4b030310921bed2db126523de89e2ea2c6c57c51047f2f54eee4ef6dd",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 5,
+        "matchedItems": 5,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "fresh-11",
+      "split": "fresh",
+      "mode": "baseline",
+      "snapshotHash": "d9d00ed19ec5eb1ca253fbd6678685fef5394cc2383a58d76004357e561b57b1",
+      "status": "complete",
+      "score": {
+        "caseId": "fresh-11",
+        "inputHash": "d9d00ed19ec5eb1ca253fbd6678685fef5394cc2383a58d76004357e561b57b1",
+        "outputHash": "2277cce4b030310921bed2db126523de89e2ea2c6c57c51047f2f54eee4ef6dd",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 5,
+        "matchedItems": 5,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "fresh-12",
+      "split": "fresh",
+      "mode": "both",
+      "snapshotHash": "5b0ae03a2bae975f614cf9ac9bb472c6e078498e34b15e319b8ed97bdfd122a1",
+      "status": "complete",
+      "score": {
+        "caseId": "fresh-12",
+        "inputHash": "5b0ae03a2bae975f614cf9ac9bb472c6e078498e34b15e319b8ed97bdfd122a1",
+        "outputHash": "e33bc856b47d3bef25fda1f5604fbf8304ec63dd4a61a241d87933395fc65de9",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 5,
+        "matchedItems": 5,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "fresh-12",
+      "split": "fresh",
+      "mode": "baseline",
+      "snapshotHash": "5b0ae03a2bae975f614cf9ac9bb472c6e078498e34b15e319b8ed97bdfd122a1",
+      "status": "complete",
+      "score": {
+        "caseId": "fresh-12",
+        "inputHash": "5b0ae03a2bae975f614cf9ac9bb472c6e078498e34b15e319b8ed97bdfd122a1",
+        "outputHash": "e33bc856b47d3bef25fda1f5604fbf8304ec63dd4a61a241d87933395fc65de9",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 5,
+        "matchedItems": 5,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "fresh-12",
+      "split": "fresh",
+      "mode": "rlm",
+      "snapshotHash": "5b0ae03a2bae975f614cf9ac9bb472c6e078498e34b15e319b8ed97bdfd122a1",
+      "status": "complete",
+      "score": {
+        "caseId": "fresh-12",
+        "inputHash": "5b0ae03a2bae975f614cf9ac9bb472c6e078498e34b15e319b8ed97bdfd122a1",
+        "outputHash": "e33bc856b47d3bef25fda1f5604fbf8304ec63dd4a61a241d87933395fc65de9",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 5,
+        "matchedItems": 5,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "fresh-12",
+      "split": "fresh",
+      "mode": "refinements",
+      "snapshotHash": "5b0ae03a2bae975f614cf9ac9bb472c6e078498e34b15e319b8ed97bdfd122a1",
+      "status": "complete",
+      "score": {
+        "caseId": "fresh-12",
+        "inputHash": "5b0ae03a2bae975f614cf9ac9bb472c6e078498e34b15e319b8ed97bdfd122a1",
+        "outputHash": "e33bc856b47d3bef25fda1f5604fbf8304ec63dd4a61a241d87933395fc65de9",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 5,
+        "matchedItems": 5,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "fresh-13",
+      "split": "fresh",
+      "mode": "baseline",
+      "snapshotHash": "3327e7f5c9bd89f484821d01f1c799330999208e9cfc9050e2ddda8b73a4e28e",
+      "status": "complete",
+      "score": {
+        "caseId": "fresh-13",
+        "inputHash": "3327e7f5c9bd89f484821d01f1c799330999208e9cfc9050e2ddda8b73a4e28e",
+        "outputHash": "58a2e06e19c5bc43d433d67c27d2224b42408156fb820b4704f45e08497aea5b",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 5,
+        "matchedItems": 5,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "fresh-13",
+      "split": "fresh",
+      "mode": "refinements",
+      "snapshotHash": "3327e7f5c9bd89f484821d01f1c799330999208e9cfc9050e2ddda8b73a4e28e",
+      "status": "complete",
+      "score": {
+        "caseId": "fresh-13",
+        "inputHash": "3327e7f5c9bd89f484821d01f1c799330999208e9cfc9050e2ddda8b73a4e28e",
+        "outputHash": "58a2e06e19c5bc43d433d67c27d2224b42408156fb820b4704f45e08497aea5b",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 5,
+        "matchedItems": 5,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "fresh-13",
+      "split": "fresh",
+      "mode": "both",
+      "snapshotHash": "3327e7f5c9bd89f484821d01f1c799330999208e9cfc9050e2ddda8b73a4e28e",
+      "status": "complete",
+      "score": {
+        "caseId": "fresh-13",
+        "inputHash": "3327e7f5c9bd89f484821d01f1c799330999208e9cfc9050e2ddda8b73a4e28e",
+        "outputHash": "58a2e06e19c5bc43d433d67c27d2224b42408156fb820b4704f45e08497aea5b",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 5,
+        "matchedItems": 5,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "fresh-13",
+      "split": "fresh",
+      "mode": "rlm",
+      "snapshotHash": "3327e7f5c9bd89f484821d01f1c799330999208e9cfc9050e2ddda8b73a4e28e",
+      "status": "complete",
+      "score": {
+        "caseId": "fresh-13",
+        "inputHash": "3327e7f5c9bd89f484821d01f1c799330999208e9cfc9050e2ddda8b73a4e28e",
+        "outputHash": "58a2e06e19c5bc43d433d67c27d2224b42408156fb820b4704f45e08497aea5b",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 5,
+        "matchedItems": 5,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "fresh-14",
+      "split": "fresh",
+      "mode": "refinements",
+      "snapshotHash": "2c3a13c64f89408476dfed6f16b285990fa4f636a7f857c49be57b73e40e4d56",
+      "status": "complete",
+      "score": {
+        "caseId": "fresh-14",
+        "inputHash": "2c3a13c64f89408476dfed6f16b285990fa4f636a7f857c49be57b73e40e4d56",
+        "outputHash": "f1d4371b0824b64b6603bd7a8280963199cf516a64f4b5bbe3cc72557a46a6fa",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 5,
+        "matchedItems": 5,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "fresh-14",
+      "split": "fresh",
+      "mode": "rlm",
+      "snapshotHash": "2c3a13c64f89408476dfed6f16b285990fa4f636a7f857c49be57b73e40e4d56",
+      "status": "complete",
+      "score": {
+        "caseId": "fresh-14",
+        "inputHash": "2c3a13c64f89408476dfed6f16b285990fa4f636a7f857c49be57b73e40e4d56",
+        "outputHash": "f1d4371b0824b64b6603bd7a8280963199cf516a64f4b5bbe3cc72557a46a6fa",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 5,
+        "matchedItems": 5,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "fresh-14",
+      "split": "fresh",
+      "mode": "baseline",
+      "snapshotHash": "2c3a13c64f89408476dfed6f16b285990fa4f636a7f857c49be57b73e40e4d56",
+      "status": "complete",
+      "score": {
+        "caseId": "fresh-14",
+        "inputHash": "2c3a13c64f89408476dfed6f16b285990fa4f636a7f857c49be57b73e40e4d56",
+        "outputHash": "f1d4371b0824b64b6603bd7a8280963199cf516a64f4b5bbe3cc72557a46a6fa",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 5,
+        "matchedItems": 5,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "fresh-14",
+      "split": "fresh",
+      "mode": "both",
+      "snapshotHash": "2c3a13c64f89408476dfed6f16b285990fa4f636a7f857c49be57b73e40e4d56",
+      "status": "complete",
+      "score": {
+        "caseId": "fresh-14",
+        "inputHash": "2c3a13c64f89408476dfed6f16b285990fa4f636a7f857c49be57b73e40e4d56",
+        "outputHash": "f1d4371b0824b64b6603bd7a8280963199cf516a64f4b5bbe3cc72557a46a6fa",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 5,
+        "matchedItems": 5,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "fresh-15",
+      "split": "fresh",
+      "mode": "rlm",
+      "snapshotHash": "b45511bac0e7e8472b606b968db72e6fd7ebbef843e60bbccaa2687261b4c3ef",
+      "status": "complete",
+      "score": {
+        "caseId": "fresh-15",
+        "inputHash": "b45511bac0e7e8472b606b968db72e6fd7ebbef843e60bbccaa2687261b4c3ef",
+        "outputHash": "2d8497fe1dbfa4fb955be71250a8138aa9af65f8c9a0f32e2140ffe88b2b9d42",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 5,
+        "matchedItems": 5,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "fresh-15",
+      "split": "fresh",
+      "mode": "both",
+      "snapshotHash": "b45511bac0e7e8472b606b968db72e6fd7ebbef843e60bbccaa2687261b4c3ef",
+      "status": "complete",
+      "score": {
+        "caseId": "fresh-15",
+        "inputHash": "b45511bac0e7e8472b606b968db72e6fd7ebbef843e60bbccaa2687261b4c3ef",
+        "outputHash": "2d8497fe1dbfa4fb955be71250a8138aa9af65f8c9a0f32e2140ffe88b2b9d42",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 5,
+        "matchedItems": 5,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "fresh-15",
+      "split": "fresh",
+      "mode": "refinements",
+      "snapshotHash": "b45511bac0e7e8472b606b968db72e6fd7ebbef843e60bbccaa2687261b4c3ef",
+      "status": "complete",
+      "score": {
+        "caseId": "fresh-15",
+        "inputHash": "b45511bac0e7e8472b606b968db72e6fd7ebbef843e60bbccaa2687261b4c3ef",
+        "outputHash": "2d8497fe1dbfa4fb955be71250a8138aa9af65f8c9a0f32e2140ffe88b2b9d42",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 5,
+        "matchedItems": 5,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "fresh-15",
+      "split": "fresh",
+      "mode": "baseline",
+      "snapshotHash": "b45511bac0e7e8472b606b968db72e6fd7ebbef843e60bbccaa2687261b4c3ef",
+      "status": "complete",
+      "score": {
+        "caseId": "fresh-15",
+        "inputHash": "b45511bac0e7e8472b606b968db72e6fd7ebbef843e60bbccaa2687261b4c3ef",
+        "outputHash": "2d8497fe1dbfa4fb955be71250a8138aa9af65f8c9a0f32e2140ffe88b2b9d42",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 5,
+        "matchedItems": 5,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "fresh-16",
+      "split": "fresh",
+      "mode": "both",
+      "snapshotHash": "c5330c34745f3b45dc9dea0f4e7bec280fab6540da6b23a205bb5acad963833d",
+      "status": "complete",
+      "score": {
+        "caseId": "fresh-16",
+        "inputHash": "c5330c34745f3b45dc9dea0f4e7bec280fab6540da6b23a205bb5acad963833d",
+        "outputHash": "9b808bff37fb046431629642afc4d6a7c46a7ae098f5a3b9795991219e3ec059",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 5,
+        "matchedItems": 5,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "fresh-16",
+      "split": "fresh",
+      "mode": "baseline",
+      "snapshotHash": "c5330c34745f3b45dc9dea0f4e7bec280fab6540da6b23a205bb5acad963833d",
+      "status": "complete",
+      "score": {
+        "caseId": "fresh-16",
+        "inputHash": "c5330c34745f3b45dc9dea0f4e7bec280fab6540da6b23a205bb5acad963833d",
+        "outputHash": "9b808bff37fb046431629642afc4d6a7c46a7ae098f5a3b9795991219e3ec059",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 5,
+        "matchedItems": 5,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "fresh-16",
+      "split": "fresh",
+      "mode": "rlm",
+      "snapshotHash": "c5330c34745f3b45dc9dea0f4e7bec280fab6540da6b23a205bb5acad963833d",
+      "status": "complete",
+      "score": {
+        "caseId": "fresh-16",
+        "inputHash": "c5330c34745f3b45dc9dea0f4e7bec280fab6540da6b23a205bb5acad963833d",
+        "outputHash": "9b808bff37fb046431629642afc4d6a7c46a7ae098f5a3b9795991219e3ec059",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 5,
+        "matchedItems": 5,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    },
+    {
+      "caseId": "fresh-16",
+      "split": "fresh",
+      "mode": "refinements",
+      "snapshotHash": "c5330c34745f3b45dc9dea0f4e7bec280fab6540da6b23a205bb5acad963833d",
+      "status": "complete",
+      "score": {
+        "caseId": "fresh-16",
+        "inputHash": "c5330c34745f3b45dc9dea0f4e7bec280fab6540da6b23a205bb5acad963833d",
+        "outputHash": "9b808bff37fb046431629642afc4d6a7c46a7ae098f5a3b9795991219e3ec059",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 5,
+        "matchedItems": 5,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "usage": {
+        "kind": "synthetic",
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "rootCalls": 0,
+        "childCalls": 0,
+        "complete": true
+      },
+      "elapsedMs": 0,
+      "error": null
+    }
+  ]
+}

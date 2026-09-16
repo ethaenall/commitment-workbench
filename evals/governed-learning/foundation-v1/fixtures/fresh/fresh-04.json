@@ -1,0 +1,71 @@
+{
+  "workflowId": "mail.commitment-handoff.v1",
+  "schemaVersion": 1,
+  "snapshotId": "fresh-04",
+  "userAddress": "sam@example.test",
+  "cutoff": "2026-10-09T23:00:00Z",
+  "timezone": "America/Los_Angeles",
+  "coverage": {
+    "scope": "supplied-snapshot",
+    "source": "synthetic-fixture",
+    "omittedMessages": 0,
+    "note": "Authored synthetic correspondence. Not a live mailbox or a complete account export."
+  },
+  "messages": [
+    {
+      "id": "fresh-04-m1",
+      "threadId": "fresh-04-t1",
+      "subject": "Weekly correspondence",
+      "sender": "sam@example.test",
+      "to": "team@example.test",
+      "timestamp": "2026-10-05T10:00:00Z",
+      "body": "Consent FAQ: I will deliver it on 12 October at 09:00 America/Los_Angeles (16:00 UTC).",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-04-m2",
+      "threadId": "fresh-04-t1",
+      "subject": "Weekly correspondence",
+      "sender": "nora@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-06T10:00:00Z",
+      "body": "I own the invitations. Sam owns the consent FAQ. Neither task has been cancelled.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-04-m3",
+      "threadId": "fresh-04-t2",
+      "subject": "Weekly correspondence",
+      "sender": "sam@example.test",
+      "to": "team@example.test",
+      "timestamp": "2026-10-07T10:00:00Z",
+      "body": "For the screening notes, I am waiting on Nora to send the interview criteria. No deadline has been agreed.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-04-m4",
+      "threadId": "fresh-04-t2",
+      "subject": "Weekly correspondence",
+      "sender": "nora@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-08T10:00:00Z",
+      "body": "I have not sent the criteria yet. The screening notes remain blocked on me.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-04-m5",
+      "threadId": "fresh-04-t3",
+      "subject": "Weekly correspondence",
+      "sender": "travel@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-08T11:00:00Z",
+      "body": "Your FAQ for travel reimbursements is attached. This automatic notice requires no reply.",
+      "truncated": false,
+      "omittedChars": 0
+    }
+  ]
+}

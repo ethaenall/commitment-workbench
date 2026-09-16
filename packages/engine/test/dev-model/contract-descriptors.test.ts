@@ -19,6 +19,16 @@ describe("buildContractDescriptors", () => {
   it("covers the core governed routes", () => {
     const routes = body.routes.map((r) => `${r.method} ${r.route}`);
     for (const expected of [
+      "GET /api/refinements",
+      "GET /api/refinements/get",
+      "POST /api/refinements/propose",
+      "POST /api/refinements/validate",
+      "POST /api/refinements/approve",
+      "POST /api/refinements/activate",
+      "POST /api/refinements/disable",
+      "POST /api/refinements/rollback",
+      "GET /api/workflows",
+      "POST /api/workflows/run",
       "POST /api/chat",
       "POST /api/resolve",
       "GET /api/status",
@@ -81,12 +91,26 @@ describe("buildContractDescriptors", () => {
       const row = body.routes.find((r) => r.route === route)!;
       return (row.query as { properties?: Record<string, unknown> }).properties;
     };
+    expect(props("/api/refinements")).toHaveProperty("scopeKey");
+    expect(props("/api/refinements")).toHaveProperty("cursor");
+    expect(props("/api/refinements/get")).toHaveProperty("versionId");
+    expect(props("/api/workflows")).toHaveProperty("userId");
     expect(props("/api/audit")).toHaveProperty("cursor");
     expect(props("/api/audit")).toHaveProperty("limit");
     expect(props("/api/tasks")).toHaveProperty("cursor");
     expect(props("/api/tasks/get")).toHaveProperty("taskId");
     expect(props("/api/connect/status")).toHaveProperty("service");
     expect(props("/api/connect/status")).toHaveProperty("flow");
+  });
+
+  it("does not let callers select trusted validation runners or model settings", () => {
+    for (const row of body.routes.filter((r) => r.route.startsWith("/api/refinements") || r.route.startsWith("/api/workflows"))) {
+      const schema = row.request ?? row.query;
+      const props = (schema as { properties?: Record<string, unknown> }).properties ?? {};
+      for (const key of ["profile", "validationKind", "model", "runner", "workflowBuildHash", "validatorBuildHash"]) {
+        expect(props, row.route).not.toHaveProperty(key);
+      }
+    }
   });
 
   it("renders real JSON Schema, input side for requests", () => {

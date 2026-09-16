@@ -1,0 +1,463 @@
+{
+  "schemaVersion": 1,
+  "cohortId": "comparison-02",
+  "status": "STOPPED_INTERRUPTED_MISSING_NATIVE_PACKET",
+  "planned": 12,
+  "admitted": 6,
+  "recordedOutcomes": 5,
+  "interruptedUnknown": 1,
+  "notRun": 6,
+  "assurance": "synthetic-oracle",
+  "semanticVerified": false,
+  "rows": [
+    {
+      "id": "01-fresh-07-original",
+      "caseId": "fresh-07",
+      "arm": "original",
+      "difficulty": "routine",
+      "status": "invalid_output",
+      "elapsedMs": 179683.252042,
+      "score": null,
+      "validation": null,
+      "error": null,
+      "rlmExecutionEvidence": null,
+      "stopBenchmark": false,
+      "ledgerPath": null,
+      "localClosure": {
+        "accepted": true,
+        "supervision": {
+          "status": "COMPLETE",
+          "reason": null,
+          "childClosed": true,
+          "childCode": 0,
+          "childSignal": null,
+          "group": "ABSENT",
+          "outputBytes": 339
+        },
+        "notRemoteComputeClosure": true
+      },
+      "responsePath": "stock-response.txt",
+      "responseFileSha256": "2130f2b9caa602e7bdb2c82158f5738e4c6ac4f56bf7bfee57b2f0e66f632270",
+      "usage": null
+    },
+    {
+      "id": "02-fresh-07-baseline",
+      "caseId": "fresh-07",
+      "arm": "baseline",
+      "difficulty": "routine",
+      "status": "complete",
+      "elapsedMs": 257589.116875,
+      "score": {
+        "caseId": "fresh-07",
+        "inputHash": "fc46927a474da159107af487eaed4b1beac7fa75807e943ba6ff82a16ecc0268",
+        "outputHash": "13bb0958105851e05562c2a2d5b9d8c4eb4086c66b9baca3b69e269dc50b075d",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": false,
+        "contractValid": true,
+        "expectedItems": 2,
+        "matchedItems": 2,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": false
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [
+          {
+            "itemKey": "overlay",
+            "field": "evidence",
+            "reason": "Does not satisfy the pre-authored fixture oracle"
+          }
+        ],
+        "error": null
+      },
+      "validation": {
+        "level": "contract-only",
+        "valid": true,
+        "semanticVerified": false,
+        "issues": []
+      },
+      "error": null,
+      "rlmExecutionEvidence": null,
+      "stopBenchmark": false,
+      "ledgerPath": "ledgers/02-fresh-07-baseline.json",
+      "ledgerFileSha256": "73c8f6faf7a81e9a23593ec89864a02ac01bad4560dcb7d977130ed86ebe20a5",
+      "localClosure": {
+        "accepted": true,
+        "supervision": {
+          "status": "COMPLETE",
+          "reason": null,
+          "childClosed": true,
+          "childCode": 0,
+          "childSignal": null,
+          "group": "ABSENT",
+          "outputBytes": 576
+        },
+        "notRemoteComputeClosure": true
+      },
+      "usage": null
+    },
+    {
+      "id": "03-fresh-07-rlm",
+      "caseId": "fresh-07",
+      "arm": "rlm",
+      "difficulty": "routine",
+      "status": "complete",
+      "elapsedMs": 177205.342042,
+      "score": {
+        "caseId": "fresh-07",
+        "inputHash": "fc46927a474da159107af487eaed4b1beac7fa75807e943ba6ff82a16ecc0268",
+        "outputHash": "993c0e636877c7372c9c465ff9a984543880a9a641e1349ff4ef59aaa1101b72",
+        "assurance": "synthetic-oracle",
+        "semanticVerified": false,
+        "oraclePassed": true,
+        "contractValid": true,
+        "expectedItems": 2,
+        "matchedItems": 2,
+        "checks": [
+          {
+            "checkId": "contract.valid",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.items",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.state",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.owner",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.due",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.change",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.evidence",
+            "passed": true
+          },
+          {
+            "checkId": "oracle.prior-evidence",
+            "passed": true
+          }
+        ],
+        "corrections": [],
+        "error": null
+      },
+      "validation": {
+        "level": "contract-only",
+        "valid": true,
+        "semanticVerified": false,
+        "issues": []
+      },
+      "error": null,
+      "rlmExecutionEvidence": true,
+      "stopBenchmark": false,
+      "ledgerPath": "ledgers/03-fresh-07-rlm.json",
+      "ledgerFileSha256": "194ce5fe315306a5871f21bc47c0795b566790fc0c742b98457906084195c25d",
+      "localClosure": {
+        "accepted": true,
+        "supervision": {
+          "status": "COMPLETE",
+          "reason": null,
+          "childClosed": true,
+          "childCode": 0,
+          "childSignal": null,
+          "group": "ABSENT",
+          "outputBytes": 781
+        },
+        "notRemoteComputeClosure": true
+      },
+      "analysisTrace": {
+        "schemaVersion": 1,
+        "snapshotHash": "fc46927a474da159107af487eaed4b1beac7fa75807e943ba6ff82a16ecc0268",
+        "contextHash": "2233170be52ba34878680e329d94e25078459138f2802ac0a7f3864b2ba6222a",
+        "outcome": "complete",
+        "limits": {
+          "maxDepth": 1,
+          "maxCalls": 10,
+          "maxOperations": 64,
+          "maxReturnedChars": 96000
+        },
+        "nodes": [
+          {
+            "id": "n0",
+            "parentId": null,
+            "depth": 0
+          }
+        ],
+        "calls": [
+          {
+            "id": "a1",
+            "nodeId": "n0",
+            "parentCallId": null,
+            "outcome": "complete"
+          },
+          {
+            "id": "a2",
+            "nodeId": "n0",
+            "parentCallId": "a1",
+            "outcome": "complete"
+          }
+        ],
+        "operations": [
+          {
+            "id": "o1",
+            "nodeId": "n0",
+            "kind": "execute",
+            "codeHash": "e4b39628c8a0db16b108b72957dc5105588d32fa7d802b824d09a96e02f8e23c",
+            "outcome": "complete",
+            "returnedChars": 0,
+            "sourceIds": []
+          },
+          {
+            "id": "o2",
+            "nodeId": "n0",
+            "kind": "slice",
+            "codeHash": null,
+            "outcome": "complete",
+            "returnedChars": 4140,
+            "sourceIds": []
+          },
+          {
+            "id": "o3",
+            "nodeId": "n0",
+            "kind": "result",
+            "codeHash": null,
+            "outcome": "complete",
+            "returnedChars": 2593,
+            "sourceIds": []
+          }
+        ],
+        "truncated": false
+      },
+      "usage": null
+    },
+    {
+      "id": "04-fresh-13-baseline",
+      "caseId": "fresh-13",
+      "arm": "baseline",
+      "difficulty": "demanding",
+      "status": "cancelled",
+      "elapsedMs": 300161.957125,
+      "score": null,
+      "validation": null,
+      "error": null,
+      "rlmExecutionEvidence": null,
+      "stopBenchmark": false,
+      "ledgerPath": null,
+      "localClosure": {
+        "accepted": true,
+        "supervision": {
+          "status": "COMPLETE",
+          "reason": null,
+          "childClosed": true,
+          "childCode": 0,
+          "childSignal": null,
+          "group": "ABSENT",
+          "outputBytes": 568
+        },
+        "notRemoteComputeClosure": true
+      },
+      "usage": null
+    },
+    {
+      "id": "05-fresh-13-rlm",
+      "caseId": "fresh-13",
+      "arm": "rlm",
+      "difficulty": "demanding",
+      "status": "error",
+      "elapsedMs": 101451.58570800001,
+      "score": null,
+      "validation": null,
+      "error": null,
+      "rlmExecutionEvidence": false,
+      "stopBenchmark": false,
+      "ledgerPath": null,
+      "localClosure": {
+        "accepted": true,
+        "supervision": {
+          "status": "COMPLETE",
+          "reason": null,
+          "childClosed": true,
+          "childCode": 0,
+          "childSignal": null,
+          "group": "ABSENT",
+          "outputBytes": 776
+        },
+        "notRemoteComputeClosure": true
+      },
+      "analysisTrace": {
+        "schemaVersion": 1,
+        "snapshotHash": "3327e7f5c9bd89f484821d01f1c799330999208e9cfc9050e2ddda8b73a4e28e",
+        "contextHash": "d4706fe595ee05d748078e3dd5a2eb47975f75ae05053502dc6e154e331cb0e5",
+        "outcome": "error",
+        "limits": {
+          "maxDepth": 1,
+          "maxCalls": 10,
+          "maxOperations": 64,
+          "maxReturnedChars": 96000
+        },
+        "nodes": [
+          {
+            "id": "n0",
+            "parentId": null,
+            "depth": 0
+          }
+        ],
+        "calls": [
+          {
+            "id": "a1",
+            "nodeId": "n0",
+            "parentCallId": null,
+            "outcome": "complete"
+          }
+        ],
+        "operations": [
+          {
+            "id": "o1",
+            "nodeId": "n0",
+            "kind": "execute",
+            "codeHash": "398d3f954322903c824fcd3254eac253d4819c65408859fda5e584e820ab4888",
+            "outcome": "complete",
+            "returnedChars": 0,
+            "sourceIds": []
+          },
+          {
+            "id": "o2",
+            "nodeId": "n0",
+            "kind": "slice",
+            "codeHash": null,
+            "outcome": "complete",
+            "returnedChars": 15578,
+            "sourceIds": []
+          }
+        ],
+        "truncated": false
+      },
+      "usage": null
+    },
+    {
+      "id": "06-fresh-13-original",
+      "caseId": "fresh-13",
+      "arm": "original",
+      "difficulty": "demanding",
+      "status": "INTERRUPTED_UNKNOWN",
+      "elapsedMs": null,
+      "score": null,
+      "localClosure": null,
+      "usage": null
+    },
+    {
+      "id": "07-fresh-08-original",
+      "caseId": "fresh-08",
+      "arm": "original",
+      "difficulty": "routine",
+      "status": "NOT_RUN",
+      "elapsedMs": null,
+      "score": null,
+      "localClosure": null,
+      "usage": null
+    },
+    {
+      "id": "08-fresh-08-rlm",
+      "caseId": "fresh-08",
+      "arm": "rlm",
+      "difficulty": "routine",
+      "status": "NOT_RUN",
+      "elapsedMs": null,
+      "score": null,
+      "localClosure": null,
+      "usage": null
+    },
+    {
+      "id": "09-fresh-08-baseline",
+      "caseId": "fresh-08",
+      "arm": "baseline",
+      "difficulty": "routine",
+      "status": "NOT_RUN",
+      "elapsedMs": null,
+      "score": null,
+      "localClosure": null,
+      "usage": null
+    },
+    {
+      "id": "10-fresh-14-rlm",
+      "caseId": "fresh-14",
+      "arm": "rlm",
+      "difficulty": "demanding",
+      "status": "NOT_RUN",
+      "elapsedMs": null,
+      "score": null,
+      "localClosure": null,
+      "usage": null
+    },
+    {
+      "id": "11-fresh-14-baseline",
+      "caseId": "fresh-14",
+      "arm": "baseline",
+      "difficulty": "demanding",
+      "status": "NOT_RUN",
+      "elapsedMs": null,
+      "score": null,
+      "localClosure": null,
+      "usage": null
+    },
+    {
+      "id": "12-fresh-14-original",
+      "caseId": "fresh-14",
+      "arm": "original",
+      "difficulty": "demanding",
+      "status": "NOT_RUN",
+      "elapsedMs": null,
+      "score": null,
+      "localClosure": null,
+      "usage": null
+    }
+  ],
+  "aggregateEfficiencyClaim": null,
+  "reason": "Missing result and native shutdown receipt for row06 after an infrastructure interruption. No replay. Protocol stops further admission.",
+  "currentPresenceObservation": "Expected local leader/group absent when checked later; not proof of historical wait/exit or remote compute closure.",
+  "privacyProjection": {
+    "observedUsage": "withheld-not-zero",
+    "providerIdentity": "withheld",
+    "personalDevelopmentRecords": "not-distributed",
+    "outcomesAndScores": "unchanged"
+  }
+}

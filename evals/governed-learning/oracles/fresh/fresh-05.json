@@ -1,0 +1,47 @@
+{
+  "caseId": "fresh-05",
+  "items": [
+    {
+      "key": "packet",
+      "titleTerms": [
+        "mediation packet"
+      ],
+      "owner": "sam@example.test",
+      "state": "due",
+      "dueAt": "2026-10-12T17:00:00Z",
+      "changed": false,
+      "evidence": [
+        {
+          "messageId": "fresh-05-m1",
+          "quote": "I will send the mediation packet by Monday 12 October at 10:00 America/Los_Angeles time."
+        },
+        {
+          "messageId": "fresh-05-m5",
+          "quote": "The mediation packet is still with me. I will send it at the agreed Monday 10:00 Los Angeles time, which is 17:00 UTC on 12 October."
+        }
+      ],
+      "priorEvidence": []
+    },
+    {
+      "key": "availability",
+      "titleTerms": [
+        "availability note"
+      ],
+      "owner": "elise@example.test",
+      "state": "waiting",
+      "dueAt": "2026-10-11T18:00:00Z",
+      "changed": false,
+      "evidence": [
+        {
+          "messageId": "fresh-05-m2",
+          "quote": "I will send you the signed availability note by 11 October at 18:00 UTC."
+        },
+        {
+          "messageId": "fresh-05-m4",
+          "quote": "The signature appointment is booked, but the availability note has not been signed or sent yet."
+        }
+      ],
+      "priorEvidence": []
+    }
+  ]
+}

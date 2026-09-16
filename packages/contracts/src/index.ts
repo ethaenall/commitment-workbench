@@ -6,3 +6,7 @@
 export * from "./requests/index.js";
 export * from "./responses/index.js";
 export { ErrorResponse } from "./error.js";
+
+// Explicit local governed-learning workflow and refinement contracts.
+export * from "./refinements.js";
+export * from "./workflows.js";

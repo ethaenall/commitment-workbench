@@ -354,7 +354,7 @@ const APP_JS = `
   // says so. Keep this list and @habenula-ai/audit's LIFECYCLE_TOOLS in step until the
   // record gains an explicit discriminator — the engine writers are
   // createSessionInTxn, writeSessionEnd, and writeTaskCancelAudit.
-  var LIFECYCLE_TOOLS = ['session.start', 'session.end', 'task.cancel'];
+  var LIFECYCLE_TOOLS = ['session.start', 'session.end', 'task.cancel', 'refinement.propose', 'refinement.validate', 'refinement.approve', 'refinement.activate', 'refinement.disable', 'refinement.rollback', 'refinement.use'];
   function isLifecycle(au) { return LIFECYCLE_TOOLS.indexOf(au.toolName) !== -1; }
 
   // The element ids on each path segment. The lit path = trunk + one outcome.

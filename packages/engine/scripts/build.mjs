@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 
 // The engine build, defined once for every consumer of dist/: the Dockerfile
-// builder stage, the npm-publish path, and a hand run. Five steps in a fixed
+// builder stage, the npm-publish path, and a hand run. Six steps in a fixed
 // order — the daemon emit runs LAST so the credential-guard identity assertion
 // below compares against what the module emit wrote, and the wrangler bundle
 // runs first so a bundling failure aborts before any tsc output lands.
@@ -13,10 +13,12 @@
 //   3. copy src/dev-model/vendor/*.txt into dist/       (tsc emits only from .ts inputs; page.js imports the Text module)
 //   4. tsc -p tsconfig.daemon.json                      (dist/daemon/** + dist/credential-guard.js), then the identity assertion
 //   5. chmod 0755 dist/daemon/index.js + shebang assertion (matches packages/cli/build.mjs for the cli bin)
+//   6. stage reviewed RLM MJS, pinned private vendor assets, and notices
 //
 // Runs from packages/engine/ (the Justfile and Dockerfile both cd here).
 
 import { execFileSync } from "node:child_process";
+import { createRequire } from "node:module";
 import {
   chmodSync,
   copyFileSync,
@@ -26,12 +28,23 @@ import {
   rmSync,
   writeFileSync,
 } from "node:fs";
-import { join } from "node:path";
+import { dirname, join } from "node:path";
 
+const require = createRequire(import.meta.url);
 function run(cmd, args) {
   console.log(`[engine-build] ${cmd} ${args.join(" ")}`);
-  execFileSync(cmd, args, { stdio: "inherit" });
+  execFileSync(cmd === "node" ? process.execPath : cmd, args, { stdio: "inherit" });
 }
+// Resolve installed project tools. A build must never invoke an implicit installer.
+function tool(name, args) {
+  const entry = name === "wrangler"
+    ? join(dirname(require.resolve("wrangler/package.json")), "bin/wrangler.js")
+    : require.resolve("typescript/bin/tsc");
+  run("node", [entry, ...args]);
+}
+
+// Bind receipts to the exact current source and build inputs before either emit.
+run("node", ["scripts/workflow-identity.mjs"]);
 
 // 1. Worker bundle — what the daemon boots under Miniflare. Two byproducts
 // are dropped: the source map (5MB with every source embedded — the tarball
@@ -39,7 +52,7 @@ function run(cmd, args) {
 // decision is one decision for all seven packages), and wrangler's generated
 // README, whose embedded timestamp would break byte-reproducibility checks
 // between builds.
-run("npx", ["wrangler", "deploy", "--dry-run", "--outdir", "dist/worker"]);
+tool("wrangler", ["deploy", "--dry-run", "--outdir", "dist/worker"]);
 rmSync(join("dist", "worker", "index.js.map"), { force: true });
 rmSync(join("dist", "worker", "README.md"), { force: true });
 
@@ -59,7 +72,7 @@ if (!workerSrc.startsWith("//! Habenula engine")) {
 }
 
 // 2. Module-surface emit.
-run("npx", ["tsc", "-p", "tsconfig.build.json"]);
+tool("tsc", ["-p", "tsconfig.build.json"]);
 
 // 3. Text modules: tsc emits only from .ts inputs, but dist/dev-model/page.js
 // imports the vendored cytoscape .txt beside it. Mirror the vendor dir.
@@ -78,7 +91,7 @@ for (const name of readdirSync(VENDOR_SRC)) {
 // that loads a bundler-mode module, so the build fails instead.
 const GUARD = join("dist", "credential-guard.js");
 const moduleEmitGuard = readFileSync(GUARD);
-run("npx", ["tsc", "-p", "tsconfig.daemon.json"]);
+tool("tsc", ["-p", "tsconfig.daemon.json"]);
 const daemonEmitGuard = readFileSync(GUARD);
 if (!moduleEmitGuard.equals(daemonEmitGuard)) {
   console.error(
@@ -104,4 +117,7 @@ if (firstLine !== "#!/usr/bin/env node") {
 }
 chmodSync(BIN, 0o755);
 
-console.log("[engine-build] OK: dist/worker, module surface, text modules, dist/daemon, bin executable.");
+// 6. Real Node Worker inputs and private ESM dependencies; no Worker starts.
+run("node", ["scripts/stage-rlm-runtime.mjs"]);
+
+console.log("[engine-build] OK: dist/worker, module surface, text modules, dist/daemon, bin executable, dist/rlm.");

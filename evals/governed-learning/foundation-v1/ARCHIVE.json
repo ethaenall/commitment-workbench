@@ -1,0 +1,178 @@
+{
+  "schemaVersion": 1,
+  "status": "examined-foundation-development-not-held-out",
+  "originalManifestHash": "7caf81e7a9df37441755738f7935a4525da6779196ff2008e72f13b55e3ebb93",
+  "originalFreshCaseIds": [
+    "fresh-01",
+    "fresh-02",
+    "fresh-03",
+    "fresh-04"
+  ],
+  "preservedByteForByte": false,
+  "replay": "authored-answer-contract-replay-not-model-efficacy",
+  "files": [
+    {
+      "originalPath": "evals/governed-learning/manifest.json",
+      "archivedPath": "foundation-v1/manifest.json",
+      "sha256": "7caf81e7a9df37441755738f7935a4525da6779196ff2008e72f13b55e3ebb93",
+      "bytes": 5581
+    },
+    {
+      "originalPath": "evals/governed-learning/results/contract-replay.json",
+      "archivedPath": "foundation-v1/results/contract-replay.json",
+      "sha256": "7a81c6db312dc29880a1771d4955cc9fbab693d53440481d3a101ce667584506",
+      "bytes": 56799
+    },
+    {
+      "originalPath": "evals/governed-learning/README.md",
+      "archivedPath": "foundation-v1/README.md",
+      "sha256": "6d9ea6d3f1f5c253089444c210ad4fe9b4b9d9bb0d37fcb0101d35fd513fc96f",
+      "bytes": 7201
+    },
+    {
+      "originalPath": "evals/governed-learning/HANDOFF.md",
+      "archivedPath": "foundation-v1/HANDOFF.md",
+      "sha256": "5cc8ab2f0df140b0194e70e85151299844e0f5514211dde772e748afbe99d685",
+      "bytes": 7268
+    },
+    {
+      "originalPath": "evals/governed-learning/fixtures/learning/learn-01.json",
+      "archivedPath": "foundation-v1/fixtures/learning/learn-01.json",
+      "sha256": "01b3d9f6a1126b9d9f436bae1981c0fe20298d7f46e67db74ca24cfb9654a2f3",
+      "bytes": 2001
+    },
+    {
+      "originalPath": "evals/governed-learning/fixtures/learning/learn-02.json",
+      "archivedPath": "foundation-v1/fixtures/learning/learn-02.json",
+      "sha256": "c84d4d3c1a5bac853d1bd87b8224be0b74b6d77ccecfb0f36261e0459b35e7d2",
+      "bytes": 1582
+    },
+    {
+      "originalPath": "evals/governed-learning/oracles/learning/learn-01.json",
+      "archivedPath": "foundation-v1/oracles/learning/learn-01.json",
+      "sha256": "a71eafe2879ec9d655d9ba652f57c53a1018f788de71ecf7fb630b9db70c5660",
+      "bytes": 663
+    },
+    {
+      "originalPath": "evals/governed-learning/oracles/learning/learn-02.json",
+      "archivedPath": "foundation-v1/oracles/learning/learn-02.json",
+      "sha256": "1252f44f18a194a9b2764fc9d7705a79686b314730b9ad2ff182be4ab77a560c",
+      "bytes": 452
+    },
+    {
+      "originalPath": "evals/governed-learning/fixtures/validation/validate-01.json",
+      "archivedPath": "foundation-v1/fixtures/validation/validate-01.json",
+      "sha256": "ae8ca77ec385f52ba315fdb2d2ee1490a0124988746c639a04d60bc79b4272ec",
+      "bytes": 1991
+    },
+    {
+      "originalPath": "evals/governed-learning/fixtures/validation/validate-02.json",
+      "archivedPath": "foundation-v1/fixtures/validation/validate-02.json",
+      "sha256": "cd5279bdeea1c0386b7900a28ad31d13c72f429d8cbd255cd75f833aaaa9690b",
+      "bytes": 1603
+    },
+    {
+      "originalPath": "evals/governed-learning/oracles/validation/validate-01.json",
+      "archivedPath": "foundation-v1/oracles/validation/validate-01.json",
+      "sha256": "8fdc3f8ca9a25c80540ad3070bef91bb2168fc67acec8a5e266e0129363fcafe",
+      "bytes": 606
+    },
+    {
+      "originalPath": "evals/governed-learning/oracles/validation/validate-02.json",
+      "archivedPath": "foundation-v1/oracles/validation/validate-02.json",
+      "sha256": "a3074fe1f42e631bac7de835a9a2a5ab4af480de7eb2902a5234c87d8548ecaf",
+      "bytes": 590
+    },
+    {
+      "originalPath": "evals/governed-learning/fixtures/fresh/fresh-01.json",
+      "archivedPath": "foundation-v1/fixtures/fresh/fresh-01.json",
+      "sha256": "04e51bcb4124b56f53e44ec28634e4ed31ef7be016d97f865acd16973c27c42d",
+      "bytes": 1517
+    },
+    {
+      "originalPath": "evals/governed-learning/fixtures/fresh/fresh-02.json",
+      "archivedPath": "foundation-v1/fixtures/fresh/fresh-02.json",
+      "sha256": "34a61164f932c78ee038ffc62f0d61216f989c567ab807a956d03edfe3c2b499",
+      "bytes": 1639
+    },
+    {
+      "originalPath": "evals/governed-learning/fixtures/fresh/fresh-03.json",
+      "archivedPath": "foundation-v1/fixtures/fresh/fresh-03.json",
+      "sha256": "2031e7d3c36ef865c0972c9d945506ca2362cdec7963665c698d48ac3547e0d5",
+      "bytes": 2435
+    },
+    {
+      "originalPath": "evals/governed-learning/fixtures/fresh/fresh-04.json",
+      "archivedPath": "foundation-v1/fixtures/fresh/fresh-04.json",
+      "sha256": "77d0b90f72bd8b68606f4aaba3ae1440d7975aaa6b367224dd48f827ad585515",
+      "bytes": 2356
+    },
+    {
+      "originalPath": "evals/governed-learning/oracles/fresh/fresh-01.json",
+      "archivedPath": "foundation-v1/oracles/fresh/fresh-01.json",
+      "sha256": "dbe78b3d0d4648b4f4befb33e0e76c24521ea4b1379d108e5e6e733506e6bf69",
+      "bytes": 452
+    },
+    {
+      "originalPath": "evals/governed-learning/oracles/fresh/fresh-02.json",
+      "archivedPath": "foundation-v1/oracles/fresh/fresh-02.json",
+      "sha256": "76d73fe734127a6c3b844613e69f89eb868a1a295de6a91f86ea4747bf0f84ef",
+      "bytes": 534
+    },
+    {
+      "originalPath": "evals/governed-learning/oracles/fresh/fresh-03.json",
+      "archivedPath": "foundation-v1/oracles/fresh/fresh-03.json",
+      "sha256": "fb197835ef23bb855cd2df0fb050e21f1ede6ff0a6acb4a86e0e5018be03362a",
+      "bytes": 990
+    },
+    {
+      "originalPath": "evals/governed-learning/oracles/fresh/fresh-04.json",
+      "archivedPath": "foundation-v1/oracles/fresh/fresh-04.json",
+      "sha256": "5b4c3bef95d9c4fb07c5ea4391cd4d81e7279509e8707e7529253cd69771bb3a",
+      "bytes": 1011
+    },
+    {
+      "originalPath": "packages/contracts/src/workflows.ts",
+      "archivedPath": "foundation-v1/implementation/packages/contracts/src/workflows.ts",
+      "sha256": "c34a74601c2358f5e0a621272a4a3fa48a9897e09ae85f019b4f8a3049e15ee0",
+      "bytes": 13975
+    },
+    {
+      "originalPath": "packages/engine/src/workflows/commitment-handoff.ts",
+      "archivedPath": "foundation-v1/implementation/packages/engine/src/workflows/commitment-handoff.ts",
+      "sha256": "c283974235dc7e121a503dc876cd6fe06b071afc41030a23e3763acef76f7262",
+      "bytes": 9830
+    },
+    {
+      "originalPath": "packages/engine/src/workflows/fixtures.ts",
+      "archivedPath": "foundation-v1/implementation/packages/engine/src/workflows/fixtures.ts",
+      "sha256": "1548a0a54c859f98aada6bec2f2fa28c725206104d099565b6d21500a647b256",
+      "bytes": 21718
+    },
+    {
+      "originalPath": "evals/governed-learning/harness.mts",
+      "archivedPath": "foundation-v1/harness.mts",
+      "sha256": "e318c6980b1ea4c9dbad9b1d8f20f54d2d6cbb2a6fb8336cf4acb33d5e9e3063",
+      "bytes": 11972
+    },
+    {
+      "originalPath": "evals/governed-learning/oracle-ledger.ts",
+      "archivedPath": "foundation-v1/oracle-ledger.ts",
+      "sha256": "fcceea5f3a59d6bf913165145895ccaf4cd7cdd5f312be1968af8ce1bfefe8c5",
+      "bytes": 2154
+    },
+    {
+      "originalPath": "packages/contracts/src/requests/common.ts",
+      "archivedPath": "foundation-v1/implementation/packages/contracts/src/requests/common.ts",
+      "sha256": "32eadb03376f2bd4f90e7142da869b1804fa241238397ac65c0ec5ecd730850f",
+      "bytes": 5559
+    },
+    {
+      "originalPath": "package-lock.json",
+      "archivedPath": "foundation-v1/implementation/package-lock.json",
+      "sha256": "2a1e9bb4b0bb486e8163ecf7484efd0641030dc704f32c94605fcb6e7597e9f3",
+      "bytes": 239185
+    }
+  ],
+  "publicationProjection": "One historical HANDOFF workspace path redacted for privacy. Fixture/oracle bytes unchanged; original private archive retained."
+}

@@ -1,0 +1,49 @@
+{
+  "workflowId": "mail.commitment-handoff.v1",
+  "schemaVersion": 1,
+  "snapshotId": "fresh-02",
+  "userAddress": "sam@example.test",
+  "cutoff": "2026-10-09T23:00:00Z",
+  "timezone": "America/Los_Angeles",
+  "coverage": {
+    "scope": "supplied-snapshot",
+    "source": "synthetic-fixture",
+    "omittedMessages": null,
+    "note": "Authored synthetic correspondence. Not a live mailbox or a complete account export."
+  },
+  "messages": [
+    {
+      "id": "fresh-02-m1",
+      "threadId": "fresh-02-t1",
+      "subject": "Weekly correspondence",
+      "sender": "ava@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-05T10:00:00Z",
+      "body": "The volunteer roster needs an owner. Sam, please help identify someone; nobody has accepted ownership or set a due date.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-02-m2",
+      "threadId": "fresh-02-t1",
+      "subject": "Weekly correspondence",
+      "sender": "sam@example.test",
+      "to": "team@example.test",
+      "timestamp": "2026-10-06T10:00:00Z",
+      "body": "I cannot tell who owns the volunteer roster from this thread. Please clarify the owner and deadline.",
+      "truncated": false,
+      "omittedChars": 0
+    },
+    {
+      "id": "fresh-02-m3",
+      "threadId": "fresh-02-t2",
+      "subject": "Weekly correspondence",
+      "sender": "ava@example.test",
+      "to": "sam@example.test",
+      "timestamp": "2026-10-07T10:00:00Z",
+      "body": "The background discussion starts here. [Source export truncated; remainder unavailable.]",
+      "truncated": true,
+      "omittedChars": null
+    }
+  ]
+}

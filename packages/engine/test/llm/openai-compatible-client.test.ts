@@ -332,13 +332,13 @@ describe("createOpenAICompatibleClient — response mapping", () => {
     expect(result.content).toEqual([{ type: "text", text: "part one, part two" }]);
   });
 
-  it("defaults id and usage when a minimal runtime omits them", async () => {
+  it("preserves numeric defaults but marks omitted usage unreported", async () => {
     const { fetchFn } = fixtureFetch({
       choices: [{ message: { content: "x" }, finish_reason: "stop" }],
     });
     const result = await createOpenAICompatibleClient({ endpoint: "http://x", fetchFn }).createMessage(baseParams);
     expect(result.id).toBe("");
-    expect(result.usage).toEqual({ input_tokens: 0, output_tokens: 0 });
+    expect(result.usage).toEqual({ input_tokens: 0, output_tokens: 0, reported: false });
   });
 
   it("malformed tool arguments are an unusable response, not an engine bug", async () => {

@@ -303,10 +303,14 @@ habenula-pre-commit: cli-build
 # plain-JS forwarder ships as-committed.
 oss-build: contracts-build credentials-build governance-build audit-build tools-build engine-build cli-build
 
+# File-only published-manifest coverage; no pack, install or registry access.
+oss-prepare-test:
+    node --test .github/scripts/npm-publish-prepare.test.mjs
+
 # The published-shape gate: stage + transform the eight packages, pack each
 # once, run publint --strict and attw (declared narrowing only), then the
 # wildcard/bin/consumer tarball smoke tests. Validate-only — nothing publishes
-oss-verify-tarballs: oss-build
+oss-verify-tarballs: oss-prepare-test oss-build
     node .github/scripts/npm-publish.mjs --validate-only
     node .github/scripts/npm-tarball-smoke.mjs
 
@@ -317,5 +321,5 @@ verify-deps:
 # Run all pre-commit checks across all packages (leaf packages first: credentials,
 # governance, and audit are leaves the engine consumes, tools depends on
 # credentials, and the habenula umbrella spawns the CLI its tests front)
-pre-commit: contracts-pre-commit credentials-pre-commit governance-pre-commit audit-pre-commit tools-pre-commit engine-pre-commit cli-pre-commit habenula-pre-commit
+pre-commit: oss-prepare-test contracts-pre-commit credentials-pre-commit governance-pre-commit audit-pre-commit tools-pre-commit engine-pre-commit cli-pre-commit habenula-pre-commit
     @echo "All pre-commit checks passed."
