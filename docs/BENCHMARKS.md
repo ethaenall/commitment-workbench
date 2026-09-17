@@ -2,6 +2,8 @@
 
 **Status: incomplete.** The frozen plan contained 12 runs across four authored synthetic cases. Five runs produced recorded outcomes. The sixth was admitted, but no result or native shutdown receipt was recovered after a development-session interruption. The protocol therefore stopped: six later rows were not run. Nothing was replayed or retuned.
 
+A later local recovery path is **not** a row of this frozen table. After the 310s CLI abort, 8KiB findings cap, and full-schema hang were diagnosed, guest retrieve plus short extracts plus host span-binding produced a contract-valid ledger on a demanding snapshot where stock returned no packet. Oracle matching on that recovery was not clean (duplicate or shortened titles, state mismatches). Treat it as debugging evidence, not a replacement for the frozen cohort.
+
 This is evidence about a small experimental workflow—not a claim that RLM generally outperforms Habenula or any competing submission.
 
 ## Results

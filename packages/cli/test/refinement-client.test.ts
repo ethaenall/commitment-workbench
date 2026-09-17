@@ -11,6 +11,13 @@ const config: Config = { apiUrl: "http://localhost:8787", internalMcpUrl: "http:
 const response = (body: unknown, status = 200) => new Response(JSON.stringify(body), { status });
 afterEach(() => vi.useRealTimers());
 
+describe("governed long deadline", () => {
+  it("outlives the 310s client abort that killed live RLM reviews", () => {
+    expect(GOVERNED_LONG_DEADLINE_MS).toBeGreaterThan(310_000);
+    expect(GOVERNED_LONG_DEADLINE_MS).toBeGreaterThanOrEqual(560_000);
+  });
+});
+
 describe("token-gated governed-learning client", () => {
   it("discovers the current workflow descriptor through the same token gate", async () => {
     const fetch = vi.fn<FetchFn>().mockResolvedValue(response(descriptor()));

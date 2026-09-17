@@ -63,3 +63,11 @@ Separate **development-agent usage**, **local test/fake-provider runs**, and **l
 The retained repair receipt ([sanitized result](../evidence/historical/repair-regression.json)) records the separate live-model case `fresh-05`, 230,274 ms, 8/8 authored synthetic checks, two root calls and zero child calls. It explicitly does not establish general efficacy, verified billing, or live recursive-child execution. The paused 4/12 comparison is not a completed benchmark; the repaired case is not one of its rows. Use [the fresh-cohort report](BENCHMARKS.md) for the separately frozen, incomplete comparison.
 
 A strong interview answer names what remains unknown and shows how to test it. No performance numbers, token totals, authorship percentages, team roles, or competitor claims should be supplied from memory.
+
+## Debugging questions (intern-scale)
+
+- The CLI aborted a review at 310s while the engine wall was longer. Where is that deadline, and why must it outlive the budget timer?
+- Guest findings are 8KiB. What happens if the model dumps a 13KiB snapshot? What is *not* allowed: trimming findings.
+- Why is a short extract prompt plus host span-binding safer than asking the model to emit the full ledger schema on a 19-message snapshot?
+- `collapseHostItems` kept a short title and missed an oracle key. What should it keep, and which test locks that?
+

@@ -23,9 +23,10 @@ import { unauthorizedGuidance } from "./internal-client";
 import { nodeFetch, ResponseSizeError } from "./transport";
 import { renderUntrusted } from "./render/attribution";
 
-// The workflow/validation engine ceiling is 300s; allow 10s to deliver its result.
+// Must exceed the RLM task wall plus delivery. A 310s client abort
+// killed live reviews while the engine was still synthesizing.
 // This bound does not change ordinary control or chat request deadlines.
-export const GOVERNED_LONG_DEADLINE_MS = 310_000;
+export const GOVERNED_LONG_DEADLINE_MS = 800_000;
 export const GOVERNED_RESPONSE_MAX_BYTES = 8 * 1024 * 1024;
 // Prevent tiny/empty injected chunks from turning a byte cap into unbounded work.
 export const GOVERNED_RESPONSE_MAX_READS = 65_536;

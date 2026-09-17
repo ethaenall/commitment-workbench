@@ -145,7 +145,9 @@ export interface RlmPromptPort {
   ledgerSystem(): string;
   codegenUser(meta: RlmCodegenMetadata, guidance: string | null): string;
   ledgerUser(meta: RlmCodegenMetadata, findings: string, guidance: string | null): string;
+  ledgerUserFromTrustedSnapshot(meta: RlmCodegenMetadata, snapshot: unknown, findings: string, guidance: string | null): string;
   repairUser(meta: RlmCodegenMetadata, findings: string, issues: Array<{ code: string; path: string }>): string;
+  repairUserFromTrustedSnapshot(meta: RlmCodegenMetadata, snapshot: unknown, findings: string, issues: Array<{ code: string; path: string }>): string;
   parseCodeEnvelope(text: string): RlmCodeEnvelopeParse;
 }
 

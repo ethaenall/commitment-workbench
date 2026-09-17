@@ -152,7 +152,7 @@ export class GovernedLearningService {
       const config = this.deps.getModelConfig();
       const rlm = request.mode === "rlm" || request.mode === "both";
       const budget = new ModelBudget({ client: this.deps.getClient(), model: config.model, signal: jobSignal,
-        ...(rlm ? { nativeOperations: createNativeOperationScope() } : {}) });
+        ...(rlm ? { nativeOperations: createNativeOperationScope(), limits: { wallTimeMs: 780_000 } } : {}) });
       try {
         return await runCommitmentWorkflow({ runId, mode: request.mode, snapshot: checked.value, budget,
           model: this.model(), usageKind: this.usageKind, guidance, runtime: this.deps.runtime });

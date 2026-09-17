@@ -45,7 +45,7 @@ export const MODEL_BUDGET_HARD_CEILINGS: Readonly<ModelBudgetLimits> = Object.fr
   maxObservedOutputTokens: 64_000,
   maxOutputTokensPerCall: 16_384,
   maxResponseBytesPerCall: MAX_RESPONSE_BYTES,
-  wallTimeMs: 600_000,
+  wallTimeMs: 900_000,
 });
 
 export type ModelBudgetRole = "root" | "child";
@@ -487,8 +487,6 @@ export class ModelBudget {
       : undefined;
 
     const callerSignal = params.signal;
-    const abortCaller = (): void => this.close("CANCELLED");
-    callerSignal?.addEventListener("abort", abortCaller, { once: true });
     let abortRun: () => void = () => {};
     const aborted = new Promise<never>((_resolve, reject) => {
       abortRun = () => {
@@ -506,9 +504,10 @@ export class ModelBudget {
       // also handles a fixture that throws synchronously or returns a thenable.
       let provider: Promise<LLMResponse>;
       try {
+        const providerSignal = callerSignal ? AbortSignal.any([this.signal, callerSignal]) : this.signal;
         provider = Promise.resolve(this.client.createMessage({
           ...request.value,
-          signal: this.signal,
+          signal: providerSignal,
           disableRetries: true,
           max_response_bytes: this.limits.maxResponseBytesPerCall,
           ...(observer ? { [LLM_NATIVE_OPERATIONS]: observer } : {}),
@@ -534,7 +533,6 @@ export class ModelBudget {
       return response;
     } finally {
       this.signal.removeEventListener("abort", abortRun);
-      callerSignal?.removeEventListener("abort", abortCaller);
     }
   }
 

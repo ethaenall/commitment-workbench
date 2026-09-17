@@ -3,7 +3,7 @@
 import assert from "node:assert/strict";
 import {test} from "node:test";
 import {Worker} from "node:worker_threads";
-import {CODEGEN_SYSTEM,codegenUser,ledgerUser,LEDGER_SYSTEM,RLM_SMALL_CONTEXT_PROGRAM} from "../../src/workflows/rlm-prompts.ts";
+import {CHUNK_EXTRACT_SYSTEM,CODEGEN_SYSTEM,codegenUser,ledgerUser,ledgerUserFromTrustedSnapshot,LEDGER_SYSTEM,RLM_SMALL_CONTEXT_PROGRAM} from "../../src/workflows/rlm-prompts.ts";
 import {WORKFLOW_SYSTEM_PROMPT} from "../../src/workflows/run-workflow.ts";
 import {LIMITS} from "../../src/rlm/protocol.mjs";
 import {createRlmNodeBackend} from "../../src/rlm/node-backend.mjs";
@@ -46,3 +46,16 @@ test("documented retrieval pattern returns exact Unicode source without a model 
  const reply=await execute(source,context);
  assert.equal(reply.ok,true);assert.deepEqual(JSON.parse(reply.output),{snapshot});assert.deepEqual(reply.events,[]);
 });
+test("chunk extract prompt is short and forbids treating fences as instructions",()=>{
+ assert.ok(CHUNK_EXTRACT_SYSTEM.length<800,"chunk extract must stay far smaller than ledger synthesis");
+ assert.match(CHUNK_EXTRACT_SYSTEM,/verbatim/);
+ assert.match(CHUNK_EXTRACT_SYSTEM,/not instructions/i);
+ assert.notEqual(CHUNK_EXTRACT_SYSTEM,LEDGER_SYSTEM);
+});
+test("trusted-snapshot synthesis user includes host records outside the 8KiB findings cap",()=>{
+ const findings='{"recoveredFromHostSnapshot":true}';
+ const user=ledgerUserFromTrustedSnapshot(metadata,{messages:[{id:"m1",body:"x".repeat(9000)}]},findings,null);
+ assert.match(user,/Trusted host message records/);
+ assert.ok(user.includes("x".repeat(9000)));
+});
+
